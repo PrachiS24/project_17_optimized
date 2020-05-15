@@ -1,0 +1,165 @@
+
+
+================================================================
+== Vivado HLS Report for 'KeccakP1600_ExtractB'
+================================================================
+* Date:           Thu May 14 18:42:06 2020
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        picnic1
+* Solution:       sign
+* Product family: artix7
+* Target device:  xc7a200t-fbg676-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 8.609 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |          |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name|   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |- Loop 1  |        ?|        ?|        68|          -|          -|     ?|    no    |
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|     167|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      1|    1140|     664|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|     322|    -|
+|Register         |        -|      -|     264|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      1|    1404|    1153|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |      730|    740|  269200|  134600|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|   ~0  |   ~0   |   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +--------------------------+----------------------+---------+-------+-----+-----+-----+
+    |         Instance         |        Module        | BRAM_18K| DSP48E|  FF | LUT | URAM|
+    +--------------------------+----------------------+---------+-------+-----+-----+-----+
+    |crypto_sign_mul_6xdS_U45  |crypto_sign_mul_6xdS  |        0|      1|  361|  195|    0|
+    |crypto_sign_urem_wdI_U44  |crypto_sign_urem_wdI  |        0|      0|  779|  469|    0|
+    +--------------------------+----------------------+---------+-------+-----+-----+-----+
+    |Total                     |                      |        0|      1| 1140|  664|    0|
+    +--------------------------+----------------------+---------+-------+-----+-----+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |     Variable Name     | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |add_ln394_2_fu_161_p2  |     +    |      0|  0|  71|          64|          64|
+    |add_ln394_fu_147_p2    |     +    |      0|  0|  39|          32|          32|
+    |loop_fu_141_p2         |     +    |      0|  0|  39|          32|           1|
+    |icmp_ln393_fu_136_p2   |   icmp   |      0|  0|  18|          32|          32|
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |Total                  |          |      0|  0| 167|         160|         129|
+    +-----------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +----------------+-----+-----------+-----+-----------+
+    |      Name      | LUT | Input Size| Bits| Total Bits|
+    +----------------+-----+-----------+-----+-----------+
+    |ap_NS_fsm       |  313|         70|    1|         70|
+    |loop_0_reg_125  |    9|          2|   32|         64|
+    +----------------+-----+-----------+-----+-----------+
+    |Total           |  322|         72|   33|        134|
+    +----------------+-----+-----------+-----+-----------+
+
+    * Register: 
+    +---------------------+----+----+-----+-----------+
+    |         Name        | FF | LUT| Bits| Const Bits|
+    +---------------------+----+----+-----+-----------+
+    |add_ln394_2_reg_223  |  64|   0|   64|          0|
+    |ap_CS_fsm            |  69|   0|   69|          0|
+    |loop_0_reg_125       |  32|   0|   32|          0|
+    |loop_reg_213         |  32|   0|   32|          0|
+    |state_load_reg_229   |   8|   0|    8|          0|
+    |tmp_reg_242          |  59|   0|   59|          0|
+    +---------------------+----+----+-----+-----------+
+    |Total                | 264|   0|  264|          0|
+    +---------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------+-----+-----+------------+----------------------+--------------+
+|    RTL Ports    | Dir | Bits|  Protocol  |     Source Object    |    C Type    |
++-----------------+-----+-----+------------+----------------------+--------------+
+|ap_clk           |  in |    1| ap_ctrl_hs | KeccakP1600_ExtractB | return value |
+|ap_rst           |  in |    1| ap_ctrl_hs | KeccakP1600_ExtractB | return value |
+|ap_start         |  in |    1| ap_ctrl_hs | KeccakP1600_ExtractB | return value |
+|ap_done          | out |    1| ap_ctrl_hs | KeccakP1600_ExtractB | return value |
+|ap_idle          | out |    1| ap_ctrl_hs | KeccakP1600_ExtractB | return value |
+|ap_ready         | out |    1| ap_ctrl_hs | KeccakP1600_ExtractB | return value |
+|state_address0   | out |    8|  ap_memory |         state        |     array    |
+|state_ce0        | out |    1|  ap_memory |         state        |     array    |
+|state_q0         |  in |    8|  ap_memory |         state        |     array    |
+|data_0_address0  | out |    6|  ap_memory |        data_0        |     array    |
+|data_0_ce0       | out |    1|  ap_memory |        data_0        |     array    |
+|data_0_we0       | out |    1|  ap_memory |        data_0        |     array    |
+|data_0_d0        | out |    8|  ap_memory |        data_0        |     array    |
+|data_1_address0  | out |    6|  ap_memory |        data_1        |     array    |
+|data_1_ce0       | out |    1|  ap_memory |        data_1        |     array    |
+|data_1_we0       | out |    1|  ap_memory |        data_1        |     array    |
+|data_1_d0        | out |    8|  ap_memory |        data_1        |     array    |
+|data_2_address0  | out |    6|  ap_memory |        data_2        |     array    |
+|data_2_ce0       | out |    1|  ap_memory |        data_2        |     array    |
+|data_2_we0       | out |    1|  ap_memory |        data_2        |     array    |
+|data_2_d0        | out |    8|  ap_memory |        data_2        |     array    |
+|data_3_address0  | out |    6|  ap_memory |        data_3        |     array    |
+|data_3_ce0       | out |    1|  ap_memory |        data_3        |     array    |
+|data_3_we0       | out |    1|  ap_memory |        data_3        |     array    |
+|data_3_d0        | out |    8|  ap_memory |        data_3        |     array    |
+|data_offset      |  in |   64|   ap_none  |      data_offset     |    scalar    |
+|offset           |  in |   32|   ap_none  |        offset        |    scalar    |
+|length_r         |  in |   32|   ap_none  |       length_r       |    scalar    |
++-----------------+-----+-----+------------+----------------------+--------------+
+

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="tree.c" path="C:\Users\vlsigroup\Downloads\project17-master_3\project17-master\tree.c"/>
+    <originFiles name="rng.c" path="C:\Users\vlsigroup\Downloads\project17-master_3\project17-master\NIST-KATs\rng.c"/>
+    <originFiles name="picnic_types.c" path="C:\Users\vlsigroup\Downloads\project17-master_3\project17-master\picnic_types.c"/>
+    <originFiles name="picnic_impl.c" path="C:\Users\vlsigroup\Downloads\project17-master_3\project17-master\picnic_impl.c"/>
+    <originFiles name="picnic2_impl.c" path="C:\Users\vlsigroup\Downloads\project17-master_3\project17-master\picnic2_impl.c"/>
+    <originFiles name="picnic.c" path="C:\Users\vlsigroup\Downloads\project17-master_3\project17-master\picnic.c"/>
+    <originFiles name="lowmc_constants.c" path="C:\Users\vlsigroup\Downloads\project17-master_3\project17-master\lowmc_constants.c"/>
+    <originFiles name="hash.c" path="C:\Users\vlsigroup\Downloads\project17-master_3\project17-master\hash.c"/>
+    <originFiles name="api.c" path="C:\Users\vlsigroup\Downloads\project17-master_3\project17-master\api.c"/>
+    <originFiles name="aes.c" path="C:\Users\vlsigroup\Downloads\project17-master_3\project17-master\NIST-KATs\aes.c"/>
+    <originFiles name="KeccakSpongeWidth1600.c" path="C:\Users\vlsigroup\Downloads\project17-master_3\project17-master\sha3\KeccakSpongeWidth1600.c"/>
+    <originFiles name="KeccakP-1600-reference.c" path="C:\Users\vlsigroup\Downloads\project17-master_3\project17-master\sha3\KeccakP-1600-reference.c"/>
+    <originFiles name="KeccakHash.c" path="C:\Users\vlsigroup\Downloads\project17-master_3\project17-master\sha3\KeccakHash.c"/>
+  </source>
+  <testbench>
+    <originFiles name="newtest_sign.c" path="C:\Users\vlsigroup\Downloads\project17-master_3\project17-master\newtest_sign.c"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

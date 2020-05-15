@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# xsim v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Thu May 14 19:22:17 2020
+# Process ID: 5696
+# Current directory: C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog
+# Command line: xsim.exe -mode tcl -source {xsim.dir/crypto_sign/xsim_script.tcl}
+# Log file: C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/xsim.log
+# Journal file: C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/crypto_sign/xsim_script.tcl
+source crypto_sign.tcl

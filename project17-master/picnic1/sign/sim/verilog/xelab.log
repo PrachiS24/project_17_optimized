@@ -1,0 +1,335 @@
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "C:/Xilinx/Vivado/2019.2/data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2019.2
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.2/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_crypto_sign_top glbl -prj crypto_sign.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm --initfile C:/Xilinx/Vivado/2019.2/data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s crypto_sign 
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/AESL_automem_m.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_m
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/AESL_automem_sk.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_sk
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/AESL_automem_sm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_sm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/AESL_automem_smlen.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_smlen
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/AESL_automem_viewOutputs.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_automem_viewOutputs
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/chi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module chi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/Commit_2.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Commit_2
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/computeSeeds_2.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module computeSeeds_2
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/computeSeeds_2_ctvdy.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module computeSeeds_2_ctvdy_ram
+INFO: [VRFC 10-311] analyzing module computeSeeds_2_ctvdy
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/computeSeeds_2_temp.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module computeSeeds_2_temp_ram
+INFO: [VRFC 10-311] analyzing module computeSeeds_2_temp
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/createRandomTape.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module createRandomTape
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/createRandomTape_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module createRandomTape_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/createRandomTape_Hfu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module createRandomTape_Hfu_ram
+INFO: [VRFC 10-311] analyzing module createRandomTape_Hfu
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/crypto_sign.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_crypto_sign_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/crypto_sign.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module crypto_sign
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/crypto_sign_mac_mWhU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module crypto_sign_mac_mWhU_DSP48_0
+INFO: [VRFC 10-311] analyzing module crypto_sign_mac_mWhU
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/crypto_sign_mul_6xdS.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module crypto_sign_mul_6xdS_MulnS_0
+INFO: [VRFC 10-311] analyzing module crypto_sign_mul_6xdS
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/crypto_sign_mul_mbdk.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module crypto_sign_mul_mbdk_DSP48_1
+INFO: [VRFC 10-311] analyzing module crypto_sign_mul_mbdk
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/crypto_sign_mux_3VhK.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module crypto_sign_mux_3VhK
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/crypto_sign_mux_4bBo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module crypto_sign_mux_4bBo
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/crypto_sign_mux_4JfO.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module crypto_sign_mux_4JfO
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/crypto_sign_mux_4Zio.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module crypto_sign_mux_4Zio
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/crypto_sign_secrebJp.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module crypto_sign_secrebJp_ram
+INFO: [VRFC 10-311] analyzing module crypto_sign_secrebJp
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/crypto_sign_urem_bAo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module crypto_sign_urem_bAo_div_u
+INFO: [VRFC 10-311] analyzing module crypto_sign_urem_bAo_div
+INFO: [VRFC 10-311] analyzing module crypto_sign_urem_bAo
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/crypto_sign_urem_bkb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module crypto_sign_urem_bkb_div_u
+INFO: [VRFC 10-311] analyzing module crypto_sign_urem_bkb_div
+INFO: [VRFC 10-311] analyzing module crypto_sign_urem_bkb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/crypto_sign_urem_cud.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module crypto_sign_urem_cud_div_u
+INFO: [VRFC 10-311] analyzing module crypto_sign_urem_cud_div
+INFO: [VRFC 10-311] analyzing module crypto_sign_urem_cud
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/crypto_sign_urem_dEe.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module crypto_sign_urem_dEe_div_u
+INFO: [VRFC 10-311] analyzing module crypto_sign_urem_dEe_div
+INFO: [VRFC 10-311] analyzing module crypto_sign_urem_dEe
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/crypto_sign_urem_IfE.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module crypto_sign_urem_IfE_div_u
+INFO: [VRFC 10-311] analyzing module crypto_sign_urem_IfE_div
+INFO: [VRFC 10-311] analyzing module crypto_sign_urem_IfE
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/crypto_sign_urem_wdI.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module crypto_sign_urem_wdI_div_u
+INFO: [VRFC 10-311] analyzing module crypto_sign_urem_wdI_div
+INFO: [VRFC 10-311] analyzing module crypto_sign_urem_wdI
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/fromBytesToWords.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fromBytesToWords
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/fromWordsToBytes.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fromWordsToBytes
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/H3_2.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module H3_2
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/H3_2_hash.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module H3_2_hash_ram
+INFO: [VRFC 10-311] analyzing module H3_2_hash
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/HashUpdateIntLE.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module HashUpdateIntLE
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/KeccakP1600OnWordeOg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeccakP1600OnWordeOg_rom
+INFO: [VRFC 10-311] analyzing module KeccakP1600OnWordeOg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/KeccakP1600OnWordfYi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeccakP1600OnWordfYi_rom
+INFO: [VRFC 10-311] analyzing module KeccakP1600OnWordfYi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/KeccakP1600OnWords.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeccakP1600OnWords
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/KeccakP1600_ExtractB.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeccakP1600_ExtractB
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/KeccakWidth1600_Spon.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeccakWidth1600_Spon
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/KeccakWidth1600_Spon_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeccakWidth1600_Spon_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/KeccakWidth1600_Spon_2.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeccakWidth1600_Spon_2
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/KeccakWidth1600_Spon_3.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeccakWidth1600_Spon_3
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/KeccakWidth1600_Spon_4.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeccakWidth1600_Spon_4
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/KeccakWidth1600_Spon_5.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module KeccakWidth1600_Spon_5
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/matrix_mul.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module matrix_mul
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/matrix_mul_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module matrix_mul_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/matrix_mul_1_tempXh4.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module matrix_mul_1_tempXh4_rom
+INFO: [VRFC 10-311] analyzing module matrix_mul_1_tempXh4
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/matrix_mul_prod.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module matrix_mul_prod_ram
+INFO: [VRFC 10-311] analyzing module matrix_mul_prod
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/matrix_mul_temp.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module matrix_mul_temp_ram
+INFO: [VRFC 10-311] analyzing module matrix_mul_temp
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/matrix_mul_temp_mUhA.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module matrix_mul_temp_mUhA_rom
+INFO: [VRFC 10-311] analyzing module matrix_mul_temp_mUhA
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/mpc_AND_2.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mpc_AND_2
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/mpc_LowMC_2.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mpc_LowMC_2
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/mpc_LowMC_2_temp_Yie.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mpc_LowMC_2_temp_Yie_rom
+INFO: [VRFC 10-311] analyzing module mpc_LowMC_2_temp_Yie
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/pi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/picnic_sign.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module picnic_sign
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/picnic_sign_sig_0bCo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module picnic_sign_sig_0bCo_ram
+INFO: [VRFC 10-311] analyzing module picnic_sign_sig_0bCo
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/picnic_sign_sig_0bEo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module picnic_sign_sig_0bEo_ram
+INFO: [VRFC 10-311] analyzing module picnic_sign_sig_0bEo
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/picnic_sign_sig_0bFp.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module picnic_sign_sig_0bFp_ram
+INFO: [VRFC 10-311] analyzing module picnic_sign_sig_0bFp
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/picnic_sign_sig_0bGp.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module picnic_sign_sig_0bGp_ram
+INFO: [VRFC 10-311] analyzing module picnic_sign_sig_0bGp
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/picnic_sign_sig_0bHp.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module picnic_sign_sig_0bHp_ram
+INFO: [VRFC 10-311] analyzing module picnic_sign_sig_0bHp
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/picnic_sign_temp.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module picnic_sign_temp_ram
+INFO: [VRFC 10-311] analyzing module picnic_sign_temp
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/pi_tempA.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pi_tempA_ram
+INFO: [VRFC 10-311] analyzing module pi_tempA
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/prove_25.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module prove_25
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/serializeSignature.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module serializeSignature
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/sign_picnic1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sign_picnic1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/sign_picnic1_as_hbwn.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sign_picnic1_as_hbwn_ram
+INFO: [VRFC 10-311] analyzing module sign_picnic1_as_hbwn
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/sign_picnic1_seedbxn.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sign_picnic1_seedbxn_ram
+INFO: [VRFC 10-311] analyzing module sign_picnic1_seedbxn
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/sign_picnic1_slabbzo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sign_picnic1_slabbzo_ram
+INFO: [VRFC 10-311] analyzing module sign_picnic1_slabbzo
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/sign_picnic1_tapebyn.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sign_picnic1_tapebyn_ram
+INFO: [VRFC 10-311] analyzing module sign_picnic1_tapebyn
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/sign_picnic1_tmp_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sign_picnic1_tmp_0_ram
+INFO: [VRFC 10-311] analyzing module sign_picnic1_tmp_0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/sign_picnic1_tmp_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sign_picnic1_tmp_1_ram
+INFO: [VRFC 10-311] analyzing module sign_picnic1_tmp_1
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/sign_picnic1_viewbtn.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sign_picnic1_viewbtn_ram
+INFO: [VRFC 10-311] analyzing module sign_picnic1_viewbtn
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/sign_picnic1_viewbun.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sign_picnic1_viewbun_ram
+INFO: [VRFC 10-311] analyzing module sign_picnic1_viewbun
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/sign_picnic1_viewbvn.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sign_picnic1_viewbvn_ram
+INFO: [VRFC 10-311] analyzing module sign_picnic1_viewbvn
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/theta.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module theta
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/theta_C.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module theta_C_ram
+INFO: [VRFC 10-311] analyzing module theta_C
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/vlsigroup/Downloads/project17-master_3/project17-master/picnic1/sign/sim/verilog/theta_D.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module theta_D_ram
+INFO: [VRFC 10-311] analyzing module theta_D
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.crypto_sign_secrebJp_ram
+Compiling module xil_defaultlib.crypto_sign_secrebJp(DataWidth=8...
+Compiling module xil_defaultlib.picnic_sign_sig_0bCo_ram
+Compiling module xil_defaultlib.picnic_sign_sig_0bCo(DataWidth=8...
+Compiling module xil_defaultlib.picnic_sign_sig_0bEo_ram
+Compiling module xil_defaultlib.picnic_sign_sig_0bEo(DataWidth=3...
+Compiling module xil_defaultlib.picnic_sign_sig_0bFp_ram
+Compiling module xil_defaultlib.picnic_sign_sig_0bFp(DataWidth=8...
+Compiling module xil_defaultlib.picnic_sign_sig_0bGp_ram
+Compiling module xil_defaultlib.picnic_sign_sig_0bGp(DataWidth=8...
+Compiling module xil_defaultlib.picnic_sign_sig_0bHp_ram
+Compiling module xil_defaultlib.picnic_sign_sig_0bHp(DataWidth=8...
+Compiling module xil_defaultlib.H3_2_hash_ram
+Compiling module xil_defaultlib.H3_2_hash(DataWidth=8,AddressRan...
+Compiling module xil_defaultlib.picnic_sign_temp_ram
+Compiling module xil_defaultlib.picnic_sign_temp(DataWidth=32,Ad...
+Compiling module xil_defaultlib.sign_picnic1_viewbtn_ram
+Compiling module xil_defaultlib.sign_picnic1_viewbtn(DataWidth=3...
+Compiling module xil_defaultlib.sign_picnic1_viewbun_ram
+Compiling module xil_defaultlib.sign_picnic1_viewbun(DataWidth=8...
+Compiling module xil_defaultlib.sign_picnic1_viewbvn_ram
+Compiling module xil_defaultlib.sign_picnic1_viewbvn(DataWidth=3...
+Compiling module xil_defaultlib.sign_picnic1_as_hbwn_ram
+Compiling module xil_defaultlib.sign_picnic1_as_hbwn(DataWidth=8...
+Compiling module xil_defaultlib.sign_picnic1_seedbxn_ram
+Compiling module xil_defaultlib.sign_picnic1_seedbxn(DataWidth=8...
+Compiling module xil_defaultlib.sign_picnic1_tapebyn_ram
+Compiling module xil_defaultlib.sign_picnic1_tapebyn(DataWidth=8...
+Compiling module xil_defaultlib.sign_picnic1_tmp_0_ram
+Compiling module xil_defaultlib.sign_picnic1_tmp_0(DataWidth=8,A...
+Compiling module xil_defaultlib.sign_picnic1_tmp_1_ram
+Compiling module xil_defaultlib.sign_picnic1_tmp_1(DataWidth=8,A...
+Compiling module xil_defaultlib.sign_picnic1_slabbzo_ram_default
+Compiling module xil_defaultlib.sign_picnic1_slabbzo(DataWidth=3...
+Compiling module xil_defaultlib.matrix_mul_prod_ram
+Compiling module xil_defaultlib.matrix_mul_prod(DataWidth=32,Add...
+Compiling module xil_defaultlib.pi_tempA_ram
+Compiling module xil_defaultlib.pi_tempA(DataWidth=64,AddressRan...
+Compiling module xil_defaultlib.computeSeeds_2_temp_ram
+Compiling module xil_defaultlib.computeSeeds_2_temp(DataWidth=8,...
+Compiling module xil_defaultlib.computeSeeds_2_ctvdy_ram
+Compiling module xil_defaultlib.computeSeeds_2_ctvdy(DataWidth=8...
+Compiling module xil_defaultlib.KeccakP1600OnWordeOg_rom
+Compiling module xil_defaultlib.KeccakP1600OnWordeOg(DataWidth=6...
+Compiling module xil_defaultlib.KeccakP1600OnWordfYi_rom
+Compiling module xil_defaultlib.KeccakP1600OnWordfYi(DataWidth=6...
+Compiling module xil_defaultlib.crypto_sign_urem_bkb_div_u(in0_W...
+Compiling module xil_defaultlib.crypto_sign_urem_bkb_div(in0_WID...
+Compiling module xil_defaultlib.crypto_sign_urem_bkb(ID=1,NUM_ST...
+Compiling module xil_defaultlib.crypto_sign_urem_cud_div_u(in0_W...
+Compiling module xil_defaultlib.crypto_sign_urem_cud_div(in0_WID...
+Compiling module xil_defaultlib.crypto_sign_urem_cud(ID=1,NUM_ST...
+Compiling module xil_defaultlib.crypto_sign_urem_dEe_div_u(in0_W...
+Compiling module xil_defaultlib.crypto_sign_urem_dEe_div(in0_WID...
+Compiling module xil_defaultlib.crypto_sign_urem_dEe(ID=1,NUM_ST...
+Compiling module xil_defaultlib.pi
+Compiling module xil_defaultlib.theta_C_ram
+Compiling module xil_defaultlib.theta_C(DataWidth=64,AddressRang...
+Compiling module xil_defaultlib.theta_D_ram
+Compiling module xil_defaultlib.theta_D(DataWidth=64,AddressRang...
+Compiling module xil_defaultlib.theta
+Compiling module xil_defaultlib.chi
+Compiling module xil_defaultlib.KeccakP1600OnWords
+Compiling module xil_defaultlib.fromWordsToBytes
+Compiling module xil_defaultlib.fromBytesToWords
+Compiling module xil_defaultlib.KeccakWidth1600_Spon_2
+Compiling module xil_defaultlib.KeccakWidth1600_Spon_3
+Compiling module xil_defaultlib.HashUpdateIntLE
+Compiling module xil_defaultlib.computeSeeds_2
+Compiling module xil_defaultlib.createRandomTape_Hfu_ram
+Compiling module xil_defaultlib.createRandomTape_Hfu(DataWidth=8...
+Compiling module xil_defaultlib.crypto_sign_urem_wdI_div_u(in0_W...
+Compiling module xil_defaultlib.crypto_sign_urem_wdI_div(in0_WID...
+Compiling module xil_defaultlib.crypto_sign_urem_wdI(ID=1,NUM_ST...
+Compiling module xil_defaultlib.crypto_sign_mul_6xdS_MulnS_0
+Compiling module xil_defaultlib.crypto_sign_mul_6xdS(ID=1,NUM_ST...
+Compiling module xil_defaultlib.KeccakP1600_ExtractB
+Compiling module xil_defaultlib.KeccakWidth1600_Spon_5
+Compiling module xil_defaultlib.crypto_sign_urem_IfE_div_u(in0_W...
+Compiling module xil_defaultlib.crypto_sign_urem_IfE_div(in0_WID...
+Compiling module xil_defaultlib.crypto_sign_urem_IfE(ID=1,NUM_ST...
+Compiling module xil_defaultlib.crypto_sign_mux_4JfO(ID=1,din0_W...
+Compiling module xil_defaultlib.createRandomTape
+Compiling module xil_defaultlib.KeccakWidth1600_Spon_4
+Compiling module xil_defaultlib.H3_2
+Compiling module xil_defaultlib.KeccakWidth1600_Spon_1
+Compiling module xil_defaultlib.createRandomTape_1
+Compiling module xil_defaultlib.KeccakWidth1600_Spon
+Compiling module xil_defaultlib.crypto_sign_mul_mbdk_DSP48_1
+Compiling module xil_defaultlib.crypto_sign_mul_mbdk(ID=1,NUM_ST...
+Compiling module xil_defaultlib.Commit_2
+Compiling module xil_defaultlib.mpc_LowMC_2_temp_Yie_rom
+Compiling module xil_defaultlib.mpc_LowMC_2_temp_Yie(DataWidth=3...
+Compiling module xil_defaultlib.matrix_mul_temp_mUhA_rom
+Compiling module xil_defaultlib.matrix_mul_temp_mUhA(DataWidth=3...
+Compiling module xil_defaultlib.matrix_mul_temp_ram_default
+Compiling module xil_defaultlib.matrix_mul_temp(DataWidth=32,Add...
+Compiling module xil_defaultlib.matrix_mul
+Compiling module xil_defaultlib.matrix_mul_1_tempXh4_rom
+Compiling module xil_defaultlib.matrix_mul_1_tempXh4(DataWidth=3...
+Compiling module xil_defaultlib.matrix_mul_1
+Compiling module xil_defaultlib.crypto_sign_mux_3VhK(ID=1,din0_W...
+Compiling module xil_defaultlib.crypto_sign_mac_mWhU_DSP48_0
+Compiling module xil_defaultlib.crypto_sign_mac_mWhU(ID=1,NUM_ST...
+Compiling module xil_defaultlib.mpc_AND_2
+Compiling module xil_defaultlib.crypto_sign_mux_4Zio(ID=1,din0_W...
+Compiling module xil_defaultlib.mpc_LowMC_2
+Compiling module xil_defaultlib.prove_25
+Compiling module xil_defaultlib.crypto_sign_urem_bAo_div_u(in0_W...
+Compiling module xil_defaultlib.crypto_sign_urem_bAo_div(in0_WID...
+Compiling module xil_defaultlib.crypto_sign_urem_bAo(ID=1,NUM_ST...
+Compiling module xil_defaultlib.crypto_sign_mux_4bBo(ID=1,din0_W...
+Compiling module xil_defaultlib.sign_picnic1
+Compiling module xil_defaultlib.serializeSignature
+Compiling module xil_defaultlib.picnic_sign
+Compiling module xil_defaultlib.crypto_sign
+Compiling module xil_defaultlib.AESL_automem_sm
+Compiling module xil_defaultlib.AESL_automem_smlen
+Compiling module xil_defaultlib.AESL_automem_m
+Compiling module xil_defaultlib.AESL_automem_sk
+Compiling module xil_defaultlib.AESL_automem_viewOutputs
+Compiling module xil_defaultlib.apatb_crypto_sign_top
+Compiling module work.glbl
+Built simulation snapshot crypto_sign

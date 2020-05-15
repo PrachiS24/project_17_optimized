@@ -1,0 +1,1490 @@
+
+
+================================================================
+== Vivado HLS Report for 'KeccakP1600_ExtractB'
+================================================================
+* Date:           Thu May 14 18:42:06 2020
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        picnic1
+* Solution:       sign
+* Product family: artix7
+* Target device:  xc7a200t-fbg676-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 8.609 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |          |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name|   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+        |- Loop 1  |        ?|        ?|        68|          -|          -|     ?|    no    |
+        +----------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|     167|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        -|      1|    1140|     664|    -|
+|Memory           |        -|      -|       -|       -|    -|
+|Multiplexer      |        -|      -|       -|     322|    -|
+|Register         |        -|      -|     264|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |        0|      1|    1404|    1153|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |      730|    740|  269200|  134600|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        0|   ~0  |   ~0   |   ~0   |    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +--------------------------+----------------------+---------+-------+-----+-----+-----+
+    |         Instance         |        Module        | BRAM_18K| DSP48E|  FF | LUT | URAM|
+    +--------------------------+----------------------+---------+-------+-----+-----+-----+
+    |crypto_sign_mul_6xdS_U45  |crypto_sign_mul_6xdS  |        0|      1|  361|  195|    0|
+    |crypto_sign_urem_wdI_U44  |crypto_sign_urem_wdI  |        0|      0|  779|  469|    0|
+    +--------------------------+----------------------+---------+-------+-----+-----+-----+
+    |Total                     |                      |        0|      1| 1140|  664|    0|
+    +--------------------------+----------------------+---------+-------+-----+-----+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |     Variable Name     | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |add_ln394_2_fu_161_p2  |     +    |      0|  0|  71|          64|          64|
+    |add_ln394_fu_147_p2    |     +    |      0|  0|  39|          32|          32|
+    |loop_fu_141_p2         |     +    |      0|  0|  39|          32|           1|
+    |icmp_ln393_fu_136_p2   |   icmp   |      0|  0|  18|          32|          32|
+    +-----------------------+----------+-------+---+----+------------+------------+
+    |Total                  |          |      0|  0| 167|         160|         129|
+    +-----------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +----------------+-----+-----------+-----+-----------+
+    |      Name      | LUT | Input Size| Bits| Total Bits|
+    +----------------+-----+-----------+-----+-----------+
+    |ap_NS_fsm       |  313|         70|    1|         70|
+    |loop_0_reg_125  |    9|          2|   32|         64|
+    +----------------+-----+-----------+-----+-----------+
+    |Total           |  322|         72|   33|        134|
+    +----------------+-----+-----------+-----+-----------+
+
+    * Register: 
+    +---------------------+----+----+-----+-----------+
+    |         Name        | FF | LUT| Bits| Const Bits|
+    +---------------------+----+----+-----+-----------+
+    |add_ln394_2_reg_223  |  64|   0|   64|          0|
+    |ap_CS_fsm            |  69|   0|   69|          0|
+    |loop_0_reg_125       |  32|   0|   32|          0|
+    |loop_reg_213         |  32|   0|   32|          0|
+    |state_load_reg_229   |   8|   0|    8|          0|
+    |tmp_reg_242          |  59|   0|   59|          0|
+    +---------------------+----+----+-----+-----------+
+    |Total                | 264|   0|  264|          0|
+    +---------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------+-----+-----+------------+----------------------+--------------+
+|    RTL Ports    | Dir | Bits|  Protocol  |     Source Object    |    C Type    |
++-----------------+-----+-----+------------+----------------------+--------------+
+|ap_clk           |  in |    1| ap_ctrl_hs | KeccakP1600_ExtractB | return value |
+|ap_rst           |  in |    1| ap_ctrl_hs | KeccakP1600_ExtractB | return value |
+|ap_start         |  in |    1| ap_ctrl_hs | KeccakP1600_ExtractB | return value |
+|ap_done          | out |    1| ap_ctrl_hs | KeccakP1600_ExtractB | return value |
+|ap_idle          | out |    1| ap_ctrl_hs | KeccakP1600_ExtractB | return value |
+|ap_ready         | out |    1| ap_ctrl_hs | KeccakP1600_ExtractB | return value |
+|state_address0   | out |    8|  ap_memory |         state        |     array    |
+|state_ce0        | out |    1|  ap_memory |         state        |     array    |
+|state_q0         |  in |    8|  ap_memory |         state        |     array    |
+|data_0_address0  | out |    6|  ap_memory |        data_0        |     array    |
+|data_0_ce0       | out |    1|  ap_memory |        data_0        |     array    |
+|data_0_we0       | out |    1|  ap_memory |        data_0        |     array    |
+|data_0_d0        | out |    8|  ap_memory |        data_0        |     array    |
+|data_1_address0  | out |    6|  ap_memory |        data_1        |     array    |
+|data_1_ce0       | out |    1|  ap_memory |        data_1        |     array    |
+|data_1_we0       | out |    1|  ap_memory |        data_1        |     array    |
+|data_1_d0        | out |    8|  ap_memory |        data_1        |     array    |
+|data_2_address0  | out |    6|  ap_memory |        data_2        |     array    |
+|data_2_ce0       | out |    1|  ap_memory |        data_2        |     array    |
+|data_2_we0       | out |    1|  ap_memory |        data_2        |     array    |
+|data_2_d0        | out |    8|  ap_memory |        data_2        |     array    |
+|data_3_address0  | out |    6|  ap_memory |        data_3        |     array    |
+|data_3_ce0       | out |    1|  ap_memory |        data_3        |     array    |
+|data_3_we0       | out |    1|  ap_memory |        data_3        |     array    |
+|data_3_d0        | out |    8|  ap_memory |        data_3        |     array    |
+|data_offset      |  in |   64|   ap_none  |      data_offset     |    scalar    |
+|offset           |  in |   32|   ap_none  |        offset        |    scalar    |
+|length_r         |  in |   32|   ap_none  |       length_r       |    scalar    |
++-----------------+-----+-----+------------+----------------------+--------------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 1
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 2
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 69
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 23 
+23 --> 24 
+24 --> 25 
+25 --> 26 
+26 --> 27 
+27 --> 28 
+28 --> 29 
+29 --> 30 
+30 --> 31 
+31 --> 32 
+32 --> 33 
+33 --> 34 
+34 --> 35 
+35 --> 36 
+36 --> 37 
+37 --> 38 
+38 --> 39 
+39 --> 40 
+40 --> 41 
+41 --> 42 
+42 --> 43 
+43 --> 44 
+44 --> 45 
+45 --> 46 
+46 --> 47 
+47 --> 48 
+48 --> 49 
+49 --> 50 
+50 --> 51 
+51 --> 52 
+52 --> 53 
+53 --> 54 
+54 --> 55 
+55 --> 56 
+56 --> 57 
+57 --> 58 
+58 --> 59 
+59 --> 60 
+60 --> 61 
+61 --> 62 
+62 --> 63 
+63 --> 64 
+64 --> 65 
+65 --> 66 
+66 --> 67 
+67 --> 68 
+68 --> 69 
+69 --> 2 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.35>
+ST_1 : Operation 70 [1/1] (0.00ns)   --->   "%length_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %length_r)" [sha3/KeccakP-1600-reference.c:387]   --->   Operation 70 'read' 'length_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 71 [1/1] (0.00ns)   --->   "%offset_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %offset)" [sha3/KeccakP-1600-reference.c:387]   --->   Operation 71 'read' 'offset_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 72 [1/1] (0.00ns)   --->   "%data_offset_read = call i64 @_ssdm_op_Read.ap_auto.i64(i64 %data_offset)" [sha3/KeccakP-1600-reference.c:387]   --->   Operation 72 'read' 'data_offset_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 73 [1/1] (1.35ns)   --->   "br label %._crit_edge1" [sha3/KeccakP-1600-reference.c:390]   --->   Operation 73 'br' <Predicate = true> <Delay = 1.35>
+
+State 2 <SV = 1> <Delay = 7.20>
+ST_2 : Operation 74 [1/1] (0.00ns)   --->   "%loop_0 = phi i32 [ %loop, %1 ], [ 0, %._crit_edge ]"   --->   Operation 74 'phi' 'loop_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 75 [1/1] (2.11ns)   --->   "%icmp_ln393 = icmp eq i32 %loop_0, %length_read" [sha3/KeccakP-1600-reference.c:393]   --->   Operation 75 'icmp' 'icmp_ln393' <Predicate = true> <Delay = 2.11> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.11> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 76 [1/1] (2.18ns)   --->   "%loop = add nsw i32 %loop_0, 1" [sha3/KeccakP-1600-reference.c:393]   --->   Operation 76 'add' 'loop' <Predicate = true> <Delay = 2.18> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.18> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 77 [1/1] (0.00ns)   --->   "br i1 %icmp_ln393, label %2, label %0" [sha3/KeccakP-1600-reference.c:393]   --->   Operation 77 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 78 [1/1] (2.18ns)   --->   "%add_ln394 = add i32 %offset_read, %loop_0" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 78 'add' 'add_ln394' <Predicate = (!icmp_ln393)> <Delay = 2.18> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.18> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 79 [1/1] (0.00ns)   --->   "%zext_ln394 = zext i32 %add_ln394 to i64" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 79 'zext' 'zext_ln394' <Predicate = (!icmp_ln393)> <Delay = 0.00>
+ST_2 : Operation 80 [1/1] (0.00ns)   --->   "%state_addr = getelementptr [200 x i8]* %state, i64 0, i64 %zext_ln394" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 80 'getelementptr' 'state_addr' <Predicate = (!icmp_ln393)> <Delay = 0.00>
+ST_2 : Operation 81 [2/2] (2.77ns)   --->   "%state_load = load i8* %state_addr, align 1" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 81 'load' 'state_load' <Predicate = (!icmp_ln393)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 200> <RAM>
+ST_2 : Operation 82 [1/1] (0.00ns)   --->   "%sext_ln394 = sext i32 %loop_0 to i64" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 82 'sext' 'sext_ln394' <Predicate = (!icmp_ln393)> <Delay = 0.00>
+ST_2 : Operation 83 [1/1] (2.99ns)   --->   "%add_ln394_2 = add i64 %data_offset_read, %sext_ln394" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 83 'add' 'add_ln394_2' <Predicate = (!icmp_ln393)> <Delay = 2.99> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.18> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 84 [68/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 84 'urem' 'urem_ln394' <Predicate = (!icmp_ln393)> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 85 [1/1] (0.00ns)   --->   "ret void" [sha3/KeccakP-1600-reference.c:395]   --->   Operation 85 'ret' <Predicate = (icmp_ln393)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 8.60>
+ST_3 : Operation 86 [1/2] (2.77ns)   --->   "%state_load = load i8* %state_addr, align 1" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 86 'load' 'state_load' <Predicate = true> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 200> <RAM>
+ST_3 : Operation 87 [1/1] (0.00ns)   --->   "%zext_ln394_14 = zext i64 %add_ln394_2 to i129" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 87 'zext' 'zext_ln394_14' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 88 [2/2] (8.60ns)   --->   "%mul_ln394 = mul i129 %zext_ln394_14, 32794211686594758429" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 88 'mul' 'mul_ln394' <Predicate = true> <Delay = 8.60> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 1> <II = 1> <Delay = 8.60> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 89 [67/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 89 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 4 <SV = 3> <Delay = 8.60>
+ST_4 : Operation 90 [1/2] (8.60ns)   --->   "%mul_ln394 = mul i129 %zext_ln394_14, 32794211686594758429" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 90 'mul' 'mul_ln394' <Predicate = true> <Delay = 8.60> <Core = "MulnS">   --->   Core 17 'MulnS' <Latency = 1> <II = 1> <Delay = 8.60> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 91 [1/1] (0.00ns)   --->   "%tmp = call i59 @_ssdm_op_PartSelect.i59.i129.i32.i32(i129 %mul_ln394, i32 70, i32 128)" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 91 'partselect' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 92 [66/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 92 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 5 <SV = 4> <Delay = 4.20>
+ST_5 : Operation 93 [65/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 93 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 6 <SV = 5> <Delay = 4.20>
+ST_6 : Operation 94 [64/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 94 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 7 <SV = 6> <Delay = 4.20>
+ST_7 : Operation 95 [63/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 95 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 8 <SV = 7> <Delay = 4.20>
+ST_8 : Operation 96 [62/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 96 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 9 <SV = 8> <Delay = 4.20>
+ST_9 : Operation 97 [61/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 97 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 10 <SV = 9> <Delay = 4.20>
+ST_10 : Operation 98 [60/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 98 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 11 <SV = 10> <Delay = 4.20>
+ST_11 : Operation 99 [59/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 99 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 12 <SV = 11> <Delay = 4.20>
+ST_12 : Operation 100 [58/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 100 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 13 <SV = 12> <Delay = 4.20>
+ST_13 : Operation 101 [57/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 101 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 14 <SV = 13> <Delay = 4.20>
+ST_14 : Operation 102 [56/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 102 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 15 <SV = 14> <Delay = 4.20>
+ST_15 : Operation 103 [55/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 103 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 16 <SV = 15> <Delay = 4.20>
+ST_16 : Operation 104 [54/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 104 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 17 <SV = 16> <Delay = 4.20>
+ST_17 : Operation 105 [53/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 105 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 18 <SV = 17> <Delay = 4.20>
+ST_18 : Operation 106 [52/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 106 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 19 <SV = 18> <Delay = 4.20>
+ST_19 : Operation 107 [51/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 107 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 20 <SV = 19> <Delay = 4.20>
+ST_20 : Operation 108 [50/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 108 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 21 <SV = 20> <Delay = 4.20>
+ST_21 : Operation 109 [49/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 109 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 22 <SV = 21> <Delay = 4.20>
+ST_22 : Operation 110 [48/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 110 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 23 <SV = 22> <Delay = 4.20>
+ST_23 : Operation 111 [47/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 111 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 24 <SV = 23> <Delay = 4.20>
+ST_24 : Operation 112 [46/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 112 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 25 <SV = 24> <Delay = 4.20>
+ST_25 : Operation 113 [45/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 113 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 26 <SV = 25> <Delay = 4.20>
+ST_26 : Operation 114 [44/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 114 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 27 <SV = 26> <Delay = 4.20>
+ST_27 : Operation 115 [43/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 115 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 28 <SV = 27> <Delay = 4.20>
+ST_28 : Operation 116 [42/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 116 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 29 <SV = 28> <Delay = 4.20>
+ST_29 : Operation 117 [41/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 117 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 30 <SV = 29> <Delay = 4.20>
+ST_30 : Operation 118 [40/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 118 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 31 <SV = 30> <Delay = 4.20>
+ST_31 : Operation 119 [39/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 119 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 32 <SV = 31> <Delay = 4.20>
+ST_32 : Operation 120 [38/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 120 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 33 <SV = 32> <Delay = 4.20>
+ST_33 : Operation 121 [37/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 121 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 34 <SV = 33> <Delay = 4.20>
+ST_34 : Operation 122 [36/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 122 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 35 <SV = 34> <Delay = 4.20>
+ST_35 : Operation 123 [35/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 123 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 36 <SV = 35> <Delay = 4.20>
+ST_36 : Operation 124 [34/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 124 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 37 <SV = 36> <Delay = 4.20>
+ST_37 : Operation 125 [33/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 125 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 38 <SV = 37> <Delay = 4.20>
+ST_38 : Operation 126 [32/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 126 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 39 <SV = 38> <Delay = 4.20>
+ST_39 : Operation 127 [31/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 127 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 40 <SV = 39> <Delay = 4.20>
+ST_40 : Operation 128 [30/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 128 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 41 <SV = 40> <Delay = 4.20>
+ST_41 : Operation 129 [29/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 129 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 42 <SV = 41> <Delay = 4.20>
+ST_42 : Operation 130 [28/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 130 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 43 <SV = 42> <Delay = 4.20>
+ST_43 : Operation 131 [27/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 131 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 44 <SV = 43> <Delay = 4.20>
+ST_44 : Operation 132 [26/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 132 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 45 <SV = 44> <Delay = 4.20>
+ST_45 : Operation 133 [25/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 133 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 46 <SV = 45> <Delay = 4.20>
+ST_46 : Operation 134 [24/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 134 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 47 <SV = 46> <Delay = 4.20>
+ST_47 : Operation 135 [23/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 135 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 48 <SV = 47> <Delay = 4.20>
+ST_48 : Operation 136 [22/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 136 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 49 <SV = 48> <Delay = 4.20>
+ST_49 : Operation 137 [21/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 137 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 50 <SV = 49> <Delay = 4.20>
+ST_50 : Operation 138 [20/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 138 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 51 <SV = 50> <Delay = 4.20>
+ST_51 : Operation 139 [19/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 139 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 52 <SV = 51> <Delay = 4.20>
+ST_52 : Operation 140 [18/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 140 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 53 <SV = 52> <Delay = 4.20>
+ST_53 : Operation 141 [17/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 141 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 54 <SV = 53> <Delay = 4.20>
+ST_54 : Operation 142 [16/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 142 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 55 <SV = 54> <Delay = 4.20>
+ST_55 : Operation 143 [15/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 143 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 56 <SV = 55> <Delay = 4.20>
+ST_56 : Operation 144 [14/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 144 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 57 <SV = 56> <Delay = 4.20>
+ST_57 : Operation 145 [13/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 145 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 58 <SV = 57> <Delay = 4.20>
+ST_58 : Operation 146 [12/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 146 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 59 <SV = 58> <Delay = 4.20>
+ST_59 : Operation 147 [11/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 147 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 60 <SV = 59> <Delay = 4.20>
+ST_60 : Operation 148 [10/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 148 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 61 <SV = 60> <Delay = 4.20>
+ST_61 : Operation 149 [9/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 149 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 62 <SV = 61> <Delay = 4.20>
+ST_62 : Operation 150 [8/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 150 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 63 <SV = 62> <Delay = 4.20>
+ST_63 : Operation 151 [7/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 151 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 64 <SV = 63> <Delay = 4.20>
+ST_64 : Operation 152 [6/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 152 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 65 <SV = 64> <Delay = 4.20>
+ST_65 : Operation 153 [5/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 153 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 66 <SV = 65> <Delay = 4.20>
+ST_66 : Operation 154 [4/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 154 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 67 <SV = 66> <Delay = 4.20>
+ST_67 : Operation 155 [3/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 155 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 68 <SV = 67> <Delay = 4.20>
+ST_68 : Operation 156 [2/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 156 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+
+State 69 <SV = 68> <Delay = 5.95>
+ST_69 : Operation 157 [1/68] (4.20ns)   --->   "%urem_ln394 = urem i64 %add_ln394_2, 36" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 157 'urem' 'urem_ln394' <Predicate = true> <Delay = 4.20> <Core = "DivnS_SEQ">   --->   Core 24 'DivnS_SEQ' <Latency = 67> <II = 7> <Delay = 4.20> <FuncUnit> <Opcode : 'sdiv' 'srem' 'udiv' 'urem'> <InPorts = 2> <OutPorts = 1>
+ST_69 : Operation 158 [1/1] (0.00ns)   --->   "%data_0_addr = getelementptr [36 x i8]* %data_0, i64 0, i64 %urem_ln394" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 158 'getelementptr' 'data_0_addr' <Predicate = true> <Delay = 0.00>
+ST_69 : Operation 159 [1/1] (0.00ns)   --->   "%data_1_addr = getelementptr [36 x i8]* %data_1, i64 0, i64 %urem_ln394" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 159 'getelementptr' 'data_1_addr' <Predicate = true> <Delay = 0.00>
+ST_69 : Operation 160 [1/1] (0.00ns)   --->   "%data_2_addr = getelementptr [36 x i8]* %data_2, i64 0, i64 %urem_ln394" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 160 'getelementptr' 'data_2_addr' <Predicate = true> <Delay = 0.00>
+ST_69 : Operation 161 [1/1] (0.00ns)   --->   "%data_3_addr = getelementptr [36 x i8]* %data_3, i64 0, i64 %urem_ln394" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 161 'getelementptr' 'data_3_addr' <Predicate = true> <Delay = 0.00>
+ST_69 : Operation 162 [1/1] (1.21ns)   --->   "switch i59 %tmp, label %branch3 [
+    i59 0, label %branch0
+    i59 1, label %branch1
+    i59 2, label %branch2
+  ]" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 162 'switch' <Predicate = true> <Delay = 1.21>
+ST_69 : Operation 163 [1/1] (1.75ns)   --->   "store i8 %state_load, i8* %data_2_addr, align 1" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 163 'store' <Predicate = (tmp == 2)> <Delay = 1.75> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 200> <RAM>
+ST_69 : Operation 164 [1/1] (0.00ns)   --->   "br label %1" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 164 'br' <Predicate = (tmp == 2)> <Delay = 0.00>
+ST_69 : Operation 165 [1/1] (1.75ns)   --->   "store i8 %state_load, i8* %data_1_addr, align 1" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 165 'store' <Predicate = (tmp == 1)> <Delay = 1.75> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 200> <RAM>
+ST_69 : Operation 166 [1/1] (0.00ns)   --->   "br label %1" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 166 'br' <Predicate = (tmp == 1)> <Delay = 0.00>
+ST_69 : Operation 167 [1/1] (1.75ns)   --->   "store i8 %state_load, i8* %data_0_addr, align 1" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 167 'store' <Predicate = (tmp == 0)> <Delay = 1.75> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 200> <RAM>
+ST_69 : Operation 168 [1/1] (0.00ns)   --->   "br label %1" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 168 'br' <Predicate = (tmp == 0)> <Delay = 0.00>
+ST_69 : Operation 169 [1/1] (1.75ns)   --->   "store i8 %state_load, i8* %data_3_addr, align 1" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 169 'store' <Predicate = (tmp != 0 & tmp != 1 & tmp != 2)> <Delay = 1.75> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 200> <RAM>
+ST_69 : Operation 170 [1/1] (0.00ns)   --->   "br label %1" [sha3/KeccakP-1600-reference.c:394]   --->   Operation 170 'br' <Predicate = (tmp != 0 & tmp != 1 & tmp != 2)> <Delay = 0.00>
+ST_69 : Operation 171 [1/1] (0.00ns)   --->   "br label %._crit_edge1" [sha3/KeccakP-1600-reference.c:393]   --->   Operation 171 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+STG Binding: 
+---------------- STG Properties BEGIN ----------------
+- Is combinational: 0
+- Is one-state seq: 0
+- Is datapath-only: 0
+- Is pipelined: 0
+- Is top level: 0
+Port [ Return ] is wired: 1; IO mode=ap_ctrl_hs:ce=0
+Port [ state]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=1; pingpong=0; private_global=0; MemPort=[13]; IO mode=ap_memory:ce=0
+Port [ data_0]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=1; pingpong=0; private_global=0; MemPort=[03]; IO mode=ap_memory:ce=0
+Port [ data_1]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=1; pingpong=0; private_global=0; MemPort=[03]; IO mode=ap_memory:ce=0
+Port [ data_2]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=1; pingpong=0; private_global=0; MemPort=[03]; IO mode=ap_memory:ce=0
+Port [ data_3]:  wired=1; compound=1; hidden=0; nouse=0; global=0; static=0; extern=0; dir=1; type=1; pingpong=0; private_global=0; MemPort=[03]; IO mode=ap_memory:ce=0
+Port [ data_offset]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ offset]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+Port [ length_r]:  wired=1; compound=0; hidden=0; nouse=0; global=0; static=0; extern=0; dir=0; type=0; pingpong=0; private_global=0; IO mode=ap_none:ce=0
+---------------- STG Properties END ------------------
+
+---------------- Datapath Model BEGIN ----------------
+
+<LifeTime>
+<method=bitvector/>
+length_read      (read         ) [ 0011111111111111111111111111111111111111111111111111111111111111111111]
+offset_read      (read         ) [ 0011111111111111111111111111111111111111111111111111111111111111111111]
+data_offset_read (read         ) [ 0011111111111111111111111111111111111111111111111111111111111111111111]
+br_ln390         (br           ) [ 0111111111111111111111111111111111111111111111111111111111111111111111]
+loop_0           (phi          ) [ 0010000000000000000000000000000000000000000000000000000000000000000000]
+icmp_ln393       (icmp         ) [ 0011111111111111111111111111111111111111111111111111111111111111111111]
+loop             (add          ) [ 0111111111111111111111111111111111111111111111111111111111111111111111]
+br_ln393         (br           ) [ 0000000000000000000000000000000000000000000000000000000000000000000000]
+add_ln394        (add          ) [ 0000000000000000000000000000000000000000000000000000000000000000000000]
+zext_ln394       (zext         ) [ 0000000000000000000000000000000000000000000000000000000000000000000000]
+state_addr       (getelementptr) [ 0001000000000000000000000000000000000000000000000000000000000000000000]
+sext_ln394       (sext         ) [ 0000000000000000000000000000000000000000000000000000000000000000000000]
+add_ln394_2      (add          ) [ 0001111111111111111111111111111111111111111111111111111111111111111111]
+ret_ln395        (ret          ) [ 0000000000000000000000000000000000000000000000000000000000000000000000]
+state_load       (load         ) [ 0000111111111111111111111111111111111111111111111111111111111111111111]
+zext_ln394_14    (zext         ) [ 0000100000000000000000000000000000000000000000000000000000000000000000]
+mul_ln394        (mul          ) [ 0000000000000000000000000000000000000000000000000000000000000000000000]
+tmp              (partselect   ) [ 0000011111111111111111111111111111111111111111111111111111111111111111]
+urem_ln394       (urem         ) [ 0000000000000000000000000000000000000000000000000000000000000000000000]
+data_0_addr      (getelementptr) [ 0000000000000000000000000000000000000000000000000000000000000000000000]
+data_1_addr      (getelementptr) [ 0000000000000000000000000000000000000000000000000000000000000000000000]
+data_2_addr      (getelementptr) [ 0000000000000000000000000000000000000000000000000000000000000000000000]
+data_3_addr      (getelementptr) [ 0000000000000000000000000000000000000000000000000000000000000000000000]
+switch_ln394     (switch       ) [ 0000000000000000000000000000000000000000000000000000000000000000000000]
+store_ln394      (store        ) [ 0000000000000000000000000000000000000000000000000000000000000000000000]
+br_ln394         (br           ) [ 0000000000000000000000000000000000000000000000000000000000000000000000]
+store_ln394      (store        ) [ 0000000000000000000000000000000000000000000000000000000000000000000000]
+br_ln394         (br           ) [ 0000000000000000000000000000000000000000000000000000000000000000000000]
+store_ln394      (store        ) [ 0000000000000000000000000000000000000000000000000000000000000000000000]
+br_ln394         (br           ) [ 0000000000000000000000000000000000000000000000000000000000000000000000]
+store_ln394      (store        ) [ 0000000000000000000000000000000000000000000000000000000000000000000000]
+br_ln394         (br           ) [ 0000000000000000000000000000000000000000000000000000000000000000000000]
+br_ln393         (br           ) [ 0111111111111111111111111111111111111111111111111111111111111111111111]
+</LifeTime>
+
+<model>
+
+<comp_list>
+<comp id="0" class="1000" name="state">
+<pin_list>
+<pin id="1" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="state"/><MemPortTyVec>1 3 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="2" class="1000" name="data_0">
+<pin_list>
+<pin id="3" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="data_0"/><MemPortTyVec>0 3 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="4" class="1000" name="data_1">
+<pin_list>
+<pin id="5" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="data_1"/><MemPortTyVec>0 3 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="6" class="1000" name="data_2">
+<pin_list>
+<pin id="7" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="data_2"/><MemPortTyVec>0 3 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="8" class="1000" name="data_3">
+<pin_list>
+<pin id="9" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="data_3"/><MemPortTyVec>0 3 </MemPortTyVec>
+</StgValue>
+</bind>
+</comp>
+
+<comp id="10" class="1000" name="data_offset">
+<pin_list>
+<pin id="11" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="data_offset"/></StgValue>
+</bind>
+</comp>
+
+<comp id="12" class="1000" name="offset">
+<pin_list>
+<pin id="13" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="offset"/></StgValue>
+</bind>
+</comp>
+
+<comp id="14" class="1000" name="length_r">
+<pin_list>
+<pin id="15" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="length_r"/></StgValue>
+</bind>
+</comp>
+
+<comp id="16" class="1001" name="const_16">
+<pin_list>
+<pin id="17" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.i32"/></StgValue>
+</bind>
+</comp>
+
+<comp id="18" class="1001" name="const_18">
+<pin_list>
+<pin id="19" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_Read.ap_auto.i64"/></StgValue>
+</bind>
+</comp>
+
+<comp id="20" class="1001" name="const_20">
+<pin_list>
+<pin id="21" dir="1" index="0" bw="1" slack="1"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="22" class="1001" name="const_22">
+<pin_list>
+<pin id="23" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="24" class="1001" name="const_24">
+<pin_list>
+<pin id="25" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="26" class="1001" name="const_26">
+<pin_list>
+<pin id="27" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="28" class="1001" name="const_28">
+<pin_list>
+<pin id="29" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="30" class="1001" name="const_30">
+<pin_list>
+<pin id="31" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name="_ssdm_op_PartSelect.i59.i129.i32.i32"/></StgValue>
+</bind>
+</comp>
+
+<comp id="32" class="1001" name="const_32">
+<pin_list>
+<pin id="33" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="34" class="1001" name="const_34">
+<pin_list>
+<pin id="35" dir="1" index="0" bw="1" slack="0"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="36" class="1001" name="const_36">
+<pin_list>
+<pin id="37" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="38" class="1001" name="const_38">
+<pin_list>
+<pin id="39" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="40" class="1001" name="const_40">
+<pin_list>
+<pin id="41" dir="1" index="0" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<StgValue><ssdm name=""/></StgValue>
+</bind>
+</comp>
+
+<comp id="42" class="1004" name="length_read_read_fu_42">
+<pin_list>
+<pin id="43" dir="0" index="0" bw="32" slack="0"/>
+<pin id="44" dir="0" index="1" bw="32" slack="0"/>
+<pin id="45" dir="1" index="2" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="length_read/1 "/>
+</bind>
+</comp>
+
+<comp id="48" class="1004" name="offset_read_read_fu_48">
+<pin_list>
+<pin id="49" dir="0" index="0" bw="32" slack="0"/>
+<pin id="50" dir="0" index="1" bw="32" slack="0"/>
+<pin id="51" dir="1" index="2" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="offset_read/1 "/>
+</bind>
+</comp>
+
+<comp id="54" class="1004" name="data_offset_read_read_fu_54">
+<pin_list>
+<pin id="55" dir="0" index="0" bw="64" slack="0"/>
+<pin id="56" dir="0" index="1" bw="64" slack="0"/>
+<pin id="57" dir="1" index="2" bw="64" slack="1"/>
+</pin_list>
+<bind>
+<opcode="read(1150) " fcode="read"/>
+<opset="data_offset_read/1 "/>
+</bind>
+</comp>
+
+<comp id="60" class="1004" name="state_addr_gep_fu_60">
+<pin_list>
+<pin id="61" dir="0" index="0" bw="8" slack="0"/>
+<pin id="62" dir="0" index="1" bw="1" slack="0"/>
+<pin id="63" dir="0" index="2" bw="32" slack="0"/>
+<pin id="64" dir="1" index="3" bw="8" slack="0"/>
+</pin_list>
+<bind>
+<opcode="getelementptr(29) " fcode="getelementptr"/>
+<opset="state_addr/2 "/>
+</bind>
+</comp>
+
+<comp id="67" class="1004" name="grp_access_fu_67">
+<pin_list>
+<pin id="68" dir="0" index="0" bw="8" slack="0"/>
+<pin id="69" dir="0" index="1" bw="8" slack="2147483647"/>
+<pin id="70" dir="0" index="2" bw="0" slack="2147483647"/>
+<pin id="71" dir="1" index="3" bw="8" slack="66"/>
+</pin_list>
+<bind>
+<opcode="load(27) " fcode="load"/>
+<opset="state_load/2 "/>
+</bind>
+</comp>
+
+<comp id="73" class="1004" name="data_0_addr_gep_fu_73">
+<pin_list>
+<pin id="74" dir="0" index="0" bw="8" slack="0"/>
+<pin id="75" dir="0" index="1" bw="1" slack="0"/>
+<pin id="76" dir="0" index="2" bw="7" slack="0"/>
+<pin id="77" dir="1" index="3" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="getelementptr(29) " fcode="getelementptr"/>
+<opset="data_0_addr/69 "/>
+</bind>
+</comp>
+
+<comp id="80" class="1004" name="data_1_addr_gep_fu_80">
+<pin_list>
+<pin id="81" dir="0" index="0" bw="8" slack="0"/>
+<pin id="82" dir="0" index="1" bw="1" slack="0"/>
+<pin id="83" dir="0" index="2" bw="7" slack="0"/>
+<pin id="84" dir="1" index="3" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="getelementptr(29) " fcode="getelementptr"/>
+<opset="data_1_addr/69 "/>
+</bind>
+</comp>
+
+<comp id="87" class="1004" name="data_2_addr_gep_fu_87">
+<pin_list>
+<pin id="88" dir="0" index="0" bw="8" slack="0"/>
+<pin id="89" dir="0" index="1" bw="1" slack="0"/>
+<pin id="90" dir="0" index="2" bw="7" slack="0"/>
+<pin id="91" dir="1" index="3" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="getelementptr(29) " fcode="getelementptr"/>
+<opset="data_2_addr/69 "/>
+</bind>
+</comp>
+
+<comp id="94" class="1004" name="data_3_addr_gep_fu_94">
+<pin_list>
+<pin id="95" dir="0" index="0" bw="8" slack="0"/>
+<pin id="96" dir="0" index="1" bw="1" slack="0"/>
+<pin id="97" dir="0" index="2" bw="7" slack="0"/>
+<pin id="98" dir="1" index="3" bw="6" slack="0"/>
+</pin_list>
+<bind>
+<opcode="getelementptr(29) " fcode="getelementptr"/>
+<opset="data_3_addr/69 "/>
+</bind>
+</comp>
+
+<comp id="101" class="1004" name="store_ln394_access_fu_101">
+<pin_list>
+<pin id="102" dir="0" index="0" bw="6" slack="0"/>
+<pin id="103" dir="0" index="1" bw="8" slack="66"/>
+<pin id="104" dir="0" index="2" bw="0" slack="2147483647"/>
+<pin id="105" dir="1" index="3" bw="8" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="store_ln394/69 "/>
+</bind>
+</comp>
+
+<comp id="107" class="1004" name="store_ln394_access_fu_107">
+<pin_list>
+<pin id="108" dir="0" index="0" bw="6" slack="0"/>
+<pin id="109" dir="0" index="1" bw="8" slack="66"/>
+<pin id="110" dir="0" index="2" bw="0" slack="2147483647"/>
+<pin id="111" dir="1" index="3" bw="8" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="store_ln394/69 "/>
+</bind>
+</comp>
+
+<comp id="113" class="1004" name="store_ln394_access_fu_113">
+<pin_list>
+<pin id="114" dir="0" index="0" bw="6" slack="0"/>
+<pin id="115" dir="0" index="1" bw="8" slack="66"/>
+<pin id="116" dir="0" index="2" bw="0" slack="2147483647"/>
+<pin id="117" dir="1" index="3" bw="8" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="store_ln394/69 "/>
+</bind>
+</comp>
+
+<comp id="119" class="1004" name="store_ln394_access_fu_119">
+<pin_list>
+<pin id="120" dir="0" index="0" bw="6" slack="0"/>
+<pin id="121" dir="0" index="1" bw="8" slack="66"/>
+<pin id="122" dir="0" index="2" bw="0" slack="2147483647"/>
+<pin id="123" dir="1" index="3" bw="8" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="store(28) " fcode="store"/>
+<opset="store_ln394/69 "/>
+</bind>
+</comp>
+
+<comp id="125" class="1005" name="loop_0_reg_125">
+<pin_list>
+<pin id="126" dir="0" index="0" bw="32" slack="1"/>
+<pin id="127" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="loop_0 (phireg) "/>
+</bind>
+</comp>
+
+<comp id="129" class="1004" name="loop_0_phi_fu_129">
+<pin_list>
+<pin id="130" dir="0" index="0" bw="32" slack="0"/>
+<pin id="131" dir="0" index="1" bw="0" slack="2147483647"/>
+<pin id="132" dir="0" index="2" bw="1" slack="1"/>
+<pin id="133" dir="0" index="3" bw="0" slack="2147483647"/>
+<pin id="134" dir="1" index="4" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="phi(47) " fcode="phi"/>
+<opset="loop_0/2 "/>
+</bind>
+</comp>
+
+<comp id="136" class="1004" name="icmp_ln393_fu_136">
+<pin_list>
+<pin id="137" dir="0" index="0" bw="32" slack="0"/>
+<pin id="138" dir="0" index="1" bw="32" slack="1"/>
+<pin id="139" dir="1" index="2" bw="1" slack="2147483647"/>
+</pin_list>
+<bind>
+<opcode="icmp(45) " fcode="icmp"/>
+<opset="icmp_ln393/2 "/>
+</bind>
+</comp>
+
+<comp id="141" class="1004" name="loop_fu_141">
+<pin_list>
+<pin id="142" dir="0" index="0" bw="32" slack="0"/>
+<pin id="143" dir="0" index="1" bw="1" slack="0"/>
+<pin id="144" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="add(8) " fcode="add"/>
+<opset="loop/2 "/>
+</bind>
+</comp>
+
+<comp id="147" class="1004" name="add_ln394_fu_147">
+<pin_list>
+<pin id="148" dir="0" index="0" bw="32" slack="1"/>
+<pin id="149" dir="0" index="1" bw="32" slack="0"/>
+<pin id="150" dir="1" index="2" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opcode="add(8) " fcode="add"/>
+<opset="add_ln394/2 "/>
+</bind>
+</comp>
+
+<comp id="152" class="1004" name="zext_ln394_fu_152">
+<pin_list>
+<pin id="153" dir="0" index="0" bw="32" slack="0"/>
+<pin id="154" dir="1" index="1" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="zext(34) " fcode="zext"/>
+<opset="zext_ln394/2 "/>
+</bind>
+</comp>
+
+<comp id="157" class="1004" name="sext_ln394_fu_157">
+<pin_list>
+<pin id="158" dir="0" index="0" bw="32" slack="0"/>
+<pin id="159" dir="1" index="1" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="sext(35) " fcode="sext"/>
+<opset="sext_ln394/2 "/>
+</bind>
+</comp>
+
+<comp id="161" class="1004" name="add_ln394_2_fu_161">
+<pin_list>
+<pin id="162" dir="0" index="0" bw="64" slack="1"/>
+<pin id="163" dir="0" index="1" bw="32" slack="0"/>
+<pin id="164" dir="1" index="2" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="add(8) " fcode="add"/>
+<opset="add_ln394_2/2 "/>
+</bind>
+</comp>
+
+<comp id="166" class="1004" name="grp_fu_166">
+<pin_list>
+<pin id="167" dir="0" index="0" bw="64" slack="0"/>
+<pin id="168" dir="0" index="1" bw="7" slack="0"/>
+<pin id="169" dir="1" index="2" bw="64" slack="0"/>
+</pin_list>
+<bind>
+<opcode="urem(17) " fcode="urem"/>
+<opset="urem_ln394/2 "/>
+</bind>
+</comp>
+
+<comp id="176" class="1004" name="zext_ln394_14_fu_176">
+<pin_list>
+<pin id="177" dir="0" index="0" bw="64" slack="1"/>
+<pin id="178" dir="1" index="1" bw="129" slack="0"/>
+</pin_list>
+<bind>
+<opcode="zext(34) " fcode="zext"/>
+<opset="zext_ln394_14/3 "/>
+</bind>
+</comp>
+
+<comp id="179" class="1004" name="grp_fu_179">
+<pin_list>
+<pin id="180" dir="0" index="0" bw="64" slack="0"/>
+<pin id="181" dir="0" index="1" bw="66" slack="0"/>
+<pin id="182" dir="1" index="2" bw="129" slack="0"/>
+</pin_list>
+<bind>
+<opcode="mul(12) " fcode="mul"/>
+<opset="mul_ln394/3 "/>
+</bind>
+</comp>
+
+<comp id="185" class="1004" name="tmp_fu_185">
+<pin_list>
+<pin id="186" dir="0" index="0" bw="59" slack="0"/>
+<pin id="187" dir="0" index="1" bw="129" slack="0"/>
+<pin id="188" dir="0" index="2" bw="8" slack="0"/>
+<pin id="189" dir="0" index="3" bw="9" slack="0"/>
+<pin id="190" dir="1" index="4" bw="59" slack="65"/>
+</pin_list>
+<bind>
+<opcode="partselect(1002) " fcode="partselect"/>
+<opset="tmp/4 "/>
+</bind>
+</comp>
+
+<comp id="195" class="1005" name="length_read_reg_195">
+<pin_list>
+<pin id="196" dir="0" index="0" bw="32" slack="1"/>
+<pin id="197" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="length_read "/>
+</bind>
+</comp>
+
+<comp id="200" class="1005" name="offset_read_reg_200">
+<pin_list>
+<pin id="201" dir="0" index="0" bw="32" slack="1"/>
+<pin id="202" dir="1" index="1" bw="32" slack="1"/>
+</pin_list>
+<bind>
+<opset="offset_read "/>
+</bind>
+</comp>
+
+<comp id="205" class="1005" name="data_offset_read_reg_205">
+<pin_list>
+<pin id="206" dir="0" index="0" bw="64" slack="1"/>
+<pin id="207" dir="1" index="1" bw="64" slack="1"/>
+</pin_list>
+<bind>
+<opset="data_offset_read "/>
+</bind>
+</comp>
+
+<comp id="213" class="1005" name="loop_reg_213">
+<pin_list>
+<pin id="214" dir="0" index="0" bw="32" slack="0"/>
+<pin id="215" dir="1" index="1" bw="32" slack="0"/>
+</pin_list>
+<bind>
+<opset="loop "/>
+</bind>
+</comp>
+
+<comp id="218" class="1005" name="state_addr_reg_218">
+<pin_list>
+<pin id="219" dir="0" index="0" bw="8" slack="1"/>
+<pin id="220" dir="1" index="1" bw="8" slack="1"/>
+</pin_list>
+<bind>
+<opset="state_addr "/>
+</bind>
+</comp>
+
+<comp id="223" class="1005" name="add_ln394_2_reg_223">
+<pin_list>
+<pin id="224" dir="0" index="0" bw="64" slack="1"/>
+<pin id="225" dir="1" index="1" bw="64" slack="1"/>
+</pin_list>
+<bind>
+<opset="add_ln394_2 "/>
+</bind>
+</comp>
+
+<comp id="229" class="1005" name="state_load_reg_229">
+<pin_list>
+<pin id="230" dir="0" index="0" bw="8" slack="66"/>
+<pin id="231" dir="1" index="1" bw="8" slack="66"/>
+</pin_list>
+<bind>
+<opset="state_load "/>
+</bind>
+</comp>
+
+<comp id="237" class="1005" name="zext_ln394_14_reg_237">
+<pin_list>
+<pin id="238" dir="0" index="0" bw="129" slack="1"/>
+<pin id="239" dir="1" index="1" bw="129" slack="1"/>
+</pin_list>
+<bind>
+<opset="zext_ln394_14 "/>
+</bind>
+</comp>
+
+<comp id="242" class="1005" name="tmp_reg_242">
+<pin_list>
+<pin id="243" dir="0" index="0" bw="59" slack="65"/>
+<pin id="244" dir="1" index="1" bw="59" slack="2147483647"/>
+</pin_list>
+<bind>
+<opset="tmp "/>
+</bind>
+</comp>
+
+</comp_list>
+
+<net_list>
+<net id="46"><net_src comp="16" pin="0"/><net_sink comp="42" pin=0"/></net>
+
+<net id="47"><net_src comp="14" pin="0"/><net_sink comp="42" pin=1"/></net>
+
+<net id="52"><net_src comp="16" pin="0"/><net_sink comp="48" pin=0"/></net>
+
+<net id="53"><net_src comp="12" pin="0"/><net_sink comp="48" pin=1"/></net>
+
+<net id="58"><net_src comp="18" pin="0"/><net_sink comp="54" pin=0"/></net>
+
+<net id="59"><net_src comp="10" pin="0"/><net_sink comp="54" pin=1"/></net>
+
+<net id="65"><net_src comp="0" pin="0"/><net_sink comp="60" pin=0"/></net>
+
+<net id="66"><net_src comp="24" pin="0"/><net_sink comp="60" pin=1"/></net>
+
+<net id="72"><net_src comp="60" pin="3"/><net_sink comp="67" pin=0"/></net>
+
+<net id="78"><net_src comp="2" pin="0"/><net_sink comp="73" pin=0"/></net>
+
+<net id="79"><net_src comp="24" pin="0"/><net_sink comp="73" pin=1"/></net>
+
+<net id="85"><net_src comp="4" pin="0"/><net_sink comp="80" pin=0"/></net>
+
+<net id="86"><net_src comp="24" pin="0"/><net_sink comp="80" pin=1"/></net>
+
+<net id="92"><net_src comp="6" pin="0"/><net_sink comp="87" pin=0"/></net>
+
+<net id="93"><net_src comp="24" pin="0"/><net_sink comp="87" pin=1"/></net>
+
+<net id="99"><net_src comp="8" pin="0"/><net_sink comp="94" pin=0"/></net>
+
+<net id="100"><net_src comp="24" pin="0"/><net_sink comp="94" pin=1"/></net>
+
+<net id="106"><net_src comp="87" pin="3"/><net_sink comp="101" pin=0"/></net>
+
+<net id="112"><net_src comp="80" pin="3"/><net_sink comp="107" pin=0"/></net>
+
+<net id="118"><net_src comp="73" pin="3"/><net_sink comp="113" pin=0"/></net>
+
+<net id="124"><net_src comp="94" pin="3"/><net_sink comp="119" pin=0"/></net>
+
+<net id="128"><net_src comp="20" pin="0"/><net_sink comp="125" pin=0"/></net>
+
+<net id="135"><net_src comp="125" pin="1"/><net_sink comp="129" pin=2"/></net>
+
+<net id="140"><net_src comp="129" pin="4"/><net_sink comp="136" pin=0"/></net>
+
+<net id="145"><net_src comp="129" pin="4"/><net_sink comp="141" pin=0"/></net>
+
+<net id="146"><net_src comp="22" pin="0"/><net_sink comp="141" pin=1"/></net>
+
+<net id="151"><net_src comp="129" pin="4"/><net_sink comp="147" pin=1"/></net>
+
+<net id="155"><net_src comp="147" pin="2"/><net_sink comp="152" pin=0"/></net>
+
+<net id="156"><net_src comp="152" pin="1"/><net_sink comp="60" pin=2"/></net>
+
+<net id="160"><net_src comp="129" pin="4"/><net_sink comp="157" pin=0"/></net>
+
+<net id="165"><net_src comp="157" pin="1"/><net_sink comp="161" pin=1"/></net>
+
+<net id="170"><net_src comp="166" pin="2"/><net_sink comp="73" pin=2"/></net>
+
+<net id="171"><net_src comp="166" pin="2"/><net_sink comp="80" pin=2"/></net>
+
+<net id="172"><net_src comp="166" pin="2"/><net_sink comp="87" pin=2"/></net>
+
+<net id="173"><net_src comp="166" pin="2"/><net_sink comp="94" pin=2"/></net>
+
+<net id="174"><net_src comp="161" pin="2"/><net_sink comp="166" pin=0"/></net>
+
+<net id="175"><net_src comp="26" pin="0"/><net_sink comp="166" pin=1"/></net>
+
+<net id="183"><net_src comp="176" pin="1"/><net_sink comp="179" pin=0"/></net>
+
+<net id="184"><net_src comp="28" pin="0"/><net_sink comp="179" pin=1"/></net>
+
+<net id="191"><net_src comp="30" pin="0"/><net_sink comp="185" pin=0"/></net>
+
+<net id="192"><net_src comp="179" pin="2"/><net_sink comp="185" pin=1"/></net>
+
+<net id="193"><net_src comp="32" pin="0"/><net_sink comp="185" pin=2"/></net>
+
+<net id="194"><net_src comp="34" pin="0"/><net_sink comp="185" pin=3"/></net>
+
+<net id="198"><net_src comp="42" pin="2"/><net_sink comp="195" pin=0"/></net>
+
+<net id="199"><net_src comp="195" pin="1"/><net_sink comp="136" pin=1"/></net>
+
+<net id="203"><net_src comp="48" pin="2"/><net_sink comp="200" pin=0"/></net>
+
+<net id="204"><net_src comp="200" pin="1"/><net_sink comp="147" pin=0"/></net>
+
+<net id="208"><net_src comp="54" pin="2"/><net_sink comp="205" pin=0"/></net>
+
+<net id="209"><net_src comp="205" pin="1"/><net_sink comp="161" pin=0"/></net>
+
+<net id="216"><net_src comp="141" pin="2"/><net_sink comp="213" pin=0"/></net>
+
+<net id="217"><net_src comp="213" pin="1"/><net_sink comp="129" pin=0"/></net>
+
+<net id="221"><net_src comp="60" pin="3"/><net_sink comp="218" pin=0"/></net>
+
+<net id="222"><net_src comp="218" pin="1"/><net_sink comp="67" pin=0"/></net>
+
+<net id="226"><net_src comp="161" pin="2"/><net_sink comp="223" pin=0"/></net>
+
+<net id="227"><net_src comp="223" pin="1"/><net_sink comp="176" pin=0"/></net>
+
+<net id="228"><net_src comp="223" pin="1"/><net_sink comp="166" pin=0"/></net>
+
+<net id="232"><net_src comp="67" pin="3"/><net_sink comp="229" pin=0"/></net>
+
+<net id="233"><net_src comp="229" pin="1"/><net_sink comp="101" pin=1"/></net>
+
+<net id="234"><net_src comp="229" pin="1"/><net_sink comp="107" pin=1"/></net>
+
+<net id="235"><net_src comp="229" pin="1"/><net_sink comp="113" pin=1"/></net>
+
+<net id="236"><net_src comp="229" pin="1"/><net_sink comp="119" pin=1"/></net>
+
+<net id="240"><net_src comp="176" pin="1"/><net_sink comp="237" pin=0"/></net>
+
+<net id="241"><net_src comp="237" pin="1"/><net_sink comp="179" pin=0"/></net>
+
+<net id="245"><net_src comp="185" pin="4"/><net_sink comp="242" pin=0"/></net>
+
+</net_list>
+
+</model> 
+---------------- Datapath Model END ------------------
+
+* FSMD analyzer results:
+  - Output states:
+	Port: state | {}
+	Port: data_0 | {69 }
+	Port: data_1 | {69 }
+	Port: data_2 | {69 }
+	Port: data_3 | {69 }
+ - Input state : 
+	Port: KeccakP1600_ExtractB : state | {2 3 }
+	Port: KeccakP1600_ExtractB : data_0 | {}
+	Port: KeccakP1600_ExtractB : data_1 | {}
+	Port: KeccakP1600_ExtractB : data_2 | {}
+	Port: KeccakP1600_ExtractB : data_3 | {}
+	Port: KeccakP1600_ExtractB : data_offset | {1 }
+	Port: KeccakP1600_ExtractB : offset | {1 }
+	Port: KeccakP1600_ExtractB : length_r | {1 }
+  - Chain level:
+	State 1
+	State 2
+		icmp_ln393 : 1
+		loop : 1
+		br_ln393 : 2
+		add_ln394 : 1
+		zext_ln394 : 2
+		state_addr : 3
+		state_load : 4
+		sext_ln394 : 1
+		add_ln394_2 : 2
+		urem_ln394 : 3
+	State 3
+		mul_ln394 : 1
+	State 4
+		tmp : 1
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+	State 54
+	State 55
+	State 56
+	State 57
+	State 58
+	State 59
+	State 60
+	State 61
+	State 62
+	State 63
+	State 64
+	State 65
+	State 66
+	State 67
+	State 68
+	State 69
+		data_0_addr : 1
+		data_1_addr : 1
+		data_2_addr : 1
+		data_3_addr : 1
+		store_ln394 : 2
+		store_ln394 : 2
+		store_ln394 : 2
+		store_ln394 : 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+
+* Functional unit list:
+|----------|-----------------------------|---------|---------|---------|
+| Operation|       Functional Unit       |  DSP48E |    FF   |   LUT   |
+|----------|-----------------------------|---------|---------|---------|
+|   urem   |          grp_fu_166         |    0    |   779   |   469   |
+|----------|-----------------------------|---------|---------|---------|
+|    mul   |          grp_fu_179         |    1    |   361   |   195   |
+|----------|-----------------------------|---------|---------|---------|
+|          |         loop_fu_141         |    0    |    0    |    39   |
+|    add   |       add_ln394_fu_147      |    0    |    0    |    39   |
+|          |      add_ln394_2_fu_161     |    0    |    0    |    71   |
+|----------|-----------------------------|---------|---------|---------|
+|   icmp   |      icmp_ln393_fu_136      |    0    |    0    |    18   |
+|----------|-----------------------------|---------|---------|---------|
+|          |    length_read_read_fu_42   |    0    |    0    |    0    |
+|   read   |    offset_read_read_fu_48   |    0    |    0    |    0    |
+|          | data_offset_read_read_fu_54 |    0    |    0    |    0    |
+|----------|-----------------------------|---------|---------|---------|
+|   zext   |      zext_ln394_fu_152      |    0    |    0    |    0    |
+|          |     zext_ln394_14_fu_176    |    0    |    0    |    0    |
+|----------|-----------------------------|---------|---------|---------|
+|   sext   |      sext_ln394_fu_157      |    0    |    0    |    0    |
+|----------|-----------------------------|---------|---------|---------|
+|partselect|          tmp_fu_185         |    0    |    0    |    0    |
+|----------|-----------------------------|---------|---------|---------|
+|   Total  |                             |    1    |   1140  |   831   |
+|----------|-----------------------------|---------|---------|---------|
+
+Memories:
+N/A
+
+* Register list:
++------------------------+--------+
+|                        |   FF   |
++------------------------+--------+
+|   add_ln394_2_reg_223  |   64   |
+|data_offset_read_reg_205|   64   |
+|   length_read_reg_195  |   32   |
+|     loop_0_reg_125     |   32   |
+|      loop_reg_213      |   32   |
+|   offset_read_reg_200  |   32   |
+|   state_addr_reg_218   |    8   |
+|   state_load_reg_229   |    8   |
+|       tmp_reg_242      |   59   |
+|  zext_ln394_14_reg_237 |   129  |
++------------------------+--------+
+|          Total         |   460  |
++------------------------+--------+
+
+* Multiplexer (MUX) list: 
+|------------------|------|------|------|--------||---------||---------|
+|       Comp       |  Pin | Size |  BW  | S x BW ||  Delay  ||   LUT   |
+|------------------|------|------|------|--------||---------||---------|
+| grp_access_fu_67 |  p0  |   2  |   8  |   16   ||    9    |
+|    grp_fu_166    |  p0  |   2  |  64  |   128  ||    9    |
+|    grp_fu_179    |  p0  |   2  |  64  |   128  ||    9    |
+|------------------|------|------|------|--------||---------||---------|
+|       Total      |      |      |      |   272  ||   4.05  ||    27   |
+|------------------|------|------|------|--------||---------||---------|
+
+
+
+* Summary:
++-----------+--------+--------+--------+--------+
+|           | DSP48E |  Delay |   FF   |   LUT  |
++-----------+--------+--------+--------+--------+
+|  Function |    1   |    -   |  1140  |   831  |
+|   Memory  |    -   |    -   |    -   |    -   |
+|Multiplexer|    -   |    4   |    -   |   27   |
+|  Register |    -   |    -   |   460  |    -   |
++-----------+--------+--------+--------+--------+
+|   Total   |    1   |    4   |  1600  |   858  |
++-----------+--------+--------+--------+--------+

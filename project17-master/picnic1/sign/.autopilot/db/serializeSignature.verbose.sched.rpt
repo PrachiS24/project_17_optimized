@@ -1,0 +1,532 @@
+
+
+================================================================
+== Vivado HLS Report for 'serializeSignature'
+================================================================
+* Date:           Thu May 14 18:41:38 2020
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        picnic1
+* Solution:       sign
+* Product family: artix7
+* Target device:  xc7a200t-fbg676-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 6.473 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-------+-------+---------+
+    |  Latency (cycles) |  Latency (absolute) |    Interval   | Pipeline|
+    |   min   |   max   |    min   |    max   |  min  |  max  |   Type  |
+    +---------+---------+----------+----------+-------+-------+---------+
+    |    62592|    67191| 0.626 ms | 0.672 ms |  62592|  67191|   none  |
+    +---------+---------+----------+----------+-------+-------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------+---------+---------+-----------+-----------+-----------+------+----------+
+        |             |  Latency (cycles) | Iteration |  Initiation Interval  | Trip |          |
+        |  Loop Name  |   min   |   max   |  Latency  |  achieved |   target  | Count| Pipelined|
+        +-------------+---------+---------+-----------+-----------+-----------+------+----------+
+        |- Loop 1     |      110|      110|          2|          -|          -|    55|    no    |
+        |- Loop 2     |       64|       64|          2|          -|          -|    32|    no    |
+        |- Loop 3     |    62415|    67014| 285 ~ 306 |          -|          -|   219|    no    |
+        | + Loop 3.1  |       64|       64|          2|          -|          -|    32|    no    |
+        | + Loop 3.2  |      150|      150|          2|          -|          -|    75|    no    |
+        | + Loop 3.3  |       32|       32|          2|          -|          -|    16|    no    |
+        | + Loop 3.4  |       32|       32|          2|          -|          -|    16|    no    |
+        | + Loop 3.5  |       20|       20|          5|          -|          -|     4|    no    |
+        +-------------+---------+---------+-----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 1
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 21
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 4 
+3 --> 2 
+4 --> 5 6 
+5 --> 4 
+6 --> 7 
+7 --> 8 
+8 --> 9 10 
+9 --> 8 
+10 --> 11 12 
+11 --> 10 
+12 --> 13 14 
+13 --> 12 
+14 --> 15 21 16 
+15 --> 14 
+16 --> 17 21 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 16 
+21 --> 6 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.35>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%sigBytes_offset_read = call i64 @_ssdm_op_Read.ap_auto.i64(i64 %sigBytes_offset)" [picnic_impl.c:1848]   --->   Operation 22 'read' 'sigBytes_offset_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%trunc_ln1870 = trunc i64 %sigBytes_offset_read to i17" [picnic_impl.c:1870]   --->   Operation 23 'trunc' 'trunc_ln1870' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (1.35ns)   --->   "br label %.preheader22"   --->   Operation 24 'br' <Predicate = true> <Delay = 1.35>
+
+State 2 <SV = 1> <Delay = 1.75>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%loop_0 = phi i6 [ %loop, %0 ], [ 0, %.preheader22.preheader ]"   --->   Operation 25 'phi' 'loop_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 55, i64 55, i64 55)"   --->   Operation 26 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 27 [1/1] (1.22ns)   --->   "%icmp_ln1869 = icmp eq i6 %loop_0, -9" [picnic_impl.c:1869]   --->   Operation 27 'icmp' 'icmp_ln1869' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.79> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 28 [1/1] (1.60ns)   --->   "%loop = add i6 %loop_0, 1" [picnic_impl.c:1869]   --->   Operation 28 'add' 'loop' <Predicate = true> <Delay = 1.60> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 29 [1/1] (0.00ns)   --->   "br i1 %icmp_ln1869, label %.preheader12.preheader, label %0" [picnic_impl.c:1869]   --->   Operation 29 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%zext_ln1870 = zext i6 %loop_0 to i64" [picnic_impl.c:1870]   --->   Operation 30 'zext' 'zext_ln1870' <Predicate = (!icmp_ln1869)> <Delay = 0.00>
+ST_2 : Operation 31 [1/1] (0.00ns)   --->   "%sig_0_challengeBits_3 = getelementptr [55 x i8]* %sig_0_challengeBits, i64 0, i64 %zext_ln1870" [picnic_impl.c:1870]   --->   Operation 31 'getelementptr' 'sig_0_challengeBits_3' <Predicate = (!icmp_ln1869)> <Delay = 0.00>
+ST_2 : Operation 32 [2/2] (1.75ns)   --->   "%sig_0_challengeBits_4 = load i8* %sig_0_challengeBits_3, align 1" [picnic_impl.c:1870]   --->   Operation 32 'load' 'sig_0_challengeBits_4' <Predicate = (!icmp_ln1869)> <Delay = 1.75> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 37336> <RAM>
+ST_2 : Operation 33 [1/1] (1.35ns)   --->   "br label %.preheader12" [picnic_impl.c:1874]   --->   Operation 33 'br' <Predicate = (icmp_ln1869)> <Delay = 1.35>
+
+State 3 <SV = 2> <Delay = 4.63>
+ST_3 : Operation 34 [1/1] (0.00ns)   --->   "%zext_ln1870_1 = zext i6 %loop_0 to i17" [picnic_impl.c:1870]   --->   Operation 34 'zext' 'zext_ln1870_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 35 [1/2] (1.75ns)   --->   "%sig_0_challengeBits_4 = load i8* %sig_0_challengeBits_3, align 1" [picnic_impl.c:1870]   --->   Operation 35 'load' 'sig_0_challengeBits_4' <Predicate = true> <Delay = 1.75> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 37336> <RAM>
+ST_3 : Operation 36 [1/1] (1.86ns)   --->   "%add_ln1870 = add i17 %zext_ln1870_1, %trunc_ln1870" [picnic_impl.c:1870]   --->   Operation 36 'add' 'add_ln1870' <Predicate = true> <Delay = 1.86> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 37 [1/1] (0.00ns)   --->   "%zext_ln1870_2 = zext i17 %add_ln1870 to i64" [picnic_impl.c:1870]   --->   Operation 37 'zext' 'zext_ln1870_2' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 38 [1/1] (0.00ns)   --->   "%sigBytes_addr = getelementptr [37336 x i8]* %sigBytes, i64 0, i64 %zext_ln1870_2" [picnic_impl.c:1870]   --->   Operation 38 'getelementptr' 'sigBytes_addr' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 39 [1/1] (2.77ns)   --->   "store i8 %sig_0_challengeBits_4, i8* %sigBytes_addr, align 1" [picnic_impl.c:1870]   --->   Operation 39 'store' <Predicate = true> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 37336> <RAM>
+ST_3 : Operation 40 [1/1] (0.00ns)   --->   "br label %.preheader22" [picnic_impl.c:1869]   --->   Operation 40 'br' <Predicate = true> <Delay = 0.00>
+
+State 4 <SV = 2> <Delay = 1.75>
+ST_4 : Operation 41 [1/1] (0.00ns)   --->   "%loop_1 = phi i6 [ %loop_7, %1 ], [ 0, %.preheader12.preheader ]"   --->   Operation 41 'phi' 'loop_1' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 42 [1/1] (1.22ns)   --->   "%icmp_ln1874 = icmp eq i6 %loop_1, -32" [picnic_impl.c:1874]   --->   Operation 42 'icmp' 'icmp_ln1874' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.79> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 43 [1/1] (0.00ns)   --->   "%empty_40 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 32, i64 32, i64 32)"   --->   Operation 43 'speclooptripcount' 'empty_40' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 44 [1/1] (1.60ns)   --->   "%loop_7 = add i6 %loop_1, 1" [picnic_impl.c:1874]   --->   Operation 44 'add' 'loop_7' <Predicate = true> <Delay = 1.60> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 45 [1/1] (0.00ns)   --->   "br i1 %icmp_ln1874, label %.preheader11.preheader, label %1" [picnic_impl.c:1874]   --->   Operation 45 'br' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 46 [1/1] (0.00ns)   --->   "%zext_ln1875 = zext i6 %loop_1 to i64" [picnic_impl.c:1875]   --->   Operation 46 'zext' 'zext_ln1875' <Predicate = (!icmp_ln1874)> <Delay = 0.00>
+ST_4 : Operation 47 [1/1] (0.00ns)   --->   "%sig_0_salt_addr = getelementptr [32 x i8]* %sig_0_salt, i64 0, i64 %zext_ln1875" [picnic_impl.c:1875]   --->   Operation 47 'getelementptr' 'sig_0_salt_addr' <Predicate = (!icmp_ln1874)> <Delay = 0.00>
+ST_4 : Operation 48 [2/2] (1.75ns)   --->   "%sig_0_salt_load = load i8* %sig_0_salt_addr, align 1" [picnic_impl.c:1875]   --->   Operation 48 'load' 'sig_0_salt_load' <Predicate = (!icmp_ln1874)> <Delay = 1.75> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 37336> <RAM>
+ST_4 : Operation 49 [1/1] (1.35ns)   --->   "br label %.preheader11" [picnic_impl.c:1878]   --->   Operation 49 'br' <Predicate = (icmp_ln1874)> <Delay = 1.35>
+
+State 5 <SV = 3> <Delay = 6.29>
+ST_5 : Operation 50 [1/1] (0.00ns)   --->   "%zext_ln1875_1 = zext i6 %loop_1 to i7" [picnic_impl.c:1875]   --->   Operation 50 'zext' 'zext_ln1875_1' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 51 [1/2] (1.75ns)   --->   "%sig_0_salt_load = load i8* %sig_0_salt_addr, align 1" [picnic_impl.c:1875]   --->   Operation 51 'load' 'sig_0_salt_load' <Predicate = true> <Delay = 1.75> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 37336> <RAM>
+ST_5 : Operation 52 [1/1] (1.66ns)   --->   "%add_ln1875 = add i7 %zext_ln1875_1, 55" [picnic_impl.c:1875]   --->   Operation 52 'add' 'add_ln1875' <Predicate = true> <Delay = 1.66> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 53 [1/1] (0.00ns)   --->   "%zext_ln1875_2 = zext i7 %add_ln1875 to i17" [picnic_impl.c:1875]   --->   Operation 53 'zext' 'zext_ln1875_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 54 [1/1] (1.86ns)   --->   "%add_ln1875_1 = add i17 %zext_ln1875_2, %trunc_ln1870" [picnic_impl.c:1875]   --->   Operation 54 'add' 'add_ln1875_1' <Predicate = true> <Delay = 1.86> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 55 [1/1] (0.00ns)   --->   "%zext_ln1875_3 = zext i17 %add_ln1875_1 to i64" [picnic_impl.c:1875]   --->   Operation 55 'zext' 'zext_ln1875_3' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 56 [1/1] (0.00ns)   --->   "%sigBytes_addr_1 = getelementptr [37336 x i8]* %sigBytes, i64 0, i64 %zext_ln1875_3" [picnic_impl.c:1875]   --->   Operation 56 'getelementptr' 'sigBytes_addr_1' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 57 [1/1] (2.77ns)   --->   "store i8 %sig_0_salt_load, i8* %sigBytes_addr_1, align 1" [picnic_impl.c:1875]   --->   Operation 57 'store' <Predicate = true> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 37336> <RAM>
+ST_5 : Operation 58 [1/1] (0.00ns)   --->   "br label %.preheader12" [picnic_impl.c:1874]   --->   Operation 58 'br' <Predicate = true> <Delay = 0.00>
+
+State 6 <SV = 3> <Delay = 1.84>
+ST_6 : Operation 59 [1/1] (0.00ns)   --->   "%p_01_rec = phi i16 [ %add_ln1922, %._crit_edge23 ], [ 0, %.preheader11.preheader ]" [picnic_impl.c:1922]   --->   Operation 59 'phi' 'p_01_rec' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 60 [1/1] (0.00ns)   --->   "%round_assign = phi i8 [ %i, %._crit_edge23 ], [ 0, %.preheader11.preheader ]"   --->   Operation 60 'phi' 'round_assign' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 61 [1/1] (0.00ns)   --->   "%phi_mul = phi i15 [ %add_ln1878, %._crit_edge23 ], [ 0, %.preheader11.preheader ]" [picnic_impl.c:1878]   --->   Operation 61 'phi' 'phi_mul' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 62 [1/1] (1.82ns)   --->   "%add_ln1878 = add i15 %phi_mul, 75" [picnic_impl.c:1878]   --->   Operation 62 'add' 'add_ln1878' <Predicate = true> <Delay = 1.82> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 63 [1/1] (0.00ns)   --->   "%tmp = call i12 @_ssdm_op_BitConcatenate.i12.i8.i4(i8 %round_assign, i4 0)" [picnic_impl.c:1900]   --->   Operation 63 'bitconcatenate' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 64 [1/1] (0.00ns)   --->   "%zext_ln1884 = zext i12 %tmp to i13" [picnic_impl.c:1884]   --->   Operation 64 'zext' 'zext_ln1884' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 65 [1/1] (0.00ns)   --->   "%tmp_s = call i13 @_ssdm_op_BitConcatenate.i13.i8.i5(i8 %round_assign, i5 0)" [picnic_impl.c:1884]   --->   Operation 65 'bitconcatenate' 'tmp_s' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 66 [1/1] (0.00ns)   --->   "%zext_ln1878 = zext i13 %tmp_s to i14" [picnic_impl.c:1878]   --->   Operation 66 'zext' 'zext_ln1878' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 67 [1/1] (1.24ns)   --->   "%icmp_ln1878 = icmp eq i8 %round_assign, -37" [picnic_impl.c:1878]   --->   Operation 67 'icmp' 'icmp_ln1878' <Predicate = true> <Delay = 1.24> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.79> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 68 [1/1] (0.00ns)   --->   "%empty_41 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 219, i64 219, i64 219)"   --->   Operation 68 'speclooptripcount' 'empty_41' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 69 [1/1] (1.71ns)   --->   "%i = add i8 %round_assign, 1" [picnic_impl.c:1878]   --->   Operation 69 'add' 'i' <Predicate = true> <Delay = 1.71> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 70 [1/1] (0.00ns)   --->   "br i1 %icmp_ln1878, label %._crit_edge, label %2" [picnic_impl.c:1878]   --->   Operation 70 'br' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 71 [1/1] (0.00ns)   --->   "%trunc_ln4 = call i6 @_ssdm_op_PartSelect.i6.i8.i32.i32(i8 %round_assign, i32 2, i32 7)" [picnic_impl.c:54->picnic_impl.c:386->picnic_impl.c:1880]   --->   Operation 71 'partselect' 'trunc_ln4' <Predicate = (!icmp_ln1878)> <Delay = 0.00>
+ST_6 : Operation 72 [1/1] (0.00ns)   --->   "%zext_ln54 = zext i6 %trunc_ln4 to i64" [picnic_impl.c:54->picnic_impl.c:386->picnic_impl.c:1880]   --->   Operation 72 'zext' 'zext_ln54' <Predicate = (!icmp_ln1878)> <Delay = 0.00>
+ST_6 : Operation 73 [1/1] (0.00ns)   --->   "%sig_0_challengeBits_5 = getelementptr [55 x i8]* %sig_0_challengeBits, i64 0, i64 %zext_ln54" [picnic_impl.c:54->picnic_impl.c:386->picnic_impl.c:1880]   --->   Operation 73 'getelementptr' 'sig_0_challengeBits_5' <Predicate = (!icmp_ln1878)> <Delay = 0.00>
+ST_6 : Operation 74 [2/2] (1.75ns)   --->   "%sig_0_challengeBits_6 = load i8* %sig_0_challengeBits_5, align 1" [picnic_impl.c:54->picnic_impl.c:386->picnic_impl.c:1880]   --->   Operation 74 'load' 'sig_0_challengeBits_6' <Predicate = (!icmp_ln1878)> <Delay = 1.75> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 37336> <RAM>
+ST_6 : Operation 75 [1/1] (1.84ns)   --->   "%add_ln1928 = add i16 %p_01_rec, 87" [picnic_impl.c:1928]   --->   Operation 75 'add' 'add_ln1928' <Predicate = (icmp_ln1878)> <Delay = 1.84> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 76 [1/1] (0.00ns)   --->   "ret i16 %add_ln1928" [picnic_impl.c:1929]   --->   Operation 76 'ret' <Predicate = (icmp_ln1878)> <Delay = 0.00>
+
+State 7 <SV = 4> <Delay = 4.17>
+ST_7 : Operation 77 [1/1] (0.00ns)   --->   "%trunc_ln386 = trunc i8 %round_assign to i2" [picnic_impl.c:386->picnic_impl.c:1880]   --->   Operation 77 'trunc' 'trunc_ln386' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 78 [1/1] (0.00ns)   --->   "%bitNumber_assign = call i3 @_ssdm_op_BitConcatenate.i3.i2.i1(i2 %trunc_ln386, i1 false)" [picnic_impl.c:386->picnic_impl.c:1880]   --->   Operation 78 'bitconcatenate' 'bitNumber_assign' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 79 [1/2] (1.75ns)   --->   "%sig_0_challengeBits_6 = load i8* %sig_0_challengeBits_5, align 1" [picnic_impl.c:54->picnic_impl.c:386->picnic_impl.c:1880]   --->   Operation 79 'load' 'sig_0_challengeBits_6' <Predicate = true> <Delay = 1.75> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 37336> <RAM>
+ST_7 : Operation 80 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln54)   --->   "%xor_ln54 = xor i3 %bitNumber_assign, -2" [picnic_impl.c:54->picnic_impl.c:386->picnic_impl.c:1880]   --->   Operation 80 'xor' 'xor_ln54' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 81 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln54)   --->   "%zext_ln54_3 = zext i3 %xor_ln54 to i8" [picnic_impl.c:54->picnic_impl.c:386->picnic_impl.c:1880]   --->   Operation 81 'zext' 'zext_ln54_3' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 82 [1/1] (2.42ns) (out node of the LUT)   --->   "%lshr_ln54 = lshr i8 %sig_0_challengeBits_6, %zext_ln54_3" [picnic_impl.c:54->picnic_impl.c:386->picnic_impl.c:1880]   --->   Operation 82 'lshr' 'lshr_ln54' <Predicate = true> <Delay = 2.42> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 2.42> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 83 [1/1] (0.00ns)   --->   "%trunc_ln386_2 = trunc i8 %lshr_ln54 to i1" [picnic_impl.c:386->picnic_impl.c:1880]   --->   Operation 83 'trunc' 'trunc_ln386_2' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 84 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln54_2)   --->   "%xor_ln54_2 = xor i3 %bitNumber_assign, -1" [picnic_impl.c:54->picnic_impl.c:386->picnic_impl.c:1880]   --->   Operation 84 'xor' 'xor_ln54_2' <Predicate = true> <Delay = 0.00> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 85 [1/1] (0.00ns) (grouped into LUT with out node lshr_ln54_2)   --->   "%zext_ln54_4 = zext i3 %xor_ln54_2 to i8" [picnic_impl.c:54->picnic_impl.c:386->picnic_impl.c:1880]   --->   Operation 85 'zext' 'zext_ln54_4' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 86 [1/1] (2.42ns) (out node of the LUT)   --->   "%lshr_ln54_2 = lshr i8 %sig_0_challengeBits_6, %zext_ln54_4" [picnic_impl.c:54->picnic_impl.c:386->picnic_impl.c:1880]   --->   Operation 86 'lshr' 'lshr_ln54_2' <Predicate = true> <Delay = 2.42> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 2.42> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 87 [1/1] (0.00ns)   --->   "%trunc_ln54 = trunc i8 %lshr_ln54_2 to i1" [picnic_impl.c:54->picnic_impl.c:386->picnic_impl.c:1880]   --->   Operation 87 'trunc' 'trunc_ln54' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 88 [1/1] (0.00ns)   --->   "%challenge = call i2 @_ssdm_op_BitConcatenate.i2.i1.i1(i1 %trunc_ln386_2, i1 %trunc_ln54)" [picnic_impl.c:386->picnic_impl.c:1880]   --->   Operation 88 'bitconcatenate' 'challenge' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 89 [1/1] (0.00ns)   --->   "%zext_ln386 = zext i2 %challenge to i3" [picnic_impl.c:386->picnic_impl.c:1880]   --->   Operation 89 'zext' 'zext_ln386' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 90 [1/1] (0.00ns)   --->   "%zext_ln1878_1 = zext i16 %p_01_rec to i17" [picnic_impl.c:1878]   --->   Operation 90 'zext' 'zext_ln1878_1' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 91 [1/1] (1.86ns)   --->   "%add_ln1884 = add i17 %trunc_ln1870, %zext_ln1878_1" [picnic_impl.c:1884]   --->   Operation 91 'add' 'add_ln1884' <Predicate = true> <Delay = 1.86> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 92 [1/1] (1.35ns)   --->   "br label %3" [picnic_impl.c:1883]   --->   Operation 92 'br' <Predicate = true> <Delay = 1.35>
+
+State 8 <SV = 5> <Delay = 4.56>
+ST_8 : Operation 93 [1/1] (0.00ns)   --->   "%loop_2 = phi i6 [ 0, %2 ], [ %loop_8, %4 ]"   --->   Operation 93 'phi' 'loop_2' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 94 [1/1] (1.22ns)   --->   "%icmp_ln1883 = icmp eq i6 %loop_2, -32" [picnic_impl.c:1883]   --->   Operation 94 'icmp' 'icmp_ln1883' <Predicate = true> <Delay = 1.22> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.79> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 95 [1/1] (0.00ns)   --->   "%empty_42 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 32, i64 32, i64 32)"   --->   Operation 95 'speclooptripcount' 'empty_42' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 96 [1/1] (1.60ns)   --->   "%loop_8 = add i6 %loop_2, 1" [picnic_impl.c:1883]   --->   Operation 96 'add' 'loop_8' <Predicate = true> <Delay = 1.60> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 97 [1/1] (0.00ns)   --->   "br i1 %icmp_ln1883, label %.preheader10.preheader, label %4" [picnic_impl.c:1883]   --->   Operation 97 'br' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 98 [1/1] (0.00ns)   --->   "%zext_ln1884_4 = zext i6 %loop_2 to i14" [picnic_impl.c:1884]   --->   Operation 98 'zext' 'zext_ln1884_4' <Predicate = (!icmp_ln1883)> <Delay = 0.00>
+ST_8 : Operation 99 [1/1] (1.79ns)   --->   "%add_ln1884_3 = add i14 %zext_ln1878, %zext_ln1884_4" [picnic_impl.c:1884]   --->   Operation 99 'add' 'add_ln1884_3' <Predicate = (!icmp_ln1883)> <Delay = 1.79> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 100 [1/1] (0.00ns)   --->   "%zext_ln1884_5 = zext i14 %add_ln1884_3 to i64" [picnic_impl.c:1884]   --->   Operation 100 'zext' 'zext_ln1884_5' <Predicate = (!icmp_ln1883)> <Delay = 0.00>
+ST_8 : Operation 101 [1/1] (0.00ns)   --->   "%sig_0_proofs_view3C_1 = getelementptr [7008 x i8]* %sig_0_proofs_view3C, i64 0, i64 %zext_ln1884_5" [picnic_impl.c:1884]   --->   Operation 101 'getelementptr' 'sig_0_proofs_view3C_1' <Predicate = (!icmp_ln1883)> <Delay = 0.00>
+ST_8 : Operation 102 [2/2] (2.77ns)   --->   "%sig_0_proofs_view3C_2 = load i8* %sig_0_proofs_view3C_1, align 1" [picnic_impl.c:1884]   --->   Operation 102 'load' 'sig_0_proofs_view3C_2' <Predicate = (!icmp_ln1883)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 37336> <RAM>
+ST_8 : Operation 103 [1/1] (1.35ns)   --->   "br label %.preheader10" [picnic_impl.c:1894]   --->   Operation 103 'br' <Predicate = (icmp_ln1883)> <Delay = 1.35>
+
+State 9 <SV = 6> <Delay = 6.29>
+ST_9 : Operation 104 [1/1] (0.00ns)   --->   "%zext_ln1884_1 = zext i6 %loop_2 to i7" [picnic_impl.c:1884]   --->   Operation 104 'zext' 'zext_ln1884_1' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 105 [1/2] (2.77ns)   --->   "%sig_0_proofs_view3C_2 = load i8* %sig_0_proofs_view3C_1, align 1" [picnic_impl.c:1884]   --->   Operation 105 'load' 'sig_0_proofs_view3C_2' <Predicate = true> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 37336> <RAM>
+ST_9 : Operation 106 [1/1] (1.66ns)   --->   "%add_ln1884_2 = add i7 %zext_ln1884_1, -41" [picnic_impl.c:1884]   --->   Operation 106 'add' 'add_ln1884_2' <Predicate = true> <Delay = 1.66> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 107 [1/1] (0.00ns)   --->   "%zext_ln1884_2 = zext i7 %add_ln1884_2 to i17" [picnic_impl.c:1884]   --->   Operation 107 'zext' 'zext_ln1884_2' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 108 [1/1] (1.86ns)   --->   "%add_ln1884_1 = add i17 %add_ln1884, %zext_ln1884_2" [picnic_impl.c:1884]   --->   Operation 108 'add' 'add_ln1884_1' <Predicate = true> <Delay = 1.86> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 109 [1/1] (0.00ns)   --->   "%zext_ln1884_3 = zext i17 %add_ln1884_1 to i64" [picnic_impl.c:1884]   --->   Operation 109 'zext' 'zext_ln1884_3' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 110 [1/1] (0.00ns)   --->   "%sigBytes_addr_2 = getelementptr [37336 x i8]* %sigBytes, i64 0, i64 %zext_ln1884_3" [picnic_impl.c:1884]   --->   Operation 110 'getelementptr' 'sigBytes_addr_2' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 111 [1/1] (2.77ns)   --->   "store i8 %sig_0_proofs_view3C_2, i8* %sigBytes_addr_2, align 1" [picnic_impl.c:1884]   --->   Operation 111 'store' <Predicate = true> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 37336> <RAM>
+ST_9 : Operation 112 [1/1] (0.00ns)   --->   "br label %3" [picnic_impl.c:1883]   --->   Operation 112 'br' <Predicate = true> <Delay = 0.00>
+
+State 10 <SV = 6> <Delay = 4.59>
+ST_10 : Operation 113 [1/1] (0.00ns)   --->   "%loop_3 = phi i7 [ %loop_9, %5 ], [ 0, %.preheader10.preheader ]"   --->   Operation 113 'phi' 'loop_3' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 114 [1/1] (1.23ns)   --->   "%icmp_ln1894 = icmp eq i7 %loop_3, -53" [picnic_impl.c:1894]   --->   Operation 114 'icmp' 'icmp_ln1894' <Predicate = true> <Delay = 1.23> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.79> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 115 [1/1] (0.00ns)   --->   "%empty_43 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 75, i64 75, i64 0)"   --->   Operation 115 'speclooptripcount' 'empty_43' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 116 [1/1] (1.66ns)   --->   "%loop_9 = add i7 %loop_3, 1" [picnic_impl.c:1894]   --->   Operation 116 'add' 'loop_9' <Predicate = true> <Delay = 1.66> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 117 [1/1] (0.00ns)   --->   "br i1 %icmp_ln1894, label %.preheader3.preheader, label %5" [picnic_impl.c:1894]   --->   Operation 117 'br' <Predicate = true> <Delay = 0.00>
+ST_10 : Operation 118 [1/1] (0.00ns)   --->   "%zext_ln1895 = zext i7 %loop_3 to i15" [picnic_impl.c:1895]   --->   Operation 118 'zext' 'zext_ln1895' <Predicate = (!icmp_ln1894)> <Delay = 0.00>
+ST_10 : Operation 119 [1/1] (1.82ns)   --->   "%add_ln1895 = add i15 %phi_mul, %zext_ln1895" [picnic_impl.c:1895]   --->   Operation 119 'add' 'add_ln1895' <Predicate = (!icmp_ln1894)> <Delay = 1.82> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 120 [1/1] (0.00ns)   --->   "%zext_ln1895_4 = zext i15 %add_ln1895 to i64" [picnic_impl.c:1895]   --->   Operation 120 'zext' 'zext_ln1895_4' <Predicate = (!icmp_ln1894)> <Delay = 0.00>
+ST_10 : Operation 121 [1/1] (0.00ns)   --->   "%sig_0_proofs_commun_1 = getelementptr [16425 x i8]* %sig_0_proofs_commun, i64 0, i64 %zext_ln1895_4" [picnic_impl.c:1895]   --->   Operation 121 'getelementptr' 'sig_0_proofs_commun_1' <Predicate = (!icmp_ln1894)> <Delay = 0.00>
+ST_10 : Operation 122 [2/2] (2.77ns)   --->   "%sig_0_proofs_commun_2 = load i8* %sig_0_proofs_commun_1, align 1" [picnic_impl.c:1895]   --->   Operation 122 'load' 'sig_0_proofs_commun_2' <Predicate = (!icmp_ln1894)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 37336> <RAM>
+ST_10 : Operation 123 [1/1] (1.35ns)   --->   "br label %.preheader3" [picnic_impl.c:1899]   --->   Operation 123 'br' <Predicate = (icmp_ln1894)> <Delay = 1.35>
+
+State 11 <SV = 7> <Delay = 6.35>
+ST_11 : Operation 124 [1/1] (0.00ns)   --->   "%zext_ln1895_1 = zext i7 %loop_3 to i8" [picnic_impl.c:1895]   --->   Operation 124 'zext' 'zext_ln1895_1' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 125 [1/2] (2.77ns)   --->   "%sig_0_proofs_commun_2 = load i8* %sig_0_proofs_commun_1, align 1" [picnic_impl.c:1895]   --->   Operation 125 'load' 'sig_0_proofs_commun_2' <Predicate = true> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 37336> <RAM>
+ST_11 : Operation 126 [1/1] (1.71ns)   --->   "%add_ln1895_1 = add i8 %zext_ln1895_1, 119" [picnic_impl.c:1895]   --->   Operation 126 'add' 'add_ln1895_1' <Predicate = true> <Delay = 1.71> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 127 [1/1] (0.00ns)   --->   "%zext_ln1895_2 = zext i8 %add_ln1895_1 to i17" [picnic_impl.c:1895]   --->   Operation 127 'zext' 'zext_ln1895_2' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 128 [1/1] (1.86ns)   --->   "%add_ln1895_2 = add i17 %add_ln1884, %zext_ln1895_2" [picnic_impl.c:1895]   --->   Operation 128 'add' 'add_ln1895_2' <Predicate = true> <Delay = 1.86> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 129 [1/1] (0.00ns)   --->   "%zext_ln1895_3 = zext i17 %add_ln1895_2 to i64" [picnic_impl.c:1895]   --->   Operation 129 'zext' 'zext_ln1895_3' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 130 [1/1] (0.00ns)   --->   "%sigBytes_addr_3 = getelementptr [37336 x i8]* %sigBytes, i64 0, i64 %zext_ln1895_3" [picnic_impl.c:1895]   --->   Operation 130 'getelementptr' 'sigBytes_addr_3' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 131 [1/1] (2.77ns)   --->   "store i8 %sig_0_proofs_commun_2, i8* %sigBytes_addr_3, align 1" [picnic_impl.c:1895]   --->   Operation 131 'store' <Predicate = true> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 37336> <RAM>
+ST_11 : Operation 132 [1/1] (0.00ns)   --->   "br label %.preheader10" [picnic_impl.c:1894]   --->   Operation 132 'br' <Predicate = true> <Delay = 0.00>
+
+State 12 <SV = 7> <Delay = 4.55>
+ST_12 : Operation 133 [1/1] (0.00ns)   --->   "%loop_4 = phi i5 [ %loop_10, %6 ], [ 0, %.preheader3.preheader ]"   --->   Operation 133 'phi' 'loop_4' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 134 [1/1] (1.21ns)   --->   "%icmp_ln1899 = icmp eq i5 %loop_4, -16" [picnic_impl.c:1899]   --->   Operation 134 'icmp' 'icmp_ln1899' <Predicate = true> <Delay = 1.21> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.79> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 135 [1/1] (0.00ns)   --->   "%empty_44 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 0)"   --->   Operation 135 'speclooptripcount' 'empty_44' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 136 [1/1] (1.54ns)   --->   "%loop_10 = add i5 %loop_4, 1" [picnic_impl.c:1899]   --->   Operation 136 'add' 'loop_10' <Predicate = true> <Delay = 1.54> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 137 [1/1] (0.00ns)   --->   "br i1 %icmp_ln1899, label %.preheader2.preheader, label %6" [picnic_impl.c:1899]   --->   Operation 137 'br' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 138 [1/1] (0.00ns)   --->   "%zext_ln1900 = zext i5 %loop_4 to i13" [picnic_impl.c:1900]   --->   Operation 138 'zext' 'zext_ln1900' <Predicate = (!icmp_ln1899)> <Delay = 0.00>
+ST_12 : Operation 139 [1/1] (1.77ns)   --->   "%add_ln1900 = add i13 %zext_ln1884, %zext_ln1900" [picnic_impl.c:1900]   --->   Operation 139 'add' 'add_ln1900' <Predicate = (!icmp_ln1899)> <Delay = 1.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 140 [1/1] (0.00ns)   --->   "%zext_ln1900_4 = zext i13 %add_ln1900 to i64" [picnic_impl.c:1900]   --->   Operation 140 'zext' 'zext_ln1900_4' <Predicate = (!icmp_ln1899)> <Delay = 0.00>
+ST_12 : Operation 141 [1/1] (0.00ns)   --->   "%sig_0_proofs_seed1_s = getelementptr [3504 x i8]* %sig_0_proofs_seed1, i64 0, i64 %zext_ln1900_4" [picnic_impl.c:1900]   --->   Operation 141 'getelementptr' 'sig_0_proofs_seed1_s' <Predicate = (!icmp_ln1899)> <Delay = 0.00>
+ST_12 : Operation 142 [2/2] (2.77ns)   --->   "%sig_0_proofs_seed1_1 = load i8* %sig_0_proofs_seed1_s, align 1" [picnic_impl.c:1900]   --->   Operation 142 'load' 'sig_0_proofs_seed1_1' <Predicate = (!icmp_ln1899)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 37336> <RAM>
+ST_12 : Operation 143 [1/1] (1.35ns)   --->   "br label %.preheader2" [picnic_impl.c:1904]   --->   Operation 143 'br' <Predicate = (icmp_ln1899)> <Delay = 1.35>
+
+State 13 <SV = 8> <Delay = 6.29>
+ST_13 : Operation 144 [1/1] (0.00ns)   --->   "%zext_ln1900_1 = zext i5 %loop_4 to i7" [picnic_impl.c:1900]   --->   Operation 144 'zext' 'zext_ln1900_1' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 145 [1/2] (2.77ns)   --->   "%sig_0_proofs_seed1_1 = load i8* %sig_0_proofs_seed1_s, align 1" [picnic_impl.c:1900]   --->   Operation 145 'load' 'sig_0_proofs_seed1_1' <Predicate = true> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 37336> <RAM>
+ST_13 : Operation 146 [1/1] (1.66ns)   --->   "%add_ln1900_1 = add i7 %zext_ln1900_1, -62" [picnic_impl.c:1900]   --->   Operation 146 'add' 'add_ln1900_1' <Predicate = true> <Delay = 1.66> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 147 [1/1] (0.00ns)   --->   "%sext_ln1900 = sext i7 %add_ln1900_1 to i8" [picnic_impl.c:1900]   --->   Operation 147 'sext' 'sext_ln1900' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 148 [1/1] (0.00ns)   --->   "%zext_ln1900_2 = zext i8 %sext_ln1900 to i17" [picnic_impl.c:1900]   --->   Operation 148 'zext' 'zext_ln1900_2' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 149 [1/1] (1.86ns)   --->   "%add_ln1900_2 = add i17 %add_ln1884, %zext_ln1900_2" [picnic_impl.c:1900]   --->   Operation 149 'add' 'add_ln1900_2' <Predicate = true> <Delay = 1.86> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 150 [1/1] (0.00ns)   --->   "%zext_ln1900_3 = zext i17 %add_ln1900_2 to i64" [picnic_impl.c:1900]   --->   Operation 150 'zext' 'zext_ln1900_3' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 151 [1/1] (0.00ns)   --->   "%sigBytes_addr_4 = getelementptr [37336 x i8]* %sigBytes, i64 0, i64 %zext_ln1900_3" [picnic_impl.c:1900]   --->   Operation 151 'getelementptr' 'sigBytes_addr_4' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 152 [1/1] (2.77ns)   --->   "store i8 %sig_0_proofs_seed1_1, i8* %sigBytes_addr_4, align 1" [picnic_impl.c:1900]   --->   Operation 152 'store' <Predicate = true> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 37336> <RAM>
+ST_13 : Operation 153 [1/1] (0.00ns)   --->   "br label %.preheader3" [picnic_impl.c:1899]   --->   Operation 153 'br' <Predicate = true> <Delay = 0.00>
+
+State 14 <SV = 8> <Delay = 4.55>
+ST_14 : Operation 154 [1/1] (0.00ns)   --->   "%loop_5 = phi i5 [ %loop_11, %7 ], [ 0, %.preheader2.preheader ]"   --->   Operation 154 'phi' 'loop_5' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 155 [1/1] (1.21ns)   --->   "%icmp_ln1904 = icmp eq i5 %loop_5, -16" [picnic_impl.c:1904]   --->   Operation 155 'icmp' 'icmp_ln1904' <Predicate = true> <Delay = 1.21> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.79> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 156 [1/1] (0.00ns)   --->   "%empty_45 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 16, i64 16, i64 0)"   --->   Operation 156 'speclooptripcount' 'empty_45' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 157 [1/1] (1.54ns)   --->   "%loop_11 = add i5 %loop_5, 1" [picnic_impl.c:1904]   --->   Operation 157 'add' 'loop_11' <Predicate = true> <Delay = 1.54> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 158 [1/1] (0.00ns)   --->   "br i1 %icmp_ln1904, label %8, label %7" [picnic_impl.c:1904]   --->   Operation 158 'br' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 159 [1/1] (0.00ns)   --->   "%zext_ln1905 = zext i5 %loop_5 to i13" [picnic_impl.c:1905]   --->   Operation 159 'zext' 'zext_ln1905' <Predicate = (!icmp_ln1904)> <Delay = 0.00>
+ST_14 : Operation 160 [1/1] (1.77ns)   --->   "%add_ln1905 = add i13 %zext_ln1884, %zext_ln1905" [picnic_impl.c:1905]   --->   Operation 160 'add' 'add_ln1905' <Predicate = (!icmp_ln1904)> <Delay = 1.77> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 161 [1/1] (0.00ns)   --->   "%zext_ln1905_4 = zext i13 %add_ln1905 to i64" [picnic_impl.c:1905]   --->   Operation 161 'zext' 'zext_ln1905_4' <Predicate = (!icmp_ln1904)> <Delay = 0.00>
+ST_14 : Operation 162 [1/1] (0.00ns)   --->   "%sig_0_proofs_seed2_s = getelementptr [3504 x i8]* %sig_0_proofs_seed2, i64 0, i64 %zext_ln1905_4" [picnic_impl.c:1905]   --->   Operation 162 'getelementptr' 'sig_0_proofs_seed2_s' <Predicate = (!icmp_ln1904)> <Delay = 0.00>
+ST_14 : Operation 163 [1/1] (0.00ns)   --->   "%zext_ln1905_1 = zext i5 %loop_5 to i7" [picnic_impl.c:1905]   --->   Operation 163 'zext' 'zext_ln1905_1' <Predicate = (!icmp_ln1904)> <Delay = 0.00>
+ST_14 : Operation 164 [2/2] (2.77ns)   --->   "%sig_0_proofs_seed2_1 = load i8* %sig_0_proofs_seed2_s, align 1" [picnic_impl.c:1905]   --->   Operation 164 'load' 'sig_0_proofs_seed2_1' <Predicate = (!icmp_ln1904)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 37336> <RAM>
+ST_14 : Operation 165 [1/1] (1.66ns)   --->   "%add_ln1905_1 = add i7 %zext_ln1905_1, -46" [picnic_impl.c:1905]   --->   Operation 165 'add' 'add_ln1905_1' <Predicate = (!icmp_ln1904)> <Delay = 1.66> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 166 [1/1] (0.00ns)   --->   "%sext_ln1905 = sext i7 %add_ln1905_1 to i8" [picnic_impl.c:1905]   --->   Operation 166 'sext' 'sext_ln1905' <Predicate = (!icmp_ln1904)> <Delay = 0.00>
+ST_14 : Operation 167 [1/1] (0.00ns)   --->   "%zext_ln1905_2 = zext i8 %sext_ln1905 to i17" [picnic_impl.c:1905]   --->   Operation 167 'zext' 'zext_ln1905_2' <Predicate = (!icmp_ln1904)> <Delay = 0.00>
+ST_14 : Operation 168 [1/1] (1.86ns)   --->   "%add_ln1905_2 = add i17 %add_ln1884, %zext_ln1905_2" [picnic_impl.c:1905]   --->   Operation 168 'add' 'add_ln1905_2' <Predicate = (!icmp_ln1904)> <Delay = 1.86> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 169 [1/1] (1.20ns)   --->   "%add_ln1909 = add i3 %zext_ln386, -1" [picnic_impl.c:1909]   --->   Operation 169 'add' 'add_ln1909' <Predicate = (icmp_ln1904)> <Delay = 1.20> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 170 [1/1] (0.00ns)   --->   "%tmp_16 = call i2 @_ssdm_op_PartSelect.i2.i3.i32.i32(i3 %add_ln1909, i32 1, i32 2)" [picnic_impl.c:1909]   --->   Operation 170 'partselect' 'tmp_16' <Predicate = (icmp_ln1904)> <Delay = 0.00>
+ST_14 : Operation 171 [1/1] (0.79ns)   --->   "%icmp_ln1909 = icmp eq i2 %tmp_16, 0" [picnic_impl.c:1909]   --->   Operation 171 'icmp' 'icmp_ln1909' <Predicate = (icmp_ln1904)> <Delay = 0.79> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 0.79> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 172 [1/1] (1.35ns)   --->   "br i1 %icmp_ln1909, label %.preheader.preheader, label %._crit_edge23" [picnic_impl.c:1909]   --->   Operation 172 'br' <Predicate = (icmp_ln1904)> <Delay = 1.35>
+ST_14 : Operation 173 [1/1] (1.84ns)   --->   "%add_ln1913 = add i16 %p_01_rec, 226" [picnic_impl.c:1913]   --->   Operation 173 'add' 'add_ln1913' <Predicate = (icmp_ln1904 & icmp_ln1909)> <Delay = 1.84> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 174 [1/1] (1.35ns)   --->   "br label %.preheader" [picnic_impl.c:1911]   --->   Operation 174 'br' <Predicate = (icmp_ln1904 & icmp_ln1909)> <Delay = 1.35>
+
+State 15 <SV = 9> <Delay = 5.54>
+ST_15 : Operation 175 [1/2] (2.77ns)   --->   "%sig_0_proofs_seed2_1 = load i8* %sig_0_proofs_seed2_s, align 1" [picnic_impl.c:1905]   --->   Operation 175 'load' 'sig_0_proofs_seed2_1' <Predicate = true> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 37336> <RAM>
+ST_15 : Operation 176 [1/1] (0.00ns)   --->   "%zext_ln1905_3 = zext i17 %add_ln1905_2 to i64" [picnic_impl.c:1905]   --->   Operation 176 'zext' 'zext_ln1905_3' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 177 [1/1] (0.00ns)   --->   "%sigBytes_addr_5 = getelementptr [37336 x i8]* %sigBytes, i64 0, i64 %zext_ln1905_3" [picnic_impl.c:1905]   --->   Operation 177 'getelementptr' 'sigBytes_addr_5' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 178 [1/1] (2.77ns)   --->   "store i8 %sig_0_proofs_seed2_1, i8* %sigBytes_addr_5, align 1" [picnic_impl.c:1905]   --->   Operation 178 'store' <Predicate = true> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 37336> <RAM>
+ST_15 : Operation 179 [1/1] (0.00ns)   --->   "br label %.preheader2" [picnic_impl.c:1904]   --->   Operation 179 'br' <Predicate = true> <Delay = 0.00>
+
+State 16 <SV = 9> <Delay = 2.77>
+ST_16 : Operation 180 [1/1] (0.00ns)   --->   "%loop_6 = phi i5 [ %loop_12, %9 ], [ 0, %.preheader.preheader ]"   --->   Operation 180 'phi' 'loop_6' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 181 [1/1] (0.00ns)   --->   "%tmp_17 = call i1 @_ssdm_op_BitSelect.i1.i5.i32(i5 %loop_6, i32 4)" [picnic_impl.c:1911]   --->   Operation 181 'bitselect' 'tmp_17' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 182 [1/1] (0.00ns)   --->   "%empty_46 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 4, i64 4, i64 4)"   --->   Operation 182 'speclooptripcount' 'empty_46' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 183 [1/1] (0.00ns)   --->   "br i1 %tmp_17, label %._crit_edge23.loopexit, label %9" [picnic_impl.c:1911]   --->   Operation 183 'br' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 184 [1/1] (0.00ns)   --->   "%trunc_ln7 = call i2 @_ssdm_op_PartSelect.i2.i5.i32.i32(i5 %loop_6, i32 2, i32 3)" [picnic_impl.c:1912]   --->   Operation 184 'partselect' 'trunc_ln7' <Predicate = (!tmp_17)> <Delay = 0.00>
+ST_16 : Operation 185 [1/1] (0.00ns)   --->   "%tmp_15 = call i10 @_ssdm_op_BitConcatenate.i10.i8.i2(i8 %round_assign, i2 %trunc_ln7)" [picnic_impl.c:1912]   --->   Operation 185 'bitconcatenate' 'tmp_15' <Predicate = (!tmp_17)> <Delay = 0.00>
+ST_16 : Operation 186 [1/1] (0.00ns)   --->   "%zext_ln1912 = zext i10 %tmp_15 to i64" [picnic_impl.c:1912]   --->   Operation 186 'zext' 'zext_ln1912' <Predicate = (!tmp_17)> <Delay = 0.00>
+ST_16 : Operation 187 [1/1] (0.00ns)   --->   "%sig_0_proofs_inputS_1 = getelementptr [876 x i32]* %sig_0_proofs_inputS, i64 0, i64 %zext_ln1912" [picnic_impl.c:1912]   --->   Operation 187 'getelementptr' 'sig_0_proofs_inputS_1' <Predicate = (!tmp_17)> <Delay = 0.00>
+ST_16 : Operation 188 [2/2] (2.77ns)   --->   "%temp = load i32* %sig_0_proofs_inputS_1, align 4" [picnic_impl.c:1912]   --->   Operation 188 'load' 'temp' <Predicate = (!tmp_17)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 37336> <RAM>
+ST_16 : Operation 189 [1/1] (1.35ns)   --->   "br label %._crit_edge23"   --->   Operation 189 'br' <Predicate = (tmp_17)> <Delay = 1.35>
+
+State 17 <SV = 10> <Delay = 6.47>
+ST_17 : Operation 190 [1/2] (2.77ns)   --->   "%temp = load i32* %sig_0_proofs_inputS_1, align 4" [picnic_impl.c:1912]   --->   Operation 190 'load' 'temp' <Predicate = true> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 37336> <RAM>
+ST_17 : Operation 191 [1/1] (0.00ns)   --->   "%trunc_ln1913 = trunc i32 %temp to i8" [picnic_impl.c:1913]   --->   Operation 191 'trunc' 'trunc_ln1913' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 192 [1/1] (0.00ns)   --->   "%zext_ln1913 = zext i5 %loop_6 to i16" [picnic_impl.c:1913]   --->   Operation 192 'zext' 'zext_ln1913' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 193 [1/1] (1.84ns)   --->   "%add_ln1913_1 = add i16 %add_ln1913, %zext_ln1913" [picnic_impl.c:1913]   --->   Operation 193 'add' 'add_ln1913_1' <Predicate = true> <Delay = 1.84> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 194 [1/1] (0.00ns)   --->   "%zext_ln1913_1 = zext i16 %add_ln1913_1 to i17" [picnic_impl.c:1913]   --->   Operation 194 'zext' 'zext_ln1913_1' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 195 [1/1] (1.86ns)   --->   "%add_ln1913_2 = add i17 %zext_ln1913_1, %trunc_ln1870" [picnic_impl.c:1913]   --->   Operation 195 'add' 'add_ln1913_2' <Predicate = true> <Delay = 1.86> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 196 [1/1] (0.00ns)   --->   "%zext_ln1913_2 = zext i17 %add_ln1913_2 to i64" [picnic_impl.c:1913]   --->   Operation 196 'zext' 'zext_ln1913_2' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 197 [1/1] (0.00ns)   --->   "%sigBytes_addr_6 = getelementptr [37336 x i8]* %sigBytes, i64 0, i64 %zext_ln1913_2" [picnic_impl.c:1913]   --->   Operation 197 'getelementptr' 'sigBytes_addr_6' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 198 [1/1] (2.77ns)   --->   "store i8 %trunc_ln1913, i8* %sigBytes_addr_6, align 1" [picnic_impl.c:1913]   --->   Operation 198 'store' <Predicate = true> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 37336> <RAM>
+ST_17 : Operation 199 [1/1] (0.00ns)   --->   "%trunc_ln9 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %temp, i32 8, i32 15)" [picnic_impl.c:1915]   --->   Operation 199 'partselect' 'trunc_ln9' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 200 [1/1] (0.00ns)   --->   "%trunc_ln1911 = trunc i5 %loop_6 to i4" [picnic_impl.c:1911]   --->   Operation 200 'trunc' 'trunc_ln1911' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 201 [1/1] (0.00ns)   --->   "%trunc_ln = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %temp, i32 16, i32 23)" [picnic_impl.c:1917]   --->   Operation 201 'partselect' 'trunc_ln' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 202 [1/1] (0.00ns)   --->   "%trunc_ln1 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %temp, i32 24, i32 31)" [picnic_impl.c:1919]   --->   Operation 202 'partselect' 'trunc_ln1' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 203 [1/1] (1.54ns)   --->   "%loop_12 = add i5 4, %loop_6" [picnic_impl.c:1911]   --->   Operation 203 'add' 'loop_12' <Predicate = true> <Delay = 1.54> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 18 <SV = 11> <Delay = 6.47>
+ST_18 : Operation 204 [1/1] (0.00ns) (grouped into LUT with out node add_ln1915)   --->   "%or_ln1915 = or i4 %trunc_ln1911, 1" [picnic_impl.c:1915]   --->   Operation 204 'or' 'or_ln1915' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 205 [1/1] (0.00ns) (grouped into LUT with out node add_ln1915)   --->   "%zext_ln1915 = zext i4 %or_ln1915 to i16" [picnic_impl.c:1915]   --->   Operation 205 'zext' 'zext_ln1915' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 206 [1/1] (1.84ns) (out node of the LUT)   --->   "%add_ln1915 = add i16 %add_ln1913, %zext_ln1915" [picnic_impl.c:1915]   --->   Operation 206 'add' 'add_ln1915' <Predicate = true> <Delay = 1.84> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 207 [1/1] (0.00ns)   --->   "%zext_ln1915_1 = zext i16 %add_ln1915 to i17" [picnic_impl.c:1915]   --->   Operation 207 'zext' 'zext_ln1915_1' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 208 [1/1] (1.86ns)   --->   "%add_ln1915_1 = add i17 %zext_ln1915_1, %trunc_ln1870" [picnic_impl.c:1915]   --->   Operation 208 'add' 'add_ln1915_1' <Predicate = true> <Delay = 1.86> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 209 [1/1] (0.00ns)   --->   "%zext_ln1915_2 = zext i17 %add_ln1915_1 to i64" [picnic_impl.c:1915]   --->   Operation 209 'zext' 'zext_ln1915_2' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 210 [1/1] (0.00ns)   --->   "%sigBytes_addr_7 = getelementptr [37336 x i8]* %sigBytes, i64 0, i64 %zext_ln1915_2" [picnic_impl.c:1915]   --->   Operation 210 'getelementptr' 'sigBytes_addr_7' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 211 [1/1] (2.77ns)   --->   "store i8 %trunc_ln9, i8* %sigBytes_addr_7, align 1" [picnic_impl.c:1915]   --->   Operation 211 'store' <Predicate = true> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 37336> <RAM>
+ST_18 : Operation 212 [1/1] (0.00ns) (grouped into LUT with out node add_ln1917)   --->   "%or_ln1917 = or i4 %trunc_ln1911, 2" [picnic_impl.c:1917]   --->   Operation 212 'or' 'or_ln1917' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 213 [1/1] (0.00ns) (grouped into LUT with out node add_ln1917)   --->   "%zext_ln1917 = zext i4 %or_ln1917 to i16" [picnic_impl.c:1917]   --->   Operation 213 'zext' 'zext_ln1917' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 214 [1/1] (1.84ns) (out node of the LUT)   --->   "%add_ln1917 = add i16 %add_ln1913, %zext_ln1917" [picnic_impl.c:1917]   --->   Operation 214 'add' 'add_ln1917' <Predicate = true> <Delay = 1.84> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 215 [1/1] (0.00ns)   --->   "%zext_ln1917_1 = zext i16 %add_ln1917 to i17" [picnic_impl.c:1917]   --->   Operation 215 'zext' 'zext_ln1917_1' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 216 [1/1] (1.86ns)   --->   "%add_ln1917_1 = add i17 %zext_ln1917_1, %trunc_ln1870" [picnic_impl.c:1917]   --->   Operation 216 'add' 'add_ln1917_1' <Predicate = true> <Delay = 1.86> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 217 [1/1] (0.00ns) (grouped into LUT with out node add_ln1919)   --->   "%or_ln1919 = or i4 %trunc_ln1911, 3" [picnic_impl.c:1919]   --->   Operation 217 'or' 'or_ln1919' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 218 [1/1] (0.00ns) (grouped into LUT with out node add_ln1919)   --->   "%zext_ln1919 = zext i4 %or_ln1919 to i16" [picnic_impl.c:1919]   --->   Operation 218 'zext' 'zext_ln1919' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 219 [1/1] (1.84ns) (out node of the LUT)   --->   "%add_ln1919 = add i16 %add_ln1913, %zext_ln1919" [picnic_impl.c:1919]   --->   Operation 219 'add' 'add_ln1919' <Predicate = true> <Delay = 1.84> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 220 [1/1] (0.00ns)   --->   "%zext_ln1919_1 = zext i16 %add_ln1919 to i17" [picnic_impl.c:1919]   --->   Operation 220 'zext' 'zext_ln1919_1' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 221 [1/1] (1.86ns)   --->   "%add_ln1919_1 = add i17 %zext_ln1919_1, %trunc_ln1870" [picnic_impl.c:1919]   --->   Operation 221 'add' 'add_ln1919_1' <Predicate = true> <Delay = 1.86> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 19 <SV = 12> <Delay = 2.77>
+ST_19 : Operation 222 [1/1] (0.00ns)   --->   "%zext_ln1917_2 = zext i17 %add_ln1917_1 to i64" [picnic_impl.c:1917]   --->   Operation 222 'zext' 'zext_ln1917_2' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 223 [1/1] (0.00ns)   --->   "%sigBytes_addr_8 = getelementptr [37336 x i8]* %sigBytes, i64 0, i64 %zext_ln1917_2" [picnic_impl.c:1917]   --->   Operation 223 'getelementptr' 'sigBytes_addr_8' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 224 [1/1] (2.77ns)   --->   "store i8 %trunc_ln, i8* %sigBytes_addr_8, align 1" [picnic_impl.c:1917]   --->   Operation 224 'store' <Predicate = true> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 37336> <RAM>
+
+State 20 <SV = 13> <Delay = 2.77>
+ST_20 : Operation 225 [1/1] (0.00ns)   --->   "%zext_ln1919_2 = zext i17 %add_ln1919_1 to i64" [picnic_impl.c:1919]   --->   Operation 225 'zext' 'zext_ln1919_2' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 226 [1/1] (0.00ns)   --->   "%sigBytes_addr_9 = getelementptr [37336 x i8]* %sigBytes, i64 0, i64 %zext_ln1919_2" [picnic_impl.c:1919]   --->   Operation 226 'getelementptr' 'sigBytes_addr_9' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 227 [1/1] (2.77ns)   --->   "store i8 %trunc_ln1, i8* %sigBytes_addr_9, align 1" [picnic_impl.c:1919]   --->   Operation 227 'store' <Predicate = true> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 8> <Depth = 37336> <RAM>
+ST_20 : Operation 228 [1/1] (0.00ns)   --->   "br label %.preheader" [picnic_impl.c:1911]   --->   Operation 228 'br' <Predicate = true> <Delay = 0.00>
+
+State 21 <SV = 10> <Delay = 1.84>
+ST_21 : Operation 229 [1/1] (0.00ns) (grouped into LUT with out node add_ln1922)   --->   "%p_sum5_pn = phi i8 [ -117, %8 ], [ -101, %._crit_edge23.loopexit ]"   --->   Operation 229 'phi' 'p_sum5_pn' <Predicate = true> <Delay = 0.00>
+ST_21 : Operation 230 [1/1] (0.00ns) (grouped into LUT with out node add_ln1922)   --->   "%zext_ln1922 = zext i8 %p_sum5_pn to i16" [picnic_impl.c:1922]   --->   Operation 230 'zext' 'zext_ln1922' <Predicate = true> <Delay = 0.00>
+ST_21 : Operation 231 [1/1] (1.84ns) (out node of the LUT)   --->   "%add_ln1922 = add i16 %zext_ln1922, %p_01_rec" [picnic_impl.c:1922]   --->   Operation 231 'add' 'add_ln1922' <Predicate = true> <Delay = 1.84> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.84> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 232 [1/1] (0.00ns)   --->   "br label %.preheader11" [picnic_impl.c:1878]   --->   Operation 232 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.35ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('loop') with incoming values : ('loop', picnic_impl.c:1869) [14]  (1.35 ns)
+
+ <State 2>: 1.75ns
+The critical path consists of the following:
+	'phi' operation ('loop') with incoming values : ('loop', picnic_impl.c:1869) [14]  (0 ns)
+	'getelementptr' operation ('sig_0_challengeBits_3', picnic_impl.c:1870) [22]  (0 ns)
+	'load' operation ('sig_0_challengeBits_4', picnic_impl.c:1870) on array 'sig_0_challengeBits' [23]  (1.75 ns)
+
+ <State 3>: 4.63ns
+The critical path consists of the following:
+	'add' operation ('add_ln1870', picnic_impl.c:1870) [24]  (1.86 ns)
+	'getelementptr' operation ('sigBytes_addr', picnic_impl.c:1870) [26]  (0 ns)
+	'store' operation ('store_ln1870', picnic_impl.c:1870) of variable 'sig_0_challengeBits_4', picnic_impl.c:1870 on array 'sigBytes' [27]  (2.77 ns)
+
+ <State 4>: 1.75ns
+The critical path consists of the following:
+	'phi' operation ('loop') with incoming values : ('loop', picnic_impl.c:1874) [32]  (0 ns)
+	'getelementptr' operation ('sig_0_salt_addr', picnic_impl.c:1875) [40]  (0 ns)
+	'load' operation ('sig_0_salt_load', picnic_impl.c:1875) on array 'sig_0_salt' [41]  (1.75 ns)
+
+ <State 5>: 6.3ns
+The critical path consists of the following:
+	'add' operation ('add_ln1875', picnic_impl.c:1875) [42]  (1.66 ns)
+	'add' operation ('add_ln1875_1', picnic_impl.c:1875) [44]  (1.86 ns)
+	'getelementptr' operation ('sigBytes_addr_1', picnic_impl.c:1875) [46]  (0 ns)
+	'store' operation ('store_ln1875', picnic_impl.c:1875) of variable 'sig_0_salt_load', picnic_impl.c:1875 on array 'sigBytes' [47]  (2.77 ns)
+
+ <State 6>: 1.84ns
+The critical path consists of the following:
+	'phi' operation ('p_01_rec', picnic_impl.c:1922) with incoming values : ('add_ln1922', picnic_impl.c:1922) [52]  (0 ns)
+	'add' operation ('add_ln1928', picnic_impl.c:1928) [237]  (1.84 ns)
+
+ <State 7>: 4.18ns
+The critical path consists of the following:
+	'load' operation ('sig_0_challengeBits_6', picnic_impl.c:54->picnic_impl.c:386->picnic_impl.c:1880) on array 'sig_0_challengeBits' [70]  (1.75 ns)
+	'lshr' operation ('lshr_ln54', picnic_impl.c:54->picnic_impl.c:386->picnic_impl.c:1880) [73]  (2.42 ns)
+
+ <State 8>: 4.57ns
+The critical path consists of the following:
+	'phi' operation ('loop') with incoming values : ('loop', picnic_impl.c:1883) [85]  (0 ns)
+	'add' operation ('add_ln1884_3', picnic_impl.c:1884) [92]  (1.79 ns)
+	'getelementptr' operation ('sig_0_proofs_view3C_1', picnic_impl.c:1884) [94]  (0 ns)
+	'load' operation ('sig_0_proofs_view3C_2', picnic_impl.c:1884) on array 'sig_0_proofs_view3C' [96]  (2.77 ns)
+
+ <State 9>: 6.3ns
+The critical path consists of the following:
+	'add' operation ('add_ln1884_2', picnic_impl.c:1884) [97]  (1.66 ns)
+	'add' operation ('add_ln1884_1', picnic_impl.c:1884) [99]  (1.86 ns)
+	'getelementptr' operation ('sigBytes_addr_2', picnic_impl.c:1884) [101]  (0 ns)
+	'store' operation ('store_ln1884', picnic_impl.c:1884) of variable 'sig_0_proofs_view3C_2', picnic_impl.c:1884 on array 'sigBytes' [102]  (2.77 ns)
+
+ <State 10>: 4.6ns
+The critical path consists of the following:
+	'phi' operation ('loop') with incoming values : ('loop', picnic_impl.c:1894) [107]  (0 ns)
+	'add' operation ('add_ln1895', picnic_impl.c:1895) [114]  (1.82 ns)
+	'getelementptr' operation ('sig_0_proofs_commun_1', picnic_impl.c:1895) [116]  (0 ns)
+	'load' operation ('sig_0_proofs_commun_2', picnic_impl.c:1895) on array 'sig_0_proofs_commun' [118]  (2.77 ns)
+
+ <State 11>: 6.35ns
+The critical path consists of the following:
+	'add' operation ('add_ln1895_1', picnic_impl.c:1895) [119]  (1.72 ns)
+	'add' operation ('add_ln1895_2', picnic_impl.c:1895) [121]  (1.86 ns)
+	'getelementptr' operation ('sigBytes_addr_3', picnic_impl.c:1895) [123]  (0 ns)
+	'store' operation ('store_ln1895', picnic_impl.c:1895) of variable 'sig_0_proofs_commun_2', picnic_impl.c:1895 on array 'sigBytes' [124]  (2.77 ns)
+
+ <State 12>: 4.55ns
+The critical path consists of the following:
+	'phi' operation ('loop') with incoming values : ('loop', picnic_impl.c:1899) [129]  (0 ns)
+	'add' operation ('add_ln1900', picnic_impl.c:1900) [136]  (1.78 ns)
+	'getelementptr' operation ('sig_0_proofs_seed1_s', picnic_impl.c:1900) [138]  (0 ns)
+	'load' operation ('sig_0_proofs_seed1_1', picnic_impl.c:1900) on array 'sig_0_proofs_seed1' [140]  (2.77 ns)
+
+ <State 13>: 6.3ns
+The critical path consists of the following:
+	'add' operation ('add_ln1900_1', picnic_impl.c:1900) [141]  (1.66 ns)
+	'add' operation ('add_ln1900_2', picnic_impl.c:1900) [144]  (1.86 ns)
+	'getelementptr' operation ('sigBytes_addr_4', picnic_impl.c:1900) [146]  (0 ns)
+	'store' operation ('store_ln1900', picnic_impl.c:1900) of variable 'sig_0_proofs_seed1_1', picnic_impl.c:1900 on array 'sigBytes' [147]  (2.77 ns)
+
+ <State 14>: 4.55ns
+The critical path consists of the following:
+	'phi' operation ('loop') with incoming values : ('loop', picnic_impl.c:1904) [152]  (0 ns)
+	'add' operation ('add_ln1905', picnic_impl.c:1905) [159]  (1.78 ns)
+	'getelementptr' operation ('sig_0_proofs_seed2_s', picnic_impl.c:1905) [161]  (0 ns)
+	'load' operation ('sig_0_proofs_seed2_1', picnic_impl.c:1905) on array 'sig_0_proofs_seed2' [163]  (2.77 ns)
+
+ <State 15>: 5.54ns
+The critical path consists of the following:
+	'load' operation ('sig_0_proofs_seed2_1', picnic_impl.c:1905) on array 'sig_0_proofs_seed2' [163]  (2.77 ns)
+	'store' operation ('store_ln1905', picnic_impl.c:1905) of variable 'sig_0_proofs_seed2_1', picnic_impl.c:1905 on array 'sigBytes' [170]  (2.77 ns)
+
+ <State 16>: 2.77ns
+The critical path consists of the following:
+	'phi' operation ('loop') with incoming values : ('loop', picnic_impl.c:1911) [181]  (0 ns)
+	'getelementptr' operation ('sig_0_proofs_inputS_1', picnic_impl.c:1912) [189]  (0 ns)
+	'load' operation ('temp', picnic_impl.c:1912) on array 'sig_0_proofs_inputS' [190]  (2.77 ns)
+
+ <State 17>: 6.47ns
+The critical path consists of the following:
+	'add' operation ('add_ln1913_1', picnic_impl.c:1913) [193]  (1.84 ns)
+	'add' operation ('add_ln1913_2', picnic_impl.c:1913) [195]  (1.86 ns)
+	'getelementptr' operation ('sigBytes_addr_6', picnic_impl.c:1913) [197]  (0 ns)
+	'store' operation ('store_ln1913', picnic_impl.c:1913) of variable 'trunc_ln1913', picnic_impl.c:1913 on array 'sigBytes' [198]  (2.77 ns)
+
+ <State 18>: 6.47ns
+The critical path consists of the following:
+	'or' operation ('or_ln1915', picnic_impl.c:1915) [201]  (0 ns)
+	'add' operation ('add_ln1915', picnic_impl.c:1915) [203]  (1.84 ns)
+	'add' operation ('add_ln1915_1', picnic_impl.c:1915) [205]  (1.86 ns)
+	'getelementptr' operation ('sigBytes_addr_7', picnic_impl.c:1915) [207]  (0 ns)
+	'store' operation ('store_ln1915', picnic_impl.c:1915) of variable 'trunc_ln9', picnic_impl.c:1915 on array 'sigBytes' [208]  (2.77 ns)
+
+ <State 19>: 2.77ns
+The critical path consists of the following:
+	'getelementptr' operation ('sigBytes_addr_8', picnic_impl.c:1917) [216]  (0 ns)
+	'store' operation ('store_ln1917', picnic_impl.c:1917) of variable 'trunc_ln', picnic_impl.c:1917 on array 'sigBytes' [217]  (2.77 ns)
+
+ <State 20>: 2.77ns
+The critical path consists of the following:
+	'getelementptr' operation ('sigBytes_addr_9', picnic_impl.c:1919) [225]  (0 ns)
+	'store' operation ('store_ln1919', picnic_impl.c:1919) of variable 'trunc_ln1', picnic_impl.c:1919 on array 'sigBytes' [226]  (2.77 ns)
+
+ <State 21>: 1.84ns
+The critical path consists of the following:
+	'phi' operation ('p_sum5_pn') [232]  (0 ns)
+	'add' operation ('add_ln1922', picnic_impl.c:1922) [234]  (1.84 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

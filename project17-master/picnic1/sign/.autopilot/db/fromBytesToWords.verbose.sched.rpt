@@ -1,0 +1,191 @@
+
+
+================================================================
+== Vivado HLS Report for 'fromBytesToWords'
+================================================================
+* Date:           Thu May 14 18:40:24 2020
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        picnic1
+* Solution:       sign
+* Product family: artix7
+* Target device:  xc7a200t-fbg676-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 7.966 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |      476|      476| 4.760 us | 4.760 us |  476|  476|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-----------------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                             |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |          Loop Name          |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-----------------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- Loop 1                     |      475|      475|        19|          -|          -|    25|    no    |
+        | + fromBytesToWords_label13  |       16|       16|         2|          2|          1|     8|    yes   |
+        +-----------------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 1
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 2, depth = 2
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 5
+* Pipeline : 1
+  Pipeline-0 : II = 2, D = 2, States = { 3 4 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 5 4 
+4 --> 3 
+5 --> 2 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.35>
+ST_1 : Operation 6 [1/1] (1.35ns)   --->   "br label %.loopexit" [sha3/KeccakP-1600-reference.c:269]   --->   Operation 6 'br' <Predicate = true> <Delay = 1.35>
+
+State 2 <SV = 1> <Delay = 2.77>
+ST_2 : Operation 7 [1/1] (0.00ns)   --->   "%i_0 = phi i5 [ 0, %0 ], [ %i, %.loopexit.loopexit ]"   --->   Operation 7 'phi' 'i_0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 8 [1/1] (1.21ns)   --->   "%icmp_ln269 = icmp eq i5 %i_0, -7" [sha3/KeccakP-1600-reference.c:269]   --->   Operation 8 'icmp' 'icmp_ln269' <Predicate = true> <Delay = 1.21> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.21> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 9 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 25, i64 25, i64 25)"   --->   Operation 9 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 10 [1/1] (1.54ns)   --->   "%i = add i5 %i_0, 1" [sha3/KeccakP-1600-reference.c:269]   --->   Operation 10 'add' 'i' <Predicate = true> <Delay = 1.54> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 11 [1/1] (0.00ns)   --->   "br i1 %icmp_ln269, label %3, label %1" [sha3/KeccakP-1600-reference.c:269]   --->   Operation 11 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 12 [1/1] (0.00ns)   --->   "%zext_ln270 = zext i5 %i_0 to i64" [sha3/KeccakP-1600-reference.c:270]   --->   Operation 12 'zext' 'zext_ln270' <Predicate = (!icmp_ln269)> <Delay = 0.00>
+ST_2 : Operation 13 [1/1] (0.00ns)   --->   "%stateAsWords_addr = getelementptr [25 x i64]* %stateAsWords, i64 0, i64 %zext_ln270" [sha3/KeccakP-1600-reference.c:270]   --->   Operation 13 'getelementptr' 'stateAsWords_addr' <Predicate = (!icmp_ln269)> <Delay = 0.00>
+ST_2 : Operation 14 [1/1] (2.77ns)   --->   "store i64 0, i64* %stateAsWords_addr, align 8" [sha3/KeccakP-1600-reference.c:270]   --->   Operation 14 'store' <Predicate = (!icmp_ln269)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 25> <RAM>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%shl_ln272_1 = call i8 @_ssdm_op_BitConcatenate.i8.i5.i3(i5 %i_0, i3 0)" [sha3/KeccakP-1600-reference.c:272]   --->   Operation 15 'bitconcatenate' 'shl_ln272_1' <Predicate = (!icmp_ln269)> <Delay = 0.00>
+ST_2 : Operation 16 [1/1] (1.35ns)   --->   "br label %2" [sha3/KeccakP-1600-reference.c:271]   --->   Operation 16 'br' <Predicate = (!icmp_ln269)> <Delay = 1.35>
+ST_2 : Operation 17 [1/1] (0.00ns)   --->   "ret void" [sha3/KeccakP-1600-reference.c:274]   --->   Operation 17 'ret' <Predicate = (icmp_ln269)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 4.49>
+ST_3 : Operation 18 [1/1] (0.00ns)   --->   "%j_0 = phi i4 [ 0, %1 ], [ %j, %fromBytesToWords_label13 ]"   --->   Operation 18 'phi' 'j_0' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 19 [1/1] (1.21ns)   --->   "%icmp_ln271 = icmp eq i4 %j_0, -8" [sha3/KeccakP-1600-reference.c:271]   --->   Operation 19 'icmp' 'icmp_ln271' <Predicate = true> <Delay = 1.21> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.21> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 20 [1/1] (0.00ns)   --->   "%empty_83 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 8, i64 8, i64 8)"   --->   Operation 20 'speclooptripcount' 'empty_83' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 21 [1/1] (1.49ns)   --->   "%j = add i4 %j_0, 1" [sha3/KeccakP-1600-reference.c:271]   --->   Operation 21 'add' 'j' <Predicate = true> <Delay = 1.49> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 22 [1/1] (0.00ns)   --->   "br i1 %icmp_ln271, label %.loopexit.loopexit, label %fromBytesToWords_label13" [sha3/KeccakP-1600-reference.c:271]   --->   Operation 22 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 23 [1/1] (0.00ns)   --->   "%zext_ln271 = zext i4 %j_0 to i8" [sha3/KeccakP-1600-reference.c:271]   --->   Operation 23 'zext' 'zext_ln271' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_3 : Operation 24 [1/1] (1.71ns)   --->   "%add_ln272 = add i8 %shl_ln272_1, %zext_ln271" [sha3/KeccakP-1600-reference.c:272]   --->   Operation 24 'add' 'add_ln272' <Predicate = (!icmp_ln271)> <Delay = 1.71> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.54> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%zext_ln272 = zext i8 %add_ln272 to i64" [sha3/KeccakP-1600-reference.c:272]   --->   Operation 25 'zext' 'zext_ln272' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_3 : Operation 26 [1/1] (0.00ns)   --->   "%state_addr = getelementptr [200 x i8]* %state, i64 0, i64 %zext_ln272" [sha3/KeccakP-1600-reference.c:272]   --->   Operation 26 'getelementptr' 'state_addr' <Predicate = (!icmp_ln271)> <Delay = 0.00>
+ST_3 : Operation 27 [2/2] (2.77ns)   --->   "%state_load = load i8* %state_addr, align 1" [sha3/KeccakP-1600-reference.c:272]   --->   Operation 27 'load' 'state_load' <Predicate = (!icmp_ln271)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 25> <RAM>
+ST_3 : Operation 28 [2/2] (2.77ns)   --->   "%stateAsWords_load = load i64* %stateAsWords_addr, align 8" [sha3/KeccakP-1600-reference.c:272]   --->   Operation 28 'load' 'stateAsWords_load' <Predicate = (!icmp_ln271)> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 25> <RAM>
+
+State 4 <SV = 3> <Delay = 7.96>
+ST_4 : Operation 29 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([25 x i8]* @p_str246) nounwind" [sha3/KeccakP-1600-reference.c:272]   --->   Operation 29 'specloopname' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 30 [1/1] (0.00ns)   --->   "%tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([25 x i8]* @p_str246)" [sha3/KeccakP-1600-reference.c:272]   --->   Operation 30 'specregionbegin' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 31 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 -1, i32 1, i32 1, i32 0, [1 x i8]* @p_str13) nounwind" [sha3/KeccakP-1600-reference.c:272]   --->   Operation 31 'specpipeline' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 32 [1/2] (2.77ns)   --->   "%state_load = load i8* %state_addr, align 1" [sha3/KeccakP-1600-reference.c:272]   --->   Operation 32 'load' 'state_load' <Predicate = true> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 25> <RAM>
+ST_4 : Operation 33 [1/1] (0.00ns) (grouped into LUT with out node or_ln272)   --->   "%zext_ln272_1 = zext i8 %state_load to i64" [sha3/KeccakP-1600-reference.c:272]   --->   Operation 33 'zext' 'zext_ln272_1' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 34 [1/1] (0.00ns) (grouped into LUT with out node or_ln272)   --->   "%trunc_ln272 = trunc i4 %j_0 to i3" [sha3/KeccakP-1600-reference.c:272]   --->   Operation 34 'trunc' 'trunc_ln272' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 35 [1/1] (0.00ns) (grouped into LUT with out node or_ln272)   --->   "%shl_ln = call i6 @_ssdm_op_BitConcatenate.i6.i3.i3(i3 %trunc_ln272, i3 0)" [sha3/KeccakP-1600-reference.c:272]   --->   Operation 35 'bitconcatenate' 'shl_ln' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 36 [1/1] (0.00ns) (grouped into LUT with out node or_ln272)   --->   "%zext_ln272_2 = zext i6 %shl_ln to i64" [sha3/KeccakP-1600-reference.c:272]   --->   Operation 36 'zext' 'zext_ln272_2' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 37 [1/1] (0.00ns) (grouped into LUT with out node or_ln272)   --->   "%shl_ln272 = shl i64 %zext_ln272_1, %zext_ln272_2" [sha3/KeccakP-1600-reference.c:272]   --->   Operation 37 'shl' 'shl_ln272' <Predicate = true> <Delay = 0.00> <Core = "Shift">   --->   Core 28 'Shift' <Latency = 0> <II = 1> <Delay = 2.42> <FuncUnit> <Opcode : 'shl' 'lshr' 'ashr'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 38 [1/2] (2.77ns)   --->   "%stateAsWords_load = load i64* %stateAsWords_addr, align 8" [sha3/KeccakP-1600-reference.c:272]   --->   Operation 38 'load' 'stateAsWords_load' <Predicate = true> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 25> <RAM>
+ST_4 : Operation 39 [1/1] (2.42ns) (out node of the LUT)   --->   "%or_ln272 = or i64 %stateAsWords_load, %shl_ln272" [sha3/KeccakP-1600-reference.c:272]   --->   Operation 39 'or' 'or_ln272' <Predicate = true> <Delay = 2.42> <Core = "LogicGate">   --->   Core 27 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 40 [1/1] (2.77ns)   --->   "store i64 %or_ln272, i64* %stateAsWords_addr, align 8" [sha3/KeccakP-1600-reference.c:272]   --->   Operation 40 'store' <Predicate = true> <Delay = 2.77> <Core = "RAM">   --->   Core 37 'RAM' <Latency = 1> <II = 1> <Delay = 2.77> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 64> <Depth = 25> <RAM>
+ST_4 : Operation 41 [1/1] (0.00ns)   --->   "%empty_84 = call i32 (...)* @_ssdm_op_SpecRegionEnd([25 x i8]* @p_str246, i32 %tmp)" [sha3/KeccakP-1600-reference.c:272]   --->   Operation 41 'specregionend' 'empty_84' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 42 [1/1] (0.00ns)   --->   "br label %2" [sha3/KeccakP-1600-reference.c:271]   --->   Operation 42 'br' <Predicate = true> <Delay = 0.00>
+
+State 5 <SV = 3> <Delay = 0.00>
+ST_5 : Operation 43 [1/1] (0.00ns)   --->   "br label %.loopexit"   --->   Operation 43 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 1.35ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', sha3/KeccakP-1600-reference.c:269) [5]  (1.35 ns)
+
+ <State 2>: 2.77ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', sha3/KeccakP-1600-reference.c:269) [5]  (0 ns)
+	'getelementptr' operation ('stateAsWords_addr', sha3/KeccakP-1600-reference.c:270) [12]  (0 ns)
+	'store' operation ('store_ln270', sha3/KeccakP-1600-reference.c:270) of constant 0 on array 'stateAsWords' [13]  (2.77 ns)
+
+ <State 3>: 4.49ns
+The critical path consists of the following:
+	'phi' operation ('j') with incoming values : ('j', sha3/KeccakP-1600-reference.c:271) [17]  (0 ns)
+	'add' operation ('add_ln272', sha3/KeccakP-1600-reference.c:272) [27]  (1.72 ns)
+	'getelementptr' operation ('state_addr', sha3/KeccakP-1600-reference.c:272) [29]  (0 ns)
+	'load' operation ('state_load', sha3/KeccakP-1600-reference.c:272) on array 'state' [30]  (2.77 ns)
+
+ <State 4>: 7.97ns
+The critical path consists of the following:
+	'load' operation ('state_load', sha3/KeccakP-1600-reference.c:272) on array 'state' [30]  (2.77 ns)
+	'shl' operation ('shl_ln272', sha3/KeccakP-1600-reference.c:272) [35]  (0 ns)
+	'or' operation ('or_ln272', sha3/KeccakP-1600-reference.c:272) [37]  (2.42 ns)
+	'store' operation ('store_ln272', sha3/KeccakP-1600-reference.c:272) of variable 'or_ln272', sha3/KeccakP-1600-reference.c:272 on array 'stateAsWords' [38]  (2.77 ns)
+
+ <State 5>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

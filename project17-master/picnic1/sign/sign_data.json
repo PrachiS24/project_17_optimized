@@ -1,0 +1,3495 @@
+{
+  "Top": "crypto_sign",
+  "RtlTop": "crypto_sign",
+  "RtlPrefix": "",
+  "SourceLanguage": "c",
+  "ResetStyle": "control",
+  "GenerateBdFiles": "0",
+  "HostMachineBits": "64",
+  "Target": {
+    "Family": "artix7",
+    "Device": "xc7a200t",
+    "Package": "-fbg676",
+    "Speed": "-2"
+  },
+  "HlsSolution": {
+    "Config": [
+      "config_interface -clock_enable=0",
+      "config_interface -expose_global=1",
+      "config_interface -m_axi_addr64=0",
+      "config_interface -m_axi_offset=off",
+      "config_interface -register_io=off",
+      "config_interface -trim_dangling_port=0"
+    ],
+    "DirectiveTcl": [
+      "set_directive_allocation HashUpdate 1 -type function",
+      "set_directive_allocation KeccakWidth1600_12rounds_SpongeAbsorb 1 -type function",
+      "set_directive_allocation KeccakP1600_AddByte 1 -type function",
+      "set_directive_allocation KeccakP1600Round 1 -type function",
+      "set_directive_allocation KeccakP1600_Permute_24rounds 1 -type function",
+      "set_directive_allocation KeccakWidth1600_SpongeAbsorb 1 -type function",
+      "set_directive_allocation KeccakWidth1600_SpongeAbsorbLastFewBits 1 -type function",
+      "set_directive_allocation KeccakWidth1600_SpongeSqueeze 1 -type function",
+      "set_directive_allocation KeccakWidth1600_SpongeInitialize 1 -type function",
+      "set_directive_inline Keccak_HashUpdate ",
+      "set_directive_allocation Keccak_HashUpdate 1 -type function",
+      "set_directive_allocation Keccak_HashFinal 1 -type function",
+      "set_directive_inline Keccak_HashSqueeze ",
+      "set_directive_allocation Keccak_HashSqueeze 1 -type function",
+      "set_directive_allocation Keccak_HashInitialize 1 -type function",
+      "set_directive_inline HashFinal ",
+      "set_directive_allocation HashFinal 1 -type function",
+      "set_directive_inline HashSqueeze ",
+      "set_directive_allocation HashSqueeze 1 -type function",
+      "set_directive_allocation HashInit 1 -type function",
+      "set_directive_allocation HashUpdate_2 1 -type function",
+      "set_directive_allocation setChallenge 1 -type function",
+      "set_directive_allocation setBit 1 -type function",
+      "set_directive_inline HashUpdate ",
+      "set_directive_inline HashUpdate_2 ",
+      "set_directive_inline HashInit ",
+      "set_directive_inline Keccak_HashInitialize ",
+      "set_directive_inline Keccak_HashFinal ",
+      "set_directive_inline KeccakWidth1600_SpongeInitialize ",
+      "set_directive_inline KeccakWidth1600_SpongeAbsorb ",
+      "set_directive_inline KeccakWidth1600_SpongeAbsorbLastFewBits ",
+      "set_directive_inline KeccakWidth1600_12rounds_SpongeAbsorb ",
+      "set_directive_inline KeccakP1600_AddByte ",
+      "set_directive_inline KeccakP1600Round ",
+      "set_directive_inline KeccakP1600_Permute_24rounds ",
+      "set_directive_pipeline H3\/H3_label0 ",
+      "set_directive_pipeline H3_3\/H3_3_label1 ",
+      "set_directive_pipeline H3_2\/H3_2_label2 ",
+      "set_directive_pipeline matrix_mul\/matrix_mul_label3 ",
+      "set_directive_unroll LowMCEnc\/LowMCEnc_label4 -factor 2",
+      "set_directive_pipeline LowMCEnc\/LowMCEnc_label5 ",
+      "set_directive_pipeline sign_picnic1\/sign_picnic1_label7 ",
+      "set_directive_pipeline sign_picnic1\/sign_picnic1_label8 ",
+      "set_directive_pipeline sign_picnic1\/sign_picnic1_label9 ",
+      "set_directive_array_partition sign_picnic1 ",
+      "set_directive_pipeline KeccakWidth1600_SpongeAbsorb\/KeccakWidth1600_SpongeAbsorb_label10 ",
+      "set_directive_pipeline KeccakWidth1600_12rounds_SpongeAbsorb\/KeccakWidth1600_12rounds_SpongeAbsorb_label11 ",
+      "set_directive_pipeline AddRoundKey\/AddRoundKey_label1 ",
+      "set_directive_pipeline SubBytes\/SubBytes_label0 ",
+      "set_directive_pipeline InvSubBytes\/InvSubBytes_label12 ",
+      "set_directive_pipeline fromBytesToWords\/fromBytesToWords_label13 ",
+      "set_directive_pipeline fromWordsToBytes\/fromWordsToBytes_label14 ",
+      "set_directive_unroll theta\/theta_label15 -factor 5",
+      "set_directive_pipeline theta\/theta_label16 ",
+      "set_directive_pipeline theta\/theta_label17 ",
+      "set_directive_pipeline rho\/rho_label18 ",
+      "set_directive_unroll pi\/pi_label19 -factor 2",
+      "set_directive_pipeline pi\/pi_label20 ",
+      "set_directive_unroll pi\/pi_label21 -factor 2",
+      "set_directive_pipeline pi\/pi_label22 ",
+      "set_directive_unroll KeccakP1600_DisplayRhoOffsets\/KeccakP1600_DisplayRhoOffsets_label23 -factor 2",
+      "set_directive_pipeline KeccakP1600_DisplayRhoOffsets\/KeccakP1600_DisplayRhoOffsets_label24 "
+    ],
+    "DirectiveInfo": [
+      "allocation HashUpdate {{instances positionBooleanTextRequired1} {function positionBoolean0type}} {}",
+      "allocation KeccakWidth1600_12rounds_SpongeAbsorb {{instances positionBooleanTextRequired1} {function positionBoolean0type}} {}",
+      "allocation KeccakP1600_AddByte {{instances positionBooleanTextRequired1} {function positionBoolean0type}} {}",
+      "allocation KeccakP1600Round {{instances positionBooleanTextRequired1} {function positionBoolean0type}} {}",
+      "allocation KeccakP1600_Permute_24rounds {{instances positionBooleanTextRequired1} {function positionBoolean0type}} {}",
+      "allocation KeccakWidth1600_SpongeAbsorb {{instances positionBooleanTextRequired1} {function positionBoolean0type}} {}",
+      "allocation KeccakWidth1600_SpongeAbsorbLastFewBits {{instances positionBooleanTextRequired1} {function positionBoolean0type}} {}",
+      "allocation KeccakWidth1600_SpongeSqueeze {{instances positionBooleanTextRequired1} {function positionBoolean0type}} {}",
+      "allocation KeccakWidth1600_SpongeInitialize {{instances positionBooleanTextRequired1} {function positionBoolean0type}} {}",
+      "inline Keccak_HashUpdate {} {}",
+      "allocation Keccak_HashUpdate {{instances positionBooleanTextRequired1} {function positionBoolean0type}} {}",
+      "allocation Keccak_HashFinal {{instances positionBooleanTextRequired1} {function positionBoolean0type}} {}",
+      "inline Keccak_HashSqueeze {} {}",
+      "allocation Keccak_HashSqueeze {{instances positionBooleanTextRequired1} {function positionBoolean0type}} {}",
+      "allocation Keccak_HashInitialize {{instances positionBooleanTextRequired1} {function positionBoolean0type}} {}",
+      "inline HashFinal {} {}",
+      "allocation HashFinal {{instances positionBooleanTextRequired1} {function positionBoolean0type}} {}",
+      "inline HashSqueeze {} {}",
+      "allocation HashSqueeze {{instances positionBooleanTextRequired1} {function positionBoolean0type}} {}",
+      "allocation HashInit {{instances positionBooleanTextRequired1} {function positionBoolean0type}} {}",
+      "allocation HashUpdate_2 {{instances positionBooleanTextRequired1} {function positionBoolean0type}} {}",
+      "allocation setChallenge {{instances positionBooleanTextRequired1} {function positionBoolean0type}} {}",
+      "allocation setBit {{instances positionBooleanTextRequired1} {function positionBoolean0type}} {}",
+      "inline HashUpdate {} {}",
+      "inline HashUpdate_2 {} {}",
+      "inline HashInit {} {}",
+      "inline Keccak_HashInitialize {} {}",
+      "inline Keccak_HashFinal {} {}",
+      "inline KeccakWidth1600_SpongeInitialize {} {}",
+      "inline KeccakWidth1600_SpongeAbsorb {} {}",
+      "inline KeccakWidth1600_SpongeAbsorbLastFewBits {} {}",
+      "inline KeccakWidth1600_12rounds_SpongeAbsorb {} {}",
+      "inline KeccakP1600_AddByte {} {}",
+      "inline KeccakP1600Round {} {}",
+      "inline KeccakP1600_Permute_24rounds {} {}",
+      "pipeline H3\/H3_label0 {} {}",
+      "pipeline H3_3\/H3_3_label1 {} {}",
+      "pipeline H3_2\/H3_2_label2 {} {}",
+      "pipeline matrix_mul\/matrix_mul_label3 {} {}",
+      "unroll LowMCEnc\/LowMCEnc_label4 {{factor 2}} {}",
+      "pipeline LowMCEnc\/LowMCEnc_label5 {} {}",
+      "pipeline sign_picnic1\/sign_picnic1_label7 {} {}",
+      "pipeline sign_picnic1\/sign_picnic1_label8 {} {}",
+      "pipeline sign_picnic1\/sign_picnic1_label9 {} {}",
+      "array_partition sign_picnic1 {{partition positionBooleanCmd} {variable positionBooleanTextRequiredtmp} {block positionBoolean0type} {factor 4} {dim 1}} {}",
+      "pipeline KeccakWidth1600_SpongeAbsorb\/KeccakWidth1600_SpongeAbsorb_label10 {} {}",
+      "pipeline KeccakWidth1600_12rounds_SpongeAbsorb\/KeccakWidth1600_12rounds_SpongeAbsorb_label11 {} {}",
+      "pipeline AddRoundKey\/AddRoundKey_label1 {} {}",
+      "pipeline SubBytes\/SubBytes_label0 {} {}",
+      "pipeline InvSubBytes\/InvSubBytes_label12 {} {}",
+      "pipeline fromBytesToWords\/fromBytesToWords_label13 {} {}",
+      "pipeline fromWordsToBytes\/fromWordsToBytes_label14 {} {}",
+      "unroll theta\/theta_label15 {{factor 5}} {}",
+      "pipeline theta\/theta_label16 {} {}",
+      "pipeline theta\/theta_label17 {} {}",
+      "pipeline rho\/rho_label18 {} {}",
+      "unroll pi\/pi_label19 {{factor 2}} {}",
+      "pipeline pi\/pi_label20 {} {}",
+      "unroll pi\/pi_label21 {{factor 2}} {}",
+      "pipeline pi\/pi_label22 {} {}",
+      "unroll KeccakP1600_DisplayRhoOffsets\/KeccakP1600_DisplayRhoOffsets_label23 {{factor 2}} {}",
+      "pipeline KeccakP1600_DisplayRhoOffsets\/KeccakP1600_DisplayRhoOffsets_label24 {} {}"
+    ]
+  },
+  "Args": {
+    "sm": {
+      "index": "0",
+      "type": {
+        "kinds": ["array"],
+        "dataType": "unsigned",
+        "dataWidth": "8",
+        "arraySizes": ["37336"],
+        "multiInterfaceRef": [
+          "sm_address0",
+          "sm_address1",
+          "sm_d0",
+          "sm_d1"
+        ]
+      }
+    },
+    "smlen": {
+      "index": "1",
+      "type": {
+        "kinds": ["array"],
+        "dataType": "long",
+        "dataWidth": "64",
+        "arraySizes": ["1"],
+        "multiInterfaceRef": [
+          "smlen_address0",
+          "smlen_d0"
+        ]
+      }
+    },
+    "m": {
+      "index": "2",
+      "type": {
+        "kinds": ["array"],
+        "dataType": "unsigned",
+        "dataWidth": "8",
+        "arraySizes": ["3300"],
+        "multiInterfaceRef": [
+          "m_address0",
+          "m_q0"
+        ]
+      }
+    },
+    "mlen": {
+      "index": "3",
+      "type": {
+        "dataType": "long",
+        "dataWidth": "64",
+        "interfaceRef": "mlen"
+      }
+    },
+    "sk": {
+      "index": "4",
+      "type": {
+        "kinds": ["array"],
+        "dataType": "unsigned",
+        "dataWidth": "8",
+        "arraySizes": ["49"],
+        "multiInterfaceRef": [
+          "sk_address0",
+          "sk_address1",
+          "sk_q0",
+          "sk_q1"
+        ]
+      }
+    }
+  },
+  "Return": {
+    "dataType": "int",
+    "dataWidth": "32",
+    "interfaceRef": "ap_return"
+  },
+  "ClockInfo": {
+    "ClockName": "ap_clk",
+    "ClockPeriod": "10",
+    "IsCombLogic": "0",
+    "II": "x",
+    "Latency": "undef",
+    "Uncertainty": "1.25"
+  },
+  "Xdc": {"OocClocks": ["create_clock -name ap_clk -period 10.000 [get_ports ap_clk]"]},
+  "Ipx": {
+    "Vendor": "xilinx.com",
+    "Library": "hls",
+    "Name": "crypto_sign",
+    "Version": "1.0",
+    "DisplayName": "Crypto_sign",
+    "Revision": "",
+    "Description": "An IP generated by Vivado HLS",
+    "Taxonomy": "\/VIVADO_HLS_IP",
+    "AutoFamilySupport": ""
+  },
+  "Files": {
+    "CSource": [
+      "..\/..\/sha3\/KeccakHash.c",
+      "..\/..\/sha3\/KeccakP-1600-reference.c",
+      "..\/..\/sha3\/KeccakSpongeWidth1600.c",
+      "..\/..\/NIST-KATs\/aes.c",
+      "..\/..\/api.c",
+      "..\/..\/hash.c",
+      "..\/..\/lowmc_constants.c",
+      "..\/..\/picnic.c",
+      "..\/..\/picnic2_impl.c",
+      "..\/..\/picnic_impl.c",
+      "..\/..\/picnic_types.c",
+      "..\/..\/NIST-KATs\/rng.c",
+      "..\/..\/tree.c"
+    ],
+    "Vhdl": [
+      "impl\/vhdl\/chi.vhd",
+      "impl\/vhdl\/Commit_2.vhd",
+      "impl\/vhdl\/computeSeeds_2.vhd",
+      "impl\/vhdl\/computeSeeds_2_ctvdy.vhd",
+      "impl\/vhdl\/computeSeeds_2_temp.vhd",
+      "impl\/vhdl\/createRandomTape.vhd",
+      "impl\/vhdl\/createRandomTape_1.vhd",
+      "impl\/vhdl\/createRandomTape_Hfu.vhd",
+      "impl\/vhdl\/crypto_sign_mac_mWhU.vhd",
+      "impl\/vhdl\/crypto_sign_mul_6xdS.vhd",
+      "impl\/vhdl\/crypto_sign_mul_mbdk.vhd",
+      "impl\/vhdl\/crypto_sign_mux_3VhK.vhd",
+      "impl\/vhdl\/crypto_sign_mux_4bBo.vhd",
+      "impl\/vhdl\/crypto_sign_mux_4JfO.vhd",
+      "impl\/vhdl\/crypto_sign_mux_4Zio.vhd",
+      "impl\/vhdl\/crypto_sign_secrebJp.vhd",
+      "impl\/vhdl\/crypto_sign_urem_bAo.vhd",
+      "impl\/vhdl\/crypto_sign_urem_bkb.vhd",
+      "impl\/vhdl\/crypto_sign_urem_cud.vhd",
+      "impl\/vhdl\/crypto_sign_urem_dEe.vhd",
+      "impl\/vhdl\/crypto_sign_urem_IfE.vhd",
+      "impl\/vhdl\/crypto_sign_urem_wdI.vhd",
+      "impl\/vhdl\/fromBytesToWords.vhd",
+      "impl\/vhdl\/fromWordsToBytes.vhd",
+      "impl\/vhdl\/H3_2.vhd",
+      "impl\/vhdl\/H3_2_hash.vhd",
+      "impl\/vhdl\/HashUpdateIntLE.vhd",
+      "impl\/vhdl\/KeccakP1600_ExtractB.vhd",
+      "impl\/vhdl\/KeccakP1600OnWordeOg.vhd",
+      "impl\/vhdl\/KeccakP1600OnWordfYi.vhd",
+      "impl\/vhdl\/KeccakP1600OnWords.vhd",
+      "impl\/vhdl\/KeccakWidth1600_Spon.vhd",
+      "impl\/vhdl\/KeccakWidth1600_Spon_1.vhd",
+      "impl\/vhdl\/KeccakWidth1600_Spon_2.vhd",
+      "impl\/vhdl\/KeccakWidth1600_Spon_3.vhd",
+      "impl\/vhdl\/KeccakWidth1600_Spon_4.vhd",
+      "impl\/vhdl\/KeccakWidth1600_Spon_5.vhd",
+      "impl\/vhdl\/matrix_mul.vhd",
+      "impl\/vhdl\/matrix_mul_1.vhd",
+      "impl\/vhdl\/matrix_mul_1_tempXh4.vhd",
+      "impl\/vhdl\/matrix_mul_prod.vhd",
+      "impl\/vhdl\/matrix_mul_temp.vhd",
+      "impl\/vhdl\/matrix_mul_temp_mUhA.vhd",
+      "impl\/vhdl\/mpc_AND_2.vhd",
+      "impl\/vhdl\/mpc_LowMC_2.vhd",
+      "impl\/vhdl\/mpc_LowMC_2_temp_Yie.vhd",
+      "impl\/vhdl\/pi.vhd",
+      "impl\/vhdl\/pi_tempA.vhd",
+      "impl\/vhdl\/picnic_sign.vhd",
+      "impl\/vhdl\/picnic_sign_sig_0bCo.vhd",
+      "impl\/vhdl\/picnic_sign_sig_0bEo.vhd",
+      "impl\/vhdl\/picnic_sign_sig_0bFp.vhd",
+      "impl\/vhdl\/picnic_sign_sig_0bGp.vhd",
+      "impl\/vhdl\/picnic_sign_sig_0bHp.vhd",
+      "impl\/vhdl\/picnic_sign_temp.vhd",
+      "impl\/vhdl\/prove_25.vhd",
+      "impl\/vhdl\/serializeSignature.vhd",
+      "impl\/vhdl\/sign_picnic1.vhd",
+      "impl\/vhdl\/sign_picnic1_as_hbwn.vhd",
+      "impl\/vhdl\/sign_picnic1_seedbxn.vhd",
+      "impl\/vhdl\/sign_picnic1_slabbzo.vhd",
+      "impl\/vhdl\/sign_picnic1_tapebyn.vhd",
+      "impl\/vhdl\/sign_picnic1_tmp_0.vhd",
+      "impl\/vhdl\/sign_picnic1_tmp_1.vhd",
+      "impl\/vhdl\/sign_picnic1_viewbtn.vhd",
+      "impl\/vhdl\/sign_picnic1_viewbun.vhd",
+      "impl\/vhdl\/sign_picnic1_viewbvn.vhd",
+      "impl\/vhdl\/theta.vhd",
+      "impl\/vhdl\/theta_C.vhd",
+      "impl\/vhdl\/theta_D.vhd",
+      "impl\/vhdl\/crypto_sign.vhd"
+    ],
+    "Verilog": [
+      "impl\/verilog\/chi.v",
+      "impl\/verilog\/Commit_2.v",
+      "impl\/verilog\/computeSeeds_2.v",
+      "impl\/verilog\/computeSeeds_2_ctvdy.v",
+      "impl\/verilog\/computeSeeds_2_temp.v",
+      "impl\/verilog\/createRandomTape.v",
+      "impl\/verilog\/createRandomTape_1.v",
+      "impl\/verilog\/createRandomTape_Hfu.v",
+      "impl\/verilog\/crypto_sign_mac_mWhU.v",
+      "impl\/verilog\/crypto_sign_mul_6xdS.v",
+      "impl\/verilog\/crypto_sign_mul_mbdk.v",
+      "impl\/verilog\/crypto_sign_mux_3VhK.v",
+      "impl\/verilog\/crypto_sign_mux_4bBo.v",
+      "impl\/verilog\/crypto_sign_mux_4JfO.v",
+      "impl\/verilog\/crypto_sign_mux_4Zio.v",
+      "impl\/verilog\/crypto_sign_secrebJp.v",
+      "impl\/verilog\/crypto_sign_urem_bAo.v",
+      "impl\/verilog\/crypto_sign_urem_bkb.v",
+      "impl\/verilog\/crypto_sign_urem_cud.v",
+      "impl\/verilog\/crypto_sign_urem_dEe.v",
+      "impl\/verilog\/crypto_sign_urem_IfE.v",
+      "impl\/verilog\/crypto_sign_urem_wdI.v",
+      "impl\/verilog\/fromBytesToWords.v",
+      "impl\/verilog\/fromWordsToBytes.v",
+      "impl\/verilog\/H3_2.v",
+      "impl\/verilog\/H3_2_hash.v",
+      "impl\/verilog\/HashUpdateIntLE.v",
+      "impl\/verilog\/KeccakP1600_ExtractB.v",
+      "impl\/verilog\/KeccakP1600OnWordeOg.v",
+      "impl\/verilog\/KeccakP1600OnWordeOg_rom.dat",
+      "impl\/verilog\/KeccakP1600OnWordfYi.v",
+      "impl\/verilog\/KeccakP1600OnWordfYi_rom.dat",
+      "impl\/verilog\/KeccakP1600OnWords.v",
+      "impl\/verilog\/KeccakWidth1600_Spon.v",
+      "impl\/verilog\/KeccakWidth1600_Spon_1.v",
+      "impl\/verilog\/KeccakWidth1600_Spon_2.v",
+      "impl\/verilog\/KeccakWidth1600_Spon_3.v",
+      "impl\/verilog\/KeccakWidth1600_Spon_4.v",
+      "impl\/verilog\/KeccakWidth1600_Spon_5.v",
+      "impl\/verilog\/matrix_mul.v",
+      "impl\/verilog\/matrix_mul_1.v",
+      "impl\/verilog\/matrix_mul_1_tempXh4.v",
+      "impl\/verilog\/matrix_mul_1_tempXh4_rom.dat",
+      "impl\/verilog\/matrix_mul_prod.v",
+      "impl\/verilog\/matrix_mul_temp.v",
+      "impl\/verilog\/matrix_mul_temp_mUhA.v",
+      "impl\/verilog\/matrix_mul_temp_mUhA_rom.dat",
+      "impl\/verilog\/mpc_AND_2.v",
+      "impl\/verilog\/mpc_LowMC_2.v",
+      "impl\/verilog\/mpc_LowMC_2_temp_Yie.v",
+      "impl\/verilog\/mpc_LowMC_2_temp_Yie_rom.dat",
+      "impl\/verilog\/pi.v",
+      "impl\/verilog\/pi_tempA.v",
+      "impl\/verilog\/picnic_sign.v",
+      "impl\/verilog\/picnic_sign_sig_0bCo.v",
+      "impl\/verilog\/picnic_sign_sig_0bEo.v",
+      "impl\/verilog\/picnic_sign_sig_0bFp.v",
+      "impl\/verilog\/picnic_sign_sig_0bGp.v",
+      "impl\/verilog\/picnic_sign_sig_0bHp.v",
+      "impl\/verilog\/picnic_sign_temp.v",
+      "impl\/verilog\/prove_25.v",
+      "impl\/verilog\/serializeSignature.v",
+      "impl\/verilog\/sign_picnic1.v",
+      "impl\/verilog\/sign_picnic1_as_hbwn.v",
+      "impl\/verilog\/sign_picnic1_seedbxn.v",
+      "impl\/verilog\/sign_picnic1_slabbzo.v",
+      "impl\/verilog\/sign_picnic1_tapebyn.v",
+      "impl\/verilog\/sign_picnic1_tmp_0.v",
+      "impl\/verilog\/sign_picnic1_tmp_1.v",
+      "impl\/verilog\/sign_picnic1_viewbtn.v",
+      "impl\/verilog\/sign_picnic1_viewbun.v",
+      "impl\/verilog\/sign_picnic1_viewbvn.v",
+      "impl\/verilog\/theta.v",
+      "impl\/verilog\/theta_C.v",
+      "impl\/verilog\/theta_D.v",
+      "impl\/verilog\/crypto_sign.v"
+    ],
+    "Misc": ["impl\/misc\/logo.png"],
+    "DesignXml": "C:\/Users\/vlsigroup\/Downloads\/project17-master_3\/project17-master\/picnic1\/sign\/.autopilot\/db\/crypto_sign.design.xml",
+    "DebugDir": "C:\/Users\/vlsigroup\/Downloads\/project17-master_3\/project17-master\/picnic1\/sign\/.debug",
+    "ProtoInst": ["C:\/Users\/vlsigroup\/Downloads\/project17-master_3\/project17-master\/picnic1\/sign\/.debug\/crypto_sign.protoinst"]
+  },
+  "SubcoreInfo": {
+    "HasXpmMemory": false,
+    "HasClockedDsp": false,
+    "IP": []
+  },
+  "Interfaces": {
+    "ap_clk": {
+      "type": "clock",
+      "ctype": {"CLK": {"Type": "bool"}},
+      "bundle_name": "ap_clk",
+      "bundle_role": "default",
+      "reset": "ap_rst"
+    },
+    "ap_ctrl": {
+      "type": "ap_ctrl",
+      "ctrl_ports": "ap_start ap_done ap_idle ap_ready",
+      "ctype": {
+        "start": {"Type": "bool"},
+        "done": {"Type": "bool"},
+        "idle": {"Type": "bool"},
+        "ready": {"Type": "bool"}
+      }
+    },
+    "ap_return": {
+      "type": "data",
+      "dir": "out",
+      "width": "32",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "32"
+        }},
+      "bundle_name": "ap_return",
+      "bundle_role": "default"
+    },
+    "ap_rst": {
+      "type": "reset",
+      "polarity": "ACTIVE_HIGH",
+      "ctype": {"RST": {"Type": "bool"}},
+      "bundle_name": "ap_rst",
+      "bundle_role": "default"
+    },
+    "m_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "12",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "12"
+        }},
+      "bundle_name": "m",
+      "bundle_role": "address0"
+    },
+    "m_q0": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "m",
+      "bundle_role": "q0"
+    },
+    "mlen": {
+      "type": "data",
+      "dir": "in",
+      "width": "64",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "64"
+        }},
+      "bundle_name": "mlen",
+      "bundle_role": "default"
+    },
+    "sk_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "6",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "6"
+        }},
+      "bundle_name": "sk",
+      "bundle_role": "address0"
+    },
+    "sk_address1": {
+      "type": "data",
+      "dir": "out",
+      "width": "6",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "6"
+        }},
+      "bundle_name": "sk",
+      "bundle_role": "address1"
+    },
+    "sk_q0": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "sk",
+      "bundle_role": "q0"
+    },
+    "sk_q1": {
+      "type": "data",
+      "dir": "in",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "sk",
+      "bundle_role": "q1"
+    },
+    "sm_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "16",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "16"
+        }},
+      "bundle_name": "sm",
+      "bundle_role": "address0"
+    },
+    "sm_address1": {
+      "type": "data",
+      "dir": "out",
+      "width": "16",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "16"
+        }},
+      "bundle_name": "sm",
+      "bundle_role": "address1"
+    },
+    "sm_d0": {
+      "type": "data",
+      "dir": "out",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "sm",
+      "bundle_role": "d0"
+    },
+    "sm_d1": {
+      "type": "data",
+      "dir": "out",
+      "width": "8",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "8"
+        }},
+      "bundle_name": "sm",
+      "bundle_role": "d1"
+    },
+    "smlen_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "1",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "1"
+        }},
+      "bundle_name": "smlen",
+      "bundle_role": "address0"
+    },
+    "smlen_d0": {
+      "type": "data",
+      "dir": "out",
+      "width": "64",
+      "ctype": {"DATA": {
+          "Type": "integer signed",
+          "Width": "64"
+        }},
+      "bundle_name": "smlen",
+      "bundle_role": "d0"
+    },
+    "viewOutputs_address0": {
+      "type": "data",
+      "dir": "out",
+      "width": "14",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "14"
+        }},
+      "bundle_name": "viewOutputs",
+      "bundle_role": "address0"
+    },
+    "viewOutputs_address1": {
+      "type": "data",
+      "dir": "out",
+      "width": "14",
+      "ctype": {"DATA": {
+          "Type": "null",
+          "Width": "14"
+        }},
+      "bundle_name": "viewOutputs",
+      "bundle_role": "address1"
+    },
+    "viewOutputs_d0": {
+      "type": "data",
+      "dir": "out",
+      "width": "32",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "32"
+        }},
+      "bundle_name": "viewOutputs",
+      "bundle_role": "d0"
+    },
+    "viewOutputs_q0": {
+      "type": "data",
+      "dir": "in",
+      "width": "32",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "32"
+        }},
+      "bundle_name": "viewOutputs",
+      "bundle_role": "q0"
+    },
+    "viewOutputs_q1": {
+      "type": "data",
+      "dir": "in",
+      "width": "32",
+      "ctype": {"DATA": {
+          "Type": "integer unsigned",
+          "Width": "32"
+        }},
+      "bundle_name": "viewOutputs",
+      "bundle_role": "q1"
+    }
+  },
+  "RtlPorts": {
+    "ap_clk": {
+      "dir": "in",
+      "width": "1"
+    },
+    "ap_rst": {
+      "dir": "in",
+      "width": "1"
+    },
+    "ap_start": {
+      "dir": "in",
+      "width": "1"
+    },
+    "ap_done": {
+      "dir": "out",
+      "width": "1"
+    },
+    "ap_idle": {
+      "dir": "out",
+      "width": "1"
+    },
+    "ap_ready": {
+      "dir": "out",
+      "width": "1"
+    },
+    "ap_return": {
+      "dir": "out",
+      "width": "32"
+    },
+    "sm_address0": {
+      "dir": "out",
+      "width": "16"
+    },
+    "sm_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "sm_we0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "sm_d0": {
+      "dir": "out",
+      "width": "8"
+    },
+    "sm_address1": {
+      "dir": "out",
+      "width": "16"
+    },
+    "sm_ce1": {
+      "dir": "out",
+      "width": "1"
+    },
+    "sm_we1": {
+      "dir": "out",
+      "width": "1"
+    },
+    "sm_d1": {
+      "dir": "out",
+      "width": "8"
+    },
+    "smlen_address0": {
+      "dir": "out",
+      "width": "1",
+      "isVector": "true"
+    },
+    "smlen_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "smlen_we0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "smlen_d0": {
+      "dir": "out",
+      "width": "64"
+    },
+    "m_address0": {
+      "dir": "out",
+      "width": "12"
+    },
+    "m_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "m_q0": {
+      "dir": "in",
+      "width": "8"
+    },
+    "mlen": {
+      "dir": "in",
+      "width": "64"
+    },
+    "sk_address0": {
+      "dir": "out",
+      "width": "6"
+    },
+    "sk_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "sk_q0": {
+      "dir": "in",
+      "width": "8"
+    },
+    "sk_address1": {
+      "dir": "out",
+      "width": "6"
+    },
+    "sk_ce1": {
+      "dir": "out",
+      "width": "1"
+    },
+    "sk_q1": {
+      "dir": "in",
+      "width": "8"
+    },
+    "viewOutputs_address0": {
+      "dir": "out",
+      "width": "14"
+    },
+    "viewOutputs_ce0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "viewOutputs_we0": {
+      "dir": "out",
+      "width": "1"
+    },
+    "viewOutputs_d0": {
+      "dir": "out",
+      "width": "32"
+    },
+    "viewOutputs_q0": {
+      "dir": "in",
+      "width": "32"
+    },
+    "viewOutputs_address1": {
+      "dir": "out",
+      "width": "14"
+    },
+    "viewOutputs_ce1": {
+      "dir": "out",
+      "width": "1"
+    },
+    "viewOutputs_q1": {
+      "dir": "in",
+      "width": "32"
+    }
+  },
+  "ModuleInfo": {
+    "Hierarchy": {
+      "ModuleName": "crypto_sign",
+      "Instances": [{
+          "ModuleName": "picnic_sign",
+          "InstanceName": "grp_picnic_sign_fu_324",
+          "Instances": [
+            {
+              "ModuleName": "sign_picnic1",
+              "InstanceName": "grp_sign_picnic1_fu_390",
+              "Instances": [
+                {
+                  "ModuleName": "computeSeeds_2",
+                  "InstanceName": "grp_computeSeeds_2_fu_635",
+                  "Instances": [
+                    {
+                      "ModuleName": "KeccakWidth1600_Spon_2",
+                      "InstanceName": "grp_KeccakWidth1600_Spon_2_fu_776",
+                      "Instances": [
+                        {
+                          "ModuleName": "KeccakP1600OnWords",
+                          "InstanceName": "grp_KeccakP1600OnWords_fu_223",
+                          "Instances": [
+                            {
+                              "ModuleName": "pi",
+                              "InstanceName": "grp_pi_fu_159"
+                            },
+                            {
+                              "ModuleName": "theta",
+                              "InstanceName": "grp_theta_fu_165"
+                            },
+                            {
+                              "ModuleName": "chi",
+                              "InstanceName": "grp_chi_fu_171"
+                            }
+                          ]
+                        },
+                        {
+                          "ModuleName": "fromWordsToBytes",
+                          "InstanceName": "grp_fromWordsToBytes_fu_232"
+                        },
+                        {
+                          "ModuleName": "fromBytesToWords",
+                          "InstanceName": "grp_fromBytesToWords_fu_239"
+                        }
+                      ]
+                    },
+                    {
+                      "ModuleName": "KeccakWidth1600_Spon_3",
+                      "InstanceName": "grp_KeccakWidth1600_Spon_3_fu_793",
+                      "Instances": [
+                        {
+                          "ModuleName": "KeccakP1600OnWords",
+                          "InstanceName": "grp_KeccakP1600OnWords_fu_182",
+                          "Instances": [
+                            {
+                              "ModuleName": "pi",
+                              "InstanceName": "grp_pi_fu_159"
+                            },
+                            {
+                              "ModuleName": "theta",
+                              "InstanceName": "grp_theta_fu_165"
+                            },
+                            {
+                              "ModuleName": "chi",
+                              "InstanceName": "grp_chi_fu_171"
+                            }
+                          ]
+                        },
+                        {
+                          "ModuleName": "fromWordsToBytes",
+                          "InstanceName": "grp_fromWordsToBytes_fu_191"
+                        },
+                        {
+                          "ModuleName": "fromBytesToWords",
+                          "InstanceName": "grp_fromBytesToWords_fu_198"
+                        }
+                      ]
+                    },
+                    {
+                      "ModuleName": "HashUpdateIntLE",
+                      "InstanceName": "grp_HashUpdateIntLE_fu_806",
+                      "Instances": [
+                        {
+                          "ModuleName": "pi",
+                          "InstanceName": "grp_pi_fu_363"
+                        },
+                        {
+                          "ModuleName": "theta",
+                          "InstanceName": "grp_theta_fu_368"
+                        },
+                        {
+                          "ModuleName": "chi",
+                          "InstanceName": "grp_chi_fu_373"
+                        }
+                      ]
+                    },
+                    {
+                      "ModuleName": "KeccakP1600OnWords",
+                      "InstanceName": "grp_KeccakP1600OnWords_fu_818",
+                      "Instances": [
+                        {
+                          "ModuleName": "pi",
+                          "InstanceName": "grp_pi_fu_159"
+                        },
+                        {
+                          "ModuleName": "theta",
+                          "InstanceName": "grp_theta_fu_165"
+                        },
+                        {
+                          "ModuleName": "chi",
+                          "InstanceName": "grp_chi_fu_171"
+                        }
+                      ]
+                    },
+                    {
+                      "ModuleName": "fromWordsToBytes",
+                      "InstanceName": "grp_fromWordsToBytes_fu_827"
+                    },
+                    {
+                      "ModuleName": "fromBytesToWords",
+                      "InstanceName": "grp_fromBytesToWords_fu_833"
+                    }
+                  ]
+                },
+                {
+                  "ModuleName": "createRandomTape",
+                  "InstanceName": "grp_createRandomTape_fu_657",
+                  "Instances": [
+                    {
+                      "ModuleName": "KeccakWidth1600_Spon_5",
+                      "InstanceName": "grp_KeccakWidth1600_Spon_5_fu_487",
+                      "Instances": [
+                        {
+                          "ModuleName": "KeccakP1600_ExtractB",
+                          "InstanceName": "grp_KeccakP1600_ExtractB_fu_355"
+                        },
+                        {
+                          "ModuleName": "pi",
+                          "InstanceName": "grp_pi_fu_374"
+                        },
+                        {
+                          "ModuleName": "theta",
+                          "InstanceName": "grp_theta_fu_379"
+                        },
+                        {
+                          "ModuleName": "chi",
+                          "InstanceName": "grp_chi_fu_384"
+                        }
+                      ]
+                    },
+                    {
+                      "ModuleName": "HashUpdateIntLE",
+                      "InstanceName": "grp_HashUpdateIntLE_fu_507",
+                      "Instances": [
+                        {
+                          "ModuleName": "pi",
+                          "InstanceName": "grp_pi_fu_363"
+                        },
+                        {
+                          "ModuleName": "theta",
+                          "InstanceName": "grp_theta_fu_368"
+                        },
+                        {
+                          "ModuleName": "chi",
+                          "InstanceName": "grp_chi_fu_373"
+                        }
+                      ]
+                    },
+                    {
+                      "ModuleName": "KeccakP1600OnWords",
+                      "InstanceName": "grp_KeccakP1600OnWords_fu_519",
+                      "Instances": [
+                        {
+                          "ModuleName": "pi",
+                          "InstanceName": "grp_pi_fu_159"
+                        },
+                        {
+                          "ModuleName": "theta",
+                          "InstanceName": "grp_theta_fu_165"
+                        },
+                        {
+                          "ModuleName": "chi",
+                          "InstanceName": "grp_chi_fu_171"
+                        }
+                      ]
+                    },
+                    {
+                      "ModuleName": "fromWordsToBytes",
+                      "InstanceName": "grp_fromWordsToBytes_fu_528"
+                    },
+                    {
+                      "ModuleName": "fromBytesToWords",
+                      "InstanceName": "grp_fromBytesToWords_fu_534"
+                    }
+                  ]
+                },
+                {
+                  "ModuleName": "H3_2",
+                  "InstanceName": "grp_H3_2_fu_680",
+                  "Instances": [
+                    {
+                      "ModuleName": "KeccakWidth1600_Spon_4",
+                      "InstanceName": "grp_KeccakWidth1600_Spon_4_fu_1218",
+                      "Instances": [
+                        {
+                          "ModuleName": "pi",
+                          "InstanceName": "grp_pi_fu_380"
+                        },
+                        {
+                          "ModuleName": "theta",
+                          "InstanceName": "grp_theta_fu_385"
+                        },
+                        {
+                          "ModuleName": "chi",
+                          "InstanceName": "grp_chi_fu_390"
+                        }
+                      ]
+                    },
+                    {
+                      "ModuleName": "KeccakP1600OnWords",
+                      "InstanceName": "grp_KeccakP1600OnWords_fu_1228",
+                      "Instances": [
+                        {
+                          "ModuleName": "pi",
+                          "InstanceName": "grp_pi_fu_159"
+                        },
+                        {
+                          "ModuleName": "theta",
+                          "InstanceName": "grp_theta_fu_165"
+                        },
+                        {
+                          "ModuleName": "chi",
+                          "InstanceName": "grp_chi_fu_171"
+                        }
+                      ]
+                    },
+                    {
+                      "ModuleName": "fromWordsToBytes",
+                      "InstanceName": "grp_fromWordsToBytes_fu_1237"
+                    },
+                    {
+                      "ModuleName": "fromBytesToWords",
+                      "InstanceName": "grp_fromBytesToWords_fu_1243"
+                    }
+                  ]
+                },
+                {
+                  "ModuleName": "createRandomTape_1",
+                  "InstanceName": "grp_createRandomTape_1_fu_701",
+                  "Instances": [
+                    {
+                      "ModuleName": "KeccakWidth1600_Spon_1",
+                      "InstanceName": "grp_KeccakWidth1600_Spon_1_fu_419",
+                      "Instances": [
+                        {
+                          "ModuleName": "pi",
+                          "InstanceName": "grp_pi_fu_382"
+                        },
+                        {
+                          "ModuleName": "theta",
+                          "InstanceName": "grp_theta_fu_387"
+                        },
+                        {
+                          "ModuleName": "chi",
+                          "InstanceName": "grp_chi_fu_392"
+                        }
+                      ]
+                    },
+                    {
+                      "ModuleName": "HashUpdateIntLE",
+                      "InstanceName": "grp_HashUpdateIntLE_fu_433",
+                      "Instances": [
+                        {
+                          "ModuleName": "pi",
+                          "InstanceName": "grp_pi_fu_363"
+                        },
+                        {
+                          "ModuleName": "theta",
+                          "InstanceName": "grp_theta_fu_368"
+                        },
+                        {
+                          "ModuleName": "chi",
+                          "InstanceName": "grp_chi_fu_373"
+                        }
+                      ]
+                    },
+                    {
+                      "ModuleName": "KeccakP1600OnWords",
+                      "InstanceName": "grp_KeccakP1600OnWords_fu_446",
+                      "Instances": [
+                        {
+                          "ModuleName": "pi",
+                          "InstanceName": "grp_pi_fu_159"
+                        },
+                        {
+                          "ModuleName": "theta",
+                          "InstanceName": "grp_theta_fu_165"
+                        },
+                        {
+                          "ModuleName": "chi",
+                          "InstanceName": "grp_chi_fu_171"
+                        }
+                      ]
+                    },
+                    {
+                      "ModuleName": "fromWordsToBytes",
+                      "InstanceName": "grp_fromWordsToBytes_fu_455"
+                    },
+                    {
+                      "ModuleName": "fromBytesToWords",
+                      "InstanceName": "grp_fromBytesToWords_fu_461"
+                    }
+                  ]
+                },
+                {
+                  "ModuleName": "Commit_2",
+                  "InstanceName": "grp_Commit_2_fu_717",
+                  "Instances": [
+                    {
+                      "ModuleName": "KeccakWidth1600_Spon",
+                      "InstanceName": "grp_KeccakWidth1600_Spon_fu_827",
+                      "Instances": [
+                        {
+                          "ModuleName": "pi",
+                          "InstanceName": "grp_pi_fu_404"
+                        },
+                        {
+                          "ModuleName": "theta",
+                          "InstanceName": "grp_theta_fu_409"
+                        },
+                        {
+                          "ModuleName": "chi",
+                          "InstanceName": "grp_chi_fu_414"
+                        }
+                      ]
+                    },
+                    {
+                      "ModuleName": "KeccakP1600OnWords",
+                      "InstanceName": "grp_KeccakP1600OnWords_fu_840",
+                      "Instances": [
+                        {
+                          "ModuleName": "pi",
+                          "InstanceName": "grp_pi_fu_159"
+                        },
+                        {
+                          "ModuleName": "theta",
+                          "InstanceName": "grp_theta_fu_165"
+                        },
+                        {
+                          "ModuleName": "chi",
+                          "InstanceName": "grp_chi_fu_171"
+                        }
+                      ]
+                    },
+                    {
+                      "ModuleName": "fromWordsToBytes",
+                      "InstanceName": "grp_fromWordsToBytes_fu_849"
+                    },
+                    {
+                      "ModuleName": "fromBytesToWords",
+                      "InstanceName": "grp_fromBytesToWords_fu_855"
+                    }
+                  ]
+                },
+                {
+                  "ModuleName": "mpc_LowMC_2",
+                  "InstanceName": "grp_mpc_LowMC_2_fu_760",
+                  "Instances": [
+                    {
+                      "ModuleName": "matrix_mul",
+                      "InstanceName": "grp_matrix_mul_fu_957"
+                    },
+                    {
+                      "ModuleName": "matrix_mul_1",
+                      "InstanceName": "grp_matrix_mul_1_fu_978"
+                    },
+                    {
+                      "ModuleName": "mpc_AND_2",
+                      "InstanceName": "grp_mpc_AND_2_fu_991"
+                    }
+                  ]
+                },
+                {
+                  "ModuleName": "prove_25",
+                  "InstanceName": "grp_prove_25_fu_779"
+                }
+              ]
+            },
+            {
+              "ModuleName": "serializeSignature",
+              "InstanceName": "grp_serializeSignature_fu_419"
+            }
+          ]
+        }]
+    },
+    "Info": {
+      "fromBytesToWords": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "theta": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "pi": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "chi": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "KeccakP1600OnWords": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "fromWordsToBytes": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "HashUpdateIntLE": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "KeccakWidth1600_Spon_2": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "KeccakWidth1600_Spon_3": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "computeSeeds_2": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "KeccakP1600_ExtractB": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "KeccakWidth1600_Spon_5": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "createRandomTape": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "KeccakWidth1600_Spon_1": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "createRandomTape_1": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "matrix_mul": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "mpc_AND_2": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "matrix_mul_1": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "mpc_LowMC_2": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "KeccakWidth1600_Spon": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "Commit_2": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "KeccakWidth1600_Spon_4": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "H3_2": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "prove_25": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "sign_picnic1": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "serializeSignature": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "picnic_sign": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      },
+      "crypto_sign": {
+        "FunctionProtocol": "ap_ctrl_hs",
+        "isTaskLevelControl": "1",
+        "isPipelined": "0",
+        "isCombinational": "0",
+        "isOneStateSeq": "0"
+      }
+    },
+    "Metrics": {
+      "fromBytesToWords": {
+        "Latency": {
+          "LatencyBest": "476",
+          "LatencyAvg": "476",
+          "LatencyWorst": "476",
+          "PipelineII": "476",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "7.966"
+        },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "25",
+            "Latency": "475",
+            "PipelineII": "",
+            "PipelineDepth": "19",
+            "Loops": [{
+                "Name": "fromBytesToWords_label13",
+                "TripCount": "8",
+                "Latency": "16",
+                "PipelineII": "2",
+                "PipelineDepth": "2"
+              }]
+          }],
+        "Area": {
+          "FF": "33",
+          "LUT": "392",
+          "BRAM_18K": "0",
+          "DSP48E": "0",
+          "URAM": "0"
+        }
+      },
+      "theta": {
+        "Latency": {
+          "LatencyBest": "80",
+          "LatencyAvg": "80",
+          "LatencyWorst": "80",
+          "PipelineII": "80",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "7.808"
+        },
+        "Loops": [
+          {
+            "Name": "theta_label16",
+            "TripCount": "5",
+            "Latency": "15",
+            "PipelineII": "3",
+            "PipelineDepth": "4"
+          },
+          {
+            "Name": "Loop 2",
+            "TripCount": "5",
+            "Latency": "10",
+            "PipelineII": "",
+            "PipelineDepth": "2"
+          },
+          {
+            "Name": "L_theta_label17",
+            "TripCount": "25",
+            "Latency": "50",
+            "PipelineII": "2",
+            "PipelineDepth": "3"
+          }
+        ],
+        "Area": {
+          "BRAM_18K": "0",
+          "FF": "643",
+          "LUT": "918",
+          "URAM": "0",
+          "DSP48E": "0"
+        }
+      },
+      "pi": {
+        "Latency": {
+          "LatencyBest": "51",
+          "LatencyAvg": "51",
+          "LatencyWorst": "51",
+          "PipelineII": "51",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.332"
+        },
+        "Loops": [
+          {
+            "Name": "pi_label20",
+            "TripCount": "5",
+            "Latency": "15",
+            "PipelineII": "3",
+            "PipelineDepth": "4"
+          },
+          {
+            "Name": "pi_label22",
+            "TripCount": "5",
+            "Latency": "32",
+            "PipelineII": "5",
+            "PipelineDepth": "13"
+          }
+        ],
+        "Area": {
+          "BRAM_18K": "4",
+          "FF": "863",
+          "LUT": "878",
+          "URAM": "0",
+          "DSP48E": "0"
+        }
+      },
+      "chi": {
+        "Latency": {
+          "LatencyBest": "141",
+          "LatencyAvg": "141",
+          "LatencyWorst": "141",
+          "PipelineII": "141",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "6.668"
+        },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "5",
+            "Latency": "140",
+            "PipelineII": "",
+            "PipelineDepth": "28",
+            "Loops": [
+              {
+                "Name": "Loop 1.1",
+                "TripCount": "5",
+                "Latency": "15",
+                "PipelineII": "",
+                "PipelineDepth": "3"
+              },
+              {
+                "Name": "Loop 1.2",
+                "TripCount": "5",
+                "Latency": "10",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }
+            ]
+          }],
+        "Area": {
+          "BRAM_18K": "0",
+          "FF": "227",
+          "LUT": "500",
+          "URAM": "0",
+          "DSP48E": "0"
+        }
+      },
+      "KeccakP1600OnWords": {
+        "Latency": {
+          "LatencyBest": "8545",
+          "LatencyAvg": "8545",
+          "LatencyWorst": "8545",
+          "PipelineII": "8545",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.332"
+        },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "24",
+            "Latency": "8544",
+            "PipelineII": "",
+            "PipelineDepth": "356",
+            "Loops": [{
+                "Name": "L_rho_label18",
+                "TripCount": "25",
+                "Latency": "75",
+                "PipelineII": "3",
+                "PipelineDepth": "4"
+              }]
+          }],
+        "Area": {
+          "BRAM_18K": "6",
+          "FF": "1866",
+          "LUT": "3376",
+          "URAM": "0",
+          "DSP48E": "0"
+        }
+      },
+      "fromWordsToBytes": {
+        "Latency": {
+          "LatencyBest": "203",
+          "LatencyAvg": "203",
+          "LatencyWorst": "203",
+          "PipelineII": "203",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "6.247"
+        },
+        "Loops": [{
+            "Name": "L_fromWordsToBytes_label14",
+            "TripCount": "200",
+            "Latency": "201",
+            "PipelineII": "1",
+            "PipelineDepth": "3"
+          }],
+        "Area": {
+          "FF": "54",
+          "LUT": "350",
+          "BRAM_18K": "0",
+          "DSP48E": "0",
+          "URAM": "0"
+        }
+      },
+      "HashUpdateIntLE": {
+        "Latency": {
+          "LatencyBest": "",
+          "LatencyAvg": "",
+          "LatencyWorst": "",
+          "PipelineII": "",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.471"
+        },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [
+              {
+                "Name": "Loop 1.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              },
+              {
+                "Name": "Loop 1.2",
+                "TripCount": "25",
+                "Latency": "475",
+                "PipelineII": "",
+                "PipelineDepth": "19",
+                "Loops": [{
+                    "Name": "fromBytesToWords_label13",
+                    "TripCount": "8",
+                    "Latency": "16",
+                    "PipelineII": "2",
+                    "PipelineDepth": "2"
+                  }]
+              },
+              {
+                "Name": "Loop 1.3",
+                "TripCount": "24",
+                "Latency": "8544",
+                "PipelineII": "",
+                "PipelineDepth": "356",
+                "Loops": [{
+                    "Name": "L_rho_label18",
+                    "TripCount": "25",
+                    "Latency": "75",
+                    "PipelineII": "3",
+                    "PipelineDepth": "4"
+                  }]
+              },
+              {
+                "Name": "L_fromWordsToBytes_label14",
+                "TripCount": "200",
+                "Latency": "201",
+                "PipelineII": "1",
+                "PipelineDepth": "3"
+              }
+            ]
+          }],
+        "Area": {
+          "BRAM_18K": "10",
+          "FF": "2254",
+          "LUT": "4638",
+          "URAM": "0",
+          "DSP48E": "0"
+        }
+      },
+      "KeccakWidth1600_Spon_2": {
+        "Latency": {
+          "LatencyBest": "",
+          "LatencyAvg": "",
+          "LatencyWorst": "",
+          "PipelineII": "",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.332"
+        },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "Loop 1.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          }],
+        "Area": {
+          "BRAM_18K": "14",
+          "FF": "2466",
+          "LUT": "5166",
+          "URAM": "0",
+          "DSP48E": "0"
+        }
+      },
+      "KeccakWidth1600_Spon_3": {
+        "Latency": {
+          "LatencyBest": "",
+          "LatencyAvg": "",
+          "LatencyWorst": "",
+          "PipelineII": "",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.332"
+        },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "Loop 1.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          }],
+        "Area": {
+          "BRAM_18K": "14",
+          "FF": "2352",
+          "LUT": "5095",
+          "URAM": "0",
+          "DSP48E": "0"
+        }
+      },
+      "computeSeeds_2": {
+        "Latency": {
+          "LatencyBest": "",
+          "LatencyAvg": "",
+          "LatencyWorst": "",
+          "PipelineII": "",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.471"
+        },
+        "Loops": [
+          {
+            "Name": "KeccakP1600_Initialize_label0",
+            "TripCount": "200",
+            "Latency": "200",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "memset_temp",
+            "TripCount": "75",
+            "Latency": "74",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "HashUpdate_2_label2",
+            "TripCount": "4",
+            "Latency": "12",
+            "PipelineII": "",
+            "PipelineDepth": "3"
+          },
+          {
+            "Name": "Loop 4",
+            "TripCount": "1",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "Loop 4.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          },
+          {
+            "Name": "Loop 5",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [
+              {
+                "Name": "Loop 5.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "9400",
+                "Loops": [{
+                    "Name": "KeccakWidth1600_SpongeAbsorb_label10",
+                    "TripCount": "168",
+                    "Latency": "168",
+                    "PipelineII": "1",
+                    "PipelineDepth": "2"
+                  }]
+              },
+              {
+                "Name": "Loop 5.2",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }
+            ]
+          },
+          {
+            "Name": "memset_temp",
+            "TripCount": "75",
+            "Latency": "74",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "HashUpdate_2_label2",
+            "TripCount": "4",
+            "Latency": "12",
+            "PipelineII": "",
+            "PipelineDepth": "3"
+          },
+          {
+            "Name": "Loop 8",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "Loop 8.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          },
+          {
+            "Name": "memset_temp",
+            "TripCount": "75",
+            "Latency": "74",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "HashUpdate_2_label2",
+            "TripCount": "4",
+            "Latency": "12",
+            "PipelineII": "",
+            "PipelineDepth": "3"
+          },
+          {
+            "Name": "Loop 11",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "Loop 11.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          },
+          {
+            "Name": "Loop 12",
+            "TripCount": "219",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "Loop 12.1",
+                "TripCount": "3",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": ""
+              }]
+          }
+        ],
+        "Area": {
+          "BRAM_18K": "72",
+          "FF": "11059",
+          "LUT": "23376",
+          "URAM": "0",
+          "DSP48E": "0"
+        }
+      },
+      "KeccakP1600_ExtractB": {
+        "Latency": {
+          "LatencyBest": "",
+          "LatencyAvg": "",
+          "LatencyWorst": "",
+          "PipelineII": "",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.609"
+        },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "68"
+          }],
+        "Area": {
+          "DSP48E": "1",
+          "FF": "1404",
+          "LUT": "1153",
+          "BRAM_18K": "0",
+          "URAM": "0"
+        }
+      },
+      "KeccakWidth1600_Spon_5": {
+        "Latency": {
+          "LatencyBest": "",
+          "LatencyAvg": "",
+          "LatencyWorst": "",
+          "PipelineII": "",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.609"
+        },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [
+              {
+                "Name": "Loop 1.1",
+                "TripCount": "25",
+                "Latency": "475",
+                "PipelineII": "",
+                "PipelineDepth": "19",
+                "Loops": [{
+                    "Name": "fromBytesToWords_label13",
+                    "TripCount": "8",
+                    "Latency": "16",
+                    "PipelineII": "2",
+                    "PipelineDepth": "2"
+                  }]
+              },
+              {
+                "Name": "Loop 1.2",
+                "TripCount": "24",
+                "Latency": "8544",
+                "PipelineII": "",
+                "PipelineDepth": "356",
+                "Loops": [{
+                    "Name": "L_rho_label18",
+                    "TripCount": "25",
+                    "Latency": "75",
+                    "PipelineII": "3",
+                    "PipelineDepth": "4"
+                  }]
+              },
+              {
+                "Name": "L_fromWordsToBytes_label14",
+                "TripCount": "200",
+                "Latency": "201",
+                "PipelineII": "1",
+                "PipelineDepth": "3"
+              }
+            ]
+          }],
+        "Area": {
+          "BRAM_18K": "10",
+          "DSP48E": "1",
+          "FF": "3732",
+          "LUT": "5695",
+          "URAM": "0"
+        }
+      },
+      "createRandomTape": {
+        "Latency": {
+          "LatencyBest": "",
+          "LatencyAvg": "",
+          "LatencyWorst": "",
+          "PipelineII": "",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.609"
+        },
+        "Loops": [
+          {
+            "Name": "KeccakP1600_Initialize_label0",
+            "TripCount": "200",
+            "Latency": "200",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "Loop 2",
+            "TripCount": "1",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "Loop 2.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          },
+          {
+            "Name": "Loop 3",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "Loop 3.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          },
+          {
+            "Name": "KeccakP1600_Initialize_label0",
+            "TripCount": "200",
+            "Latency": "200",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "Loop 5",
+            "TripCount": "1",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "Loop 5.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "39"
+              }]
+          },
+          {
+            "Name": "Loop 6",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "Loop 6.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          }
+        ],
+        "Area": {
+          "BRAM_18K": "51",
+          "DSP48E": "2",
+          "FF": "9695",
+          "LUT": "18235",
+          "URAM": "0"
+        }
+      },
+      "KeccakWidth1600_Spon_1": {
+        "Latency": {
+          "LatencyBest": "",
+          "LatencyAvg": "",
+          "LatencyWorst": "",
+          "PipelineII": "",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.332"
+        },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [
+              {
+                "Name": "Loop 1.1",
+                "TripCount": "25",
+                "Latency": "475",
+                "PipelineII": "",
+                "PipelineDepth": "19",
+                "Loops": [{
+                    "Name": "fromBytesToWords_label13",
+                    "TripCount": "8",
+                    "Latency": "16",
+                    "PipelineII": "2",
+                    "PipelineDepth": "2"
+                  }]
+              },
+              {
+                "Name": "Loop 1.2",
+                "TripCount": "24",
+                "Latency": "8544",
+                "PipelineII": "",
+                "PipelineDepth": "356",
+                "Loops": [{
+                    "Name": "L_rho_label18",
+                    "TripCount": "25",
+                    "Latency": "75",
+                    "PipelineII": "3",
+                    "PipelineDepth": "4"
+                  }]
+              },
+              {
+                "Name": "L_fromWordsToBytes_label14",
+                "TripCount": "200",
+                "Latency": "201",
+                "PipelineII": "1",
+                "PipelineDepth": "3"
+              },
+              {
+                "Name": "Loop 1.4",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }
+            ]
+          }],
+        "Area": {
+          "BRAM_18K": "10",
+          "FF": "2346",
+          "LUT": "4669",
+          "URAM": "0",
+          "DSP48E": "0"
+        }
+      },
+      "createRandomTape_1": {
+        "Latency": {
+          "LatencyBest": "",
+          "LatencyAvg": "",
+          "LatencyWorst": "",
+          "PipelineII": "",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.471"
+        },
+        "Loops": [
+          {
+            "Name": "KeccakP1600_Initialize_label0",
+            "TripCount": "200",
+            "Latency": "200",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "Loop 2",
+            "TripCount": "1",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "Loop 2.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          },
+          {
+            "Name": "Loop 3",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "Loop 3.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          },
+          {
+            "Name": "KeccakP1600_Initialize_label0",
+            "TripCount": "200",
+            "Latency": "200",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "Loop 5",
+            "TripCount": "1",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "Loop 5.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          },
+          {
+            "Name": "Loop 6",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "Loop 6.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          }
+        ],
+        "Area": {
+          "BRAM_18K": "51",
+          "FF": "7789",
+          "LUT": "16637",
+          "URAM": "0",
+          "DSP48E": "0"
+        }
+      },
+      "matrix_mul": {
+        "Latency": {
+          "LatencyBest": "2186",
+          "LatencyAvg": "2186",
+          "LatencyWorst": "2186",
+          "PipelineII": "2186",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.360"
+        },
+        "Loops": [
+          {
+            "Name": "Loop 1",
+            "TripCount": "128",
+            "Latency": "2176",
+            "PipelineII": "",
+            "PipelineDepth": "17",
+            "Loops": [
+              {
+                "Name": "matrix_mul_label3",
+                "TripCount": "4",
+                "Latency": "4",
+                "PipelineII": "1",
+                "PipelineDepth": "2"
+              },
+              {
+                "Name": "Loop 1.2",
+                "TripCount": "3",
+                "Latency": "6",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }
+            ]
+          },
+          {
+            "Name": "matrix_mul_label7",
+            "TripCount": "4",
+            "Latency": "8",
+            "PipelineII": "",
+            "PipelineDepth": "2"
+          }
+        ],
+        "Area": {
+          "BRAM_18K": "34",
+          "FF": "126",
+          "LUT": "1515",
+          "URAM": "0",
+          "DSP48E": "0"
+        }
+      },
+      "mpc_AND_2": {
+        "Latency": {
+          "LatencyBest": "12",
+          "LatencyAvg": "12",
+          "LatencyWorst": "12",
+          "PipelineII": "12",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.114"
+        },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "3",
+            "Latency": "9",
+            "PipelineII": "",
+            "PipelineDepth": "3"
+          }],
+        "Area": {
+          "DSP48E": "1",
+          "FF": "118",
+          "LUT": "503",
+          "BRAM_18K": "0",
+          "URAM": "0"
+        }
+      },
+      "matrix_mul_1": {
+        "Latency": {
+          "LatencyBest": "2186",
+          "LatencyAvg": "2186",
+          "LatencyWorst": "2186",
+          "PipelineII": "2186",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.360"
+        },
+        "Loops": [
+          {
+            "Name": "Loop 1",
+            "TripCount": "128",
+            "Latency": "2176",
+            "PipelineII": "",
+            "PipelineDepth": "17",
+            "Loops": [
+              {
+                "Name": "matrix_mul_label3",
+                "TripCount": "4",
+                "Latency": "4",
+                "PipelineII": "1",
+                "PipelineDepth": "2"
+              },
+              {
+                "Name": "Loop 1.2",
+                "TripCount": "3",
+                "Latency": "6",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }
+            ]
+          },
+          {
+            "Name": "matrix_mul_label7",
+            "TripCount": "4",
+            "Latency": "8",
+            "PipelineII": "",
+            "PipelineDepth": "2"
+          }
+        ],
+        "Area": {
+          "BRAM_18K": "34",
+          "FF": "117",
+          "LUT": "1505",
+          "URAM": "0",
+          "DSP48E": "0"
+        }
+      },
+      "mpc_LowMC_2": {
+        "Latency": {
+          "LatencyBest": "289095",
+          "LatencyAvg": "289095",
+          "LatencyWorst": "289095",
+          "PipelineII": "289095",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.502"
+        },
+        "Loops": [
+          {
+            "Name": "Loop 1",
+            "TripCount": "24",
+            "Latency": "24",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "xor_array_label4",
+            "TripCount": "4",
+            "Latency": "8",
+            "PipelineII": "",
+            "PipelineDepth": "2"
+          },
+          {
+            "Name": "Loop 3",
+            "TripCount": "3",
+            "Latency": "33",
+            "PipelineII": "",
+            "PipelineDepth": "11",
+            "Loops": [{
+                "Name": "xor_array_label4",
+                "TripCount": "4",
+                "Latency": "8",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          },
+          {
+            "Name": "Loop 4",
+            "TripCount": "20",
+            "Latency": "282420",
+            "PipelineII": "",
+            "PipelineDepth": "14121",
+            "Loops": [
+              {
+                "Name": "Loop 4.1",
+                "TripCount": "10",
+                "Latency": "950",
+                "PipelineII": "",
+                "PipelineDepth": "95",
+                "Loops": [
+                  {
+                    "Name": "Loop 4.1.1",
+                    "TripCount": "3",
+                    "Latency": "24",
+                    "PipelineII": "",
+                    "PipelineDepth": "8"
+                  },
+                  {
+                    "Name": "Loop 4.1.2",
+                    "TripCount": "3",
+                    "Latency": "27",
+                    "PipelineII": "",
+                    "PipelineDepth": "9"
+                  }
+                ]
+              },
+              {
+                "Name": "xor_array_label4",
+                "TripCount": "4",
+                "Latency": "8",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              },
+              {
+                "Name": "Loop 4.3",
+                "TripCount": "3",
+                "Latency": "33",
+                "PipelineII": "",
+                "PipelineDepth": "11",
+                "Loops": [{
+                    "Name": "xor_array_label4",
+                    "TripCount": "4",
+                    "Latency": "8",
+                    "PipelineII": "",
+                    "PipelineDepth": "2"
+                  }]
+              }
+            ]
+          },
+          {
+            "Name": "Loop 5",
+            "TripCount": "3",
+            "Latency": "42",
+            "PipelineII": "",
+            "PipelineDepth": "14",
+            "Loops": [{
+                "Name": "Loop 5.1",
+                "TripCount": "4",
+                "Latency": "12",
+                "PipelineII": "",
+                "PipelineDepth": "3"
+              }]
+          }
+        ],
+        "Area": {
+          "BRAM_18K": "69",
+          "DSP48E": "1",
+          "FF": "1199",
+          "LUT": "9412",
+          "URAM": "0"
+        }
+      },
+      "KeccakWidth1600_Spon": {
+        "Latency": {
+          "LatencyBest": "",
+          "LatencyAvg": "",
+          "LatencyWorst": "",
+          "PipelineII": "",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.332"
+        },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [
+              {
+                "Name": "Loop 1.1",
+                "TripCount": "25",
+                "Latency": "475",
+                "PipelineII": "",
+                "PipelineDepth": "19",
+                "Loops": [{
+                    "Name": "fromBytesToWords_label13",
+                    "TripCount": "8",
+                    "Latency": "16",
+                    "PipelineII": "2",
+                    "PipelineDepth": "2"
+                  }]
+              },
+              {
+                "Name": "Loop 1.2",
+                "TripCount": "24",
+                "Latency": "8544",
+                "PipelineII": "",
+                "PipelineDepth": "356",
+                "Loops": [{
+                    "Name": "L_rho_label18",
+                    "TripCount": "25",
+                    "Latency": "75",
+                    "PipelineII": "3",
+                    "PipelineDepth": "4"
+                  }]
+              },
+              {
+                "Name": "L_fromWordsToBytes_label14",
+                "TripCount": "200",
+                "Latency": "201",
+                "PipelineII": "1",
+                "PipelineDepth": "3"
+              },
+              {
+                "Name": "Loop 1.4",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }
+            ]
+          }],
+        "Area": {
+          "BRAM_18K": "10",
+          "FF": "2318",
+          "LUT": "4669",
+          "URAM": "0",
+          "DSP48E": "0"
+        }
+      },
+      "Commit_2": {
+        "Latency": {
+          "LatencyBest": "",
+          "LatencyAvg": "",
+          "LatencyWorst": "",
+          "PipelineII": "",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.332"
+        },
+        "Loops": [
+          {
+            "Name": "KeccakP1600_Initialize_label0",
+            "TripCount": "200",
+            "Latency": "200",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "Loop 2",
+            "TripCount": "1",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "Loop 2.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          },
+          {
+            "Name": "Loop 3",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "Loop 3.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          },
+          {
+            "Name": "KeccakP1600_Initialize_label0",
+            "TripCount": "200",
+            "Latency": "200",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "Loop 5",
+            "TripCount": "1",
+            "LatencyMin": "3",
+            "LatencyMax": "9231",
+            "Latency": "3 ~ 9231",
+            "PipelineII": "",
+            "PipelineDepthMin": "3",
+            "PipelineDepthMax": "9231",
+            "PipelineDepth": "3 ~ 9231"
+          },
+          {
+            "Name": "Loop 6",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "Loop 6.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          },
+          {
+            "Name": "memset_temp",
+            "TripCount": "75",
+            "Latency": "74",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "HashUpdate_2_label2",
+            "TripCount": "4",
+            "Latency": "12",
+            "PipelineII": "",
+            "PipelineDepth": "3"
+          },
+          {
+            "Name": "Loop 9",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "Loop 9.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          },
+          {
+            "Name": "Loop 10",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "Loop 10.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          },
+          {
+            "Name": "memset_temp",
+            "TripCount": "75",
+            "Latency": "74",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "HashUpdate_2_label2",
+            "TripCount": "4",
+            "Latency": "12",
+            "PipelineII": "",
+            "PipelineDepth": "3"
+          },
+          {
+            "Name": "Loop 13",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "Loop 13.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          }
+        ],
+        "Area": {
+          "BRAM_18K": "55",
+          "DSP48E": "1",
+          "FF": "6449",
+          "LUT": "14082",
+          "URAM": "0"
+        }
+      },
+      "KeccakWidth1600_Spon_4": {
+        "Latency": {
+          "LatencyBest": "",
+          "LatencyAvg": "",
+          "LatencyWorst": "",
+          "PipelineII": "",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.332"
+        },
+        "Loops": [{
+            "Name": "Loop 1",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [
+              {
+                "Name": "Loop 1.1",
+                "TripCount": "25",
+                "Latency": "475",
+                "PipelineII": "",
+                "PipelineDepth": "19",
+                "Loops": [{
+                    "Name": "fromBytesToWords_label13",
+                    "TripCount": "8",
+                    "Latency": "16",
+                    "PipelineII": "2",
+                    "PipelineDepth": "2"
+                  }]
+              },
+              {
+                "Name": "Loop 1.2",
+                "TripCount": "24",
+                "Latency": "8544",
+                "PipelineII": "",
+                "PipelineDepth": "356",
+                "Loops": [{
+                    "Name": "L_rho_label18",
+                    "TripCount": "25",
+                    "Latency": "75",
+                    "PipelineII": "3",
+                    "PipelineDepth": "4"
+                  }]
+              },
+              {
+                "Name": "L_fromWordsToBytes_label14",
+                "TripCount": "200",
+                "Latency": "201",
+                "PipelineII": "1",
+                "PipelineDepth": "3"
+              },
+              {
+                "Name": "Loop 1.4",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }
+            ]
+          }],
+        "Area": {
+          "BRAM_18K": "10",
+          "FF": "2298",
+          "LUT": "4624",
+          "URAM": "0",
+          "DSP48E": "0"
+        }
+      },
+      "H3_2": {
+        "Latency": {
+          "LatencyBest": "",
+          "LatencyAvg": "",
+          "LatencyWorst": "",
+          "PipelineII": "",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.332"
+        },
+        "Loops": [
+          {
+            "Name": "KeccakP1600_Initialize_label0",
+            "TripCount": "200",
+            "Latency": "200",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "Loop 2",
+            "TripCount": "1",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "Loop 2.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          },
+          {
+            "Name": "Loop 3",
+            "TripCount": "219",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "Loop 3.1",
+                "TripCount": "3",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "",
+                "Loops": [
+                  {
+                    "Name": "memset_temp",
+                    "TripCount": "75",
+                    "Latency": "74",
+                    "PipelineII": "",
+                    "PipelineDepth": "1"
+                  },
+                  {
+                    "Name": "HashUpdate_2_label2",
+                    "TripCount": "4",
+                    "Latency": "12",
+                    "PipelineII": "",
+                    "PipelineDepth": "3"
+                  },
+                  {
+                    "Name": "Loop 3.1.3",
+                    "TripCount": "",
+                    "Latency": "",
+                    "PipelineII": "",
+                    "PipelineDepth": "",
+                    "Loops": [{
+                        "Name": "Loop 3.1.3.1",
+                        "TripCount": "",
+                        "Latency": "",
+                        "PipelineII": "",
+                        "PipelineDepth": "2"
+                      }]
+                  }
+                ]
+              }]
+          },
+          {
+            "Name": "Loop 4",
+            "TripCount": "219",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "Loop 4.1",
+                "TripCount": "3",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "",
+                "Loops": [{
+                    "Name": "Loop 4.1.1",
+                    "TripCount": "",
+                    "Latency": "",
+                    "PipelineII": "",
+                    "PipelineDepth": "",
+                    "Loops": [{
+                        "Name": "Loop 4.1.1.1",
+                        "TripCount": "",
+                        "Latency": "",
+                        "PipelineII": "",
+                        "PipelineDepth": "2"
+                      }]
+                  }]
+              }]
+          },
+          {
+            "Name": "memset_temp",
+            "TripCount": "75",
+            "Latency": "74",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "HashUpdate_2_label2",
+            "TripCount": "4",
+            "Latency": "12",
+            "PipelineII": "",
+            "PipelineDepth": "3"
+          },
+          {
+            "Name": "Loop 7",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "Loop 7.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          },
+          {
+            "Name": "memset_temp",
+            "TripCount": "75",
+            "Latency": "74",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "HashUpdate_2_label2",
+            "TripCount": "4",
+            "Latency": "12",
+            "PipelineII": "",
+            "PipelineDepth": "3"
+          },
+          {
+            "Name": "Loop 10",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "Loop 10.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          },
+          {
+            "Name": "Loop 11",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [{
+                "Name": "Loop 11.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }]
+          },
+          {
+            "Name": "Loop 12",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [
+              {
+                "Name": "Loop 12.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "9400",
+                "Loops": [{
+                    "Name": "KeccakWidth1600_SpongeAbsorb_label10",
+                    "TripCount": "168",
+                    "Latency": "168",
+                    "PipelineII": "1",
+                    "PipelineDepth": "2"
+                  }]
+              },
+              {
+                "Name": "Loop 12.2",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }
+            ]
+          },
+          {
+            "Name": "Loop 13",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [
+              {
+                "Name": "H3_2_label2",
+                "TripCount": "",
+                "LatencyMin": "2",
+                "LatencyMax": "9",
+                "Latency": "2 ~ 9",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              },
+              {
+                "Name": "KeccakP1600_Initialize_label0",
+                "TripCount": "200",
+                "Latency": "200",
+                "PipelineII": "",
+                "PipelineDepth": "1"
+              },
+              {
+                "Name": "Loop 13.3",
+                "TripCount": "1",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "",
+                "Loops": [{
+                    "Name": "Loop 13.3.1",
+                    "TripCount": "",
+                    "Latency": "",
+                    "PipelineII": "",
+                    "PipelineDepth": "2"
+                  }]
+              },
+              {
+                "Name": "Loop 13.4",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "",
+                "Loops": [{
+                    "Name": "Loop 13.4.1",
+                    "TripCount": "",
+                    "Latency": "",
+                    "PipelineII": "",
+                    "PipelineDepth": "2"
+                  }]
+              }
+            ]
+          }
+        ],
+        "Area": {
+          "BRAM_18K": "68",
+          "FF": "7837",
+          "LUT": "16837",
+          "URAM": "0",
+          "DSP48E": "0"
+        }
+      },
+      "prove_25": {
+        "Latency": {
+          "LatencyBest": "284",
+          "LatencyAvg": "288",
+          "LatencyWorst": "292",
+          "PipelineIIMin": "284",
+          "PipelineIIMax": "292",
+          "PipelineII": "284 ~ 292",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "6.350"
+        },
+        "Loops": [
+          {
+            "Name": "Loop 1",
+            "TripCount": "16",
+            "Latency": "32",
+            "PipelineII": "",
+            "PipelineDepth": "2"
+          },
+          {
+            "Name": "Loop 2",
+            "TripCount": "16",
+            "Latency": "32",
+            "PipelineII": "",
+            "PipelineDepth": "2"
+          },
+          {
+            "Name": "Loop 3",
+            "TripCount": "16",
+            "Latency": "32",
+            "PipelineII": "",
+            "PipelineDepth": "2"
+          },
+          {
+            "Name": "Loop 4",
+            "TripCount": "16",
+            "Latency": "32",
+            "PipelineII": "",
+            "PipelineDepth": "2"
+          },
+          {
+            "Name": "Loop 5",
+            "TripCount": "16",
+            "Latency": "32",
+            "PipelineII": "",
+            "PipelineDepth": "2"
+          },
+          {
+            "Name": "Loop 6",
+            "TripCount": "16",
+            "Latency": "32",
+            "PipelineII": "",
+            "PipelineDepth": "2"
+          },
+          {
+            "Name": "Loop 7",
+            "TripCount": "4",
+            "Latency": "8",
+            "PipelineII": "",
+            "PipelineDepth": "2"
+          },
+          {
+            "Name": "Loop 8",
+            "TripCount": "75",
+            "Latency": "150",
+            "PipelineII": "",
+            "PipelineDepth": "2"
+          },
+          {
+            "Name": "Loop 9",
+            "TripCount": "32",
+            "Latency": "64",
+            "PipelineII": "",
+            "PipelineDepth": "2"
+          }
+        ],
+        "Area": {
+          "DSP48E": "1",
+          "FF": "304",
+          "LUT": "1108",
+          "BRAM_18K": "0",
+          "URAM": "0"
+        }
+      },
+      "sign_picnic1": {
+        "Latency": {
+          "LatencyBest": "",
+          "LatencyAvg": "",
+          "LatencyWorst": "",
+          "PipelineII": "",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.750"
+        },
+        "Loops": [
+          {
+            "Name": "Loop 1",
+            "TripCount": "219",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "",
+            "Loops": [
+              {
+                "Name": "Loop 1.1",
+                "TripCount": "",
+                "Latency": "",
+                "PipelineII": "",
+                "PipelineDepth": "",
+                "Loops": [
+                  {
+                    "Name": "sign_picnic1_label7",
+                    "TripCount": "4",
+                    "Latency": "8",
+                    "PipelineII": "2",
+                    "PipelineDepth": "3"
+                  },
+                  {
+                    "Name": "sign_picnic1_label8",
+                    "TripCount": "75",
+                    "Latency": "85",
+                    "PipelineII": "1",
+                    "PipelineDepth": "12"
+                  }
+                ]
+              },
+              {
+                "Name": "Loop 1.2",
+                "TripCount": "4",
+                "Latency": "8",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              }
+            ]
+          },
+          {
+            "Name": "L_L_sign_picnic1_label9",
+            "TripCount": "2628",
+            "Latency": "2629",
+            "PipelineII": "1",
+            "PipelineDepth": "3"
+          },
+          {
+            "Name": "Loop 3",
+            "TripCount": "4",
+            "Latency": "12",
+            "PipelineII": "",
+            "PipelineDepth": "3"
+          },
+          {
+            "Name": "Loop 4",
+            "TripCount": "219",
+            "LatencyMin": "62853",
+            "LatencyMax": "64605",
+            "Latency": "62853 ~ 64605",
+            "PipelineII": "",
+            "PipelineDepthMin": "287",
+            "PipelineDepthMax": "295",
+            "PipelineDepth": "287 ~ 295"
+          }
+        ],
+        "Area": {
+          "BRAM_18K": "442",
+          "DSP48E": "5",
+          "FF": "45107",
+          "LUT": "102067",
+          "URAM": "0"
+        }
+      },
+      "serializeSignature": {
+        "Latency": {
+          "LatencyBest": "62592",
+          "LatencyAvg": "65001",
+          "LatencyWorst": "67191",
+          "PipelineIIMin": "62592",
+          "PipelineIIMax": "67191",
+          "PipelineII": "62592 ~ 67191",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "6.473"
+        },
+        "Loops": [
+          {
+            "Name": "Loop 1",
+            "TripCount": "55",
+            "Latency": "110",
+            "PipelineII": "",
+            "PipelineDepth": "2"
+          },
+          {
+            "Name": "Loop 2",
+            "TripCount": "32",
+            "Latency": "64",
+            "PipelineII": "",
+            "PipelineDepth": "2"
+          },
+          {
+            "Name": "Loop 3",
+            "TripCount": "219",
+            "LatencyMin": "62415",
+            "LatencyMax": "67014",
+            "Latency": "62415 ~ 67014",
+            "PipelineII": "",
+            "PipelineDepthMin": "285",
+            "PipelineDepthMax": "306",
+            "PipelineDepth": "285 ~ 306",
+            "Loops": [
+              {
+                "Name": "Loop 3.1",
+                "TripCount": "32",
+                "Latency": "64",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              },
+              {
+                "Name": "Loop 3.2",
+                "TripCount": "75",
+                "Latency": "150",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              },
+              {
+                "Name": "Loop 3.3",
+                "TripCount": "16",
+                "Latency": "32",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              },
+              {
+                "Name": "Loop 3.4",
+                "TripCount": "16",
+                "Latency": "32",
+                "PipelineII": "",
+                "PipelineDepth": "2"
+              },
+              {
+                "Name": "Loop 3.5",
+                "TripCount": "4",
+                "Latency": "20",
+                "PipelineII": "",
+                "PipelineDepth": "5"
+              }
+            ]
+          }
+        ],
+        "Area": {
+          "FF": "327",
+          "LUT": "1197",
+          "BRAM_18K": "0",
+          "DSP48E": "0",
+          "URAM": "0"
+        }
+      },
+      "picnic_sign": {
+        "Latency": {
+          "LatencyBest": "",
+          "LatencyAvg": "",
+          "LatencyWorst": "",
+          "PipelineII": "",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.750"
+        },
+        "Loops": [
+          {
+            "Name": "memset_temp",
+            "TripCount": "8",
+            "Latency": "7",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "memset_temp2",
+            "TripCount": "8",
+            "Latency": "7",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "memset_temp3",
+            "TripCount": "8",
+            "Latency": "7",
+            "PipelineII": "",
+            "PipelineDepth": "1"
+          },
+          {
+            "Name": "Loop 4",
+            "TripCount": "8",
+            "Latency": "24",
+            "PipelineII": "",
+            "PipelineDepth": "3"
+          }
+        ],
+        "Area": {
+          "BRAM_18K": "468",
+          "DSP48E": "5",
+          "FF": "45813",
+          "LUT": "104031",
+          "URAM": "0"
+        }
+      },
+      "crypto_sign": {
+        "Latency": {
+          "LatencyBest": "",
+          "LatencyAvg": "",
+          "LatencyWorst": "",
+          "PipelineII": "",
+          "PipelineDepth": "",
+          "PipelineType": "none"
+        },
+        "Timing": {
+          "Target": "10.00",
+          "Uncertainty": "1.25",
+          "Estimate": "8.750"
+        },
+        "Loops": [
+          {
+            "Name": "Loop 1",
+            "TripCount": "16",
+            "Latency": "48",
+            "PipelineII": "",
+            "PipelineDepth": "3"
+          },
+          {
+            "Name": "Loop 2",
+            "TripCount": "",
+            "Latency": "",
+            "PipelineII": "",
+            "PipelineDepth": "2"
+          }
+        ],
+        "Area": {
+          "BRAM_18K": "468",
+          "DSP48E": "5",
+          "FF": "46135",
+          "LUT": "104855",
+          "URAM": "0"
+        }
+      }
+    }
+  },
+  "Sdx": {
+    "Target": "none",
+    "ProfileOption": "0",
+    "ProfileType": "none",
+    "XO": "",
+    "KernelName": "crypto_sign",
+    "EnableXoSwEmu": "1"
+  },
+  "GenData": {
+    "DataVersion": "0.2",
+    "Time": "2020-05-14 18:43:14 +0530",
+    "ToolName": "vivado_hls",
+    "ToolVersion": "2019.2"
+  }
+}

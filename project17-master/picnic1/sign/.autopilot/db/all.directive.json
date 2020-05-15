@@ -1,0 +1,695 @@
+{"sourceFile": [{
+      "name": "",
+      "directive": [
+        {
+          "functionName": "HashUpdate",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "ALLOCATION",
+            "option": [
+              {
+                "name": "instances",
+                "value": "1",
+                "positionalBoolean": "4"
+              },
+              {
+                "name": "function",
+                "value": "",
+                "positionalBoolean": "type"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "KeccakWidth1600_12rounds_SpongeAbsorb",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "ALLOCATION",
+            "option": [
+              {
+                "name": "instances",
+                "value": "1",
+                "positionalBoolean": "4"
+              },
+              {
+                "name": "function",
+                "value": "",
+                "positionalBoolean": "type"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "KeccakP1600_AddByte",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "ALLOCATION",
+            "option": [
+              {
+                "name": "instances",
+                "value": "1",
+                "positionalBoolean": "4"
+              },
+              {
+                "name": "function",
+                "value": "",
+                "positionalBoolean": "type"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "KeccakP1600Round",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "ALLOCATION",
+            "option": [
+              {
+                "name": "instances",
+                "value": "1",
+                "positionalBoolean": "4"
+              },
+              {
+                "name": "function",
+                "value": "",
+                "positionalBoolean": "type"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "KeccakP1600_Permute_24rounds",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "ALLOCATION",
+            "option": [
+              {
+                "name": "instances",
+                "value": "1",
+                "positionalBoolean": "4"
+              },
+              {
+                "name": "function",
+                "value": "",
+                "positionalBoolean": "type"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "KeccakWidth1600_SpongeAbsorb",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "ALLOCATION",
+            "option": [
+              {
+                "name": "instances",
+                "value": "1",
+                "positionalBoolean": "4"
+              },
+              {
+                "name": "function",
+                "value": "",
+                "positionalBoolean": "type"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "KeccakWidth1600_SpongeAbsorbLastFewBits",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "ALLOCATION",
+            "option": [
+              {
+                "name": "instances",
+                "value": "1",
+                "positionalBoolean": "4"
+              },
+              {
+                "name": "function",
+                "value": "",
+                "positionalBoolean": "type"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "KeccakWidth1600_SpongeSqueeze",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "ALLOCATION",
+            "option": [
+              {
+                "name": "instances",
+                "value": "1",
+                "positionalBoolean": "4"
+              },
+              {
+                "name": "function",
+                "value": "",
+                "positionalBoolean": "type"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "KeccakWidth1600_SpongeInitialize",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "ALLOCATION",
+            "option": [
+              {
+                "name": "instances",
+                "value": "1",
+                "positionalBoolean": "4"
+              },
+              {
+                "name": "function",
+                "value": "",
+                "positionalBoolean": "type"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "Keccak_HashUpdate",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {"name": "INLINE"}
+        },
+        {
+          "functionName": "Keccak_HashUpdate",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "ALLOCATION",
+            "option": [
+              {
+                "name": "instances",
+                "value": "1",
+                "positionalBoolean": "4"
+              },
+              {
+                "name": "function",
+                "value": "",
+                "positionalBoolean": "type"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "Keccak_HashFinal",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "ALLOCATION",
+            "option": [
+              {
+                "name": "instances",
+                "value": "1",
+                "positionalBoolean": "4"
+              },
+              {
+                "name": "function",
+                "value": "",
+                "positionalBoolean": "type"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "Keccak_HashSqueeze",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {"name": "INLINE"}
+        },
+        {
+          "functionName": "Keccak_HashSqueeze",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "ALLOCATION",
+            "option": [
+              {
+                "name": "instances",
+                "value": "1",
+                "positionalBoolean": "4"
+              },
+              {
+                "name": "function",
+                "value": "",
+                "positionalBoolean": "type"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "Keccak_HashInitialize",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "ALLOCATION",
+            "option": [
+              {
+                "name": "instances",
+                "value": "1",
+                "positionalBoolean": "4"
+              },
+              {
+                "name": "function",
+                "value": "",
+                "positionalBoolean": "type"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "HashFinal",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {"name": "INLINE"}
+        },
+        {
+          "functionName": "HashFinal",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "ALLOCATION",
+            "option": [
+              {
+                "name": "instances",
+                "value": "1",
+                "positionalBoolean": "4"
+              },
+              {
+                "name": "function",
+                "value": "",
+                "positionalBoolean": "type"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "HashSqueeze",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {"name": "INLINE"}
+        },
+        {
+          "functionName": "HashSqueeze",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "ALLOCATION",
+            "option": [
+              {
+                "name": "instances",
+                "value": "1",
+                "positionalBoolean": "4"
+              },
+              {
+                "name": "function",
+                "value": "",
+                "positionalBoolean": "type"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "HashInit",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "ALLOCATION",
+            "option": [
+              {
+                "name": "instances",
+                "value": "1",
+                "positionalBoolean": "4"
+              },
+              {
+                "name": "function",
+                "value": "",
+                "positionalBoolean": "type"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "HashUpdate_2",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "ALLOCATION",
+            "option": [
+              {
+                "name": "instances",
+                "value": "1",
+                "positionalBoolean": "4"
+              },
+              {
+                "name": "function",
+                "value": "",
+                "positionalBoolean": "type"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "setChallenge",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "ALLOCATION",
+            "option": [
+              {
+                "name": "instances",
+                "value": "1",
+                "positionalBoolean": "4"
+              },
+              {
+                "name": "function",
+                "value": "",
+                "positionalBoolean": "type"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "setBit",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "ALLOCATION",
+            "option": [
+              {
+                "name": "instances",
+                "value": "1",
+                "positionalBoolean": "4"
+              },
+              {
+                "name": "function",
+                "value": "",
+                "positionalBoolean": "type"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "HashUpdate",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {"name": "INLINE"}
+        },
+        {
+          "functionName": "HashUpdate_2",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {"name": "INLINE"}
+        },
+        {
+          "functionName": "HashInit",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {"name": "INLINE"}
+        },
+        {
+          "functionName": "Keccak_HashInitialize",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {"name": "INLINE"}
+        },
+        {
+          "functionName": "Keccak_HashFinal",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {"name": "INLINE"}
+        },
+        {
+          "functionName": "KeccakWidth1600_SpongeInitialize",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {"name": "INLINE"}
+        },
+        {
+          "functionName": "KeccakWidth1600_SpongeAbsorb",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {"name": "INLINE"}
+        },
+        {
+          "functionName": "KeccakWidth1600_SpongeAbsorbLastFewBits",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {"name": "INLINE"}
+        },
+        {
+          "functionName": "KeccakWidth1600_12rounds_SpongeAbsorb",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {"name": "INLINE"}
+        },
+        {
+          "functionName": "KeccakP1600_AddByte",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {"name": "INLINE"}
+        },
+        {
+          "functionName": "KeccakP1600Round",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {"name": "INLINE"}
+        },
+        {
+          "functionName": "KeccakP1600_Permute_24rounds",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {"name": "INLINE"}
+        },
+        {
+          "functionName": "H3",
+          "label": "H3_label0",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "H3_3",
+          "label": "H3_3_label1",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "H3_2",
+          "label": "H3_2_label2",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "matrix_mul",
+          "label": "matrix_mul_label3",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "LowMCEnc",
+          "label": "LowMCEnc_label4",
+          "functionLabel": "",
+          "pragma": {
+            "name": "UNROLL",
+            "option": [{
+                "name": "factor",
+                "value": "2"
+              }]
+          }
+        },
+        {
+          "functionName": "LowMCEnc",
+          "label": "LowMCEnc_label5",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "sign_picnic1",
+          "label": "sign_picnic1_label7",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "sign_picnic1",
+          "label": "sign_picnic1_label8",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "sign_picnic1",
+          "label": "sign_picnic1_label9",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "sign_picnic1",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "ARRAY_PARTITION",
+            "option": [
+              {
+                "name": "variable",
+                "value": "tmp",
+                "positionalBoolean": "4"
+              },
+              {
+                "name": "block",
+                "value": "",
+                "positionalBoolean": "type"
+              },
+              {
+                "name": "factor",
+                "value": "4"
+              },
+              {
+                "name": "dim",
+                "value": "1"
+              }
+            ]
+          }
+        },
+        {
+          "functionName": "KeccakWidth1600_SpongeAbsorb",
+          "label": "KeccakWidth1600_SpongeAbsorb_label10",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "KeccakWidth1600_12rounds_SpongeAbsorb",
+          "label": "KeccakWidth1600_12rounds_SpongeAbsorb_label11",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "AddRoundKey",
+          "label": "AddRoundKey_label1",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "SubBytes",
+          "label": "SubBytes_label0",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "InvSubBytes",
+          "label": "InvSubBytes_label12",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "fromBytesToWords",
+          "label": "fromBytesToWords_label13",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "fromWordsToBytes",
+          "label": "fromWordsToBytes_label14",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "theta",
+          "label": "theta_label15",
+          "functionLabel": "",
+          "pragma": {
+            "name": "UNROLL",
+            "option": [{
+                "name": "factor",
+                "value": "5"
+              }]
+          }
+        },
+        {
+          "functionName": "theta",
+          "label": "theta_label16",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "theta",
+          "label": "theta_label17",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "rho",
+          "label": "rho_label18",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "pi",
+          "label": "pi_label19",
+          "functionLabel": "",
+          "pragma": {
+            "name": "UNROLL",
+            "option": [{
+                "name": "factor",
+                "value": "2"
+              }]
+          }
+        },
+        {
+          "functionName": "pi",
+          "label": "pi_label20",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "pi",
+          "label": "pi_label21",
+          "functionLabel": "",
+          "pragma": {
+            "name": "UNROLL",
+            "option": [{
+                "name": "factor",
+                "value": "2"
+              }]
+          }
+        },
+        {
+          "functionName": "pi",
+          "label": "pi_label22",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        },
+        {
+          "functionName": "KeccakP1600_DisplayRhoOffsets",
+          "label": "KeccakP1600_DisplayRhoOffsets_label23",
+          "functionLabel": "",
+          "pragma": {
+            "name": "UNROLL",
+            "option": [{
+                "name": "factor",
+                "value": "2"
+              }]
+          }
+        },
+        {
+          "functionName": "KeccakP1600_DisplayRhoOffsets",
+          "label": "KeccakP1600_DisplayRhoOffsets_label24",
+          "functionLabel": "",
+          "pragma": {"name": "PIPELINE"}
+        }
+      ]
+    }]}

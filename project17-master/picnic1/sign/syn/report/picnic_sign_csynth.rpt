@@ -1,0 +1,271 @@
+
+
+================================================================
+== Vivado HLS Report for 'picnic_sign'
+================================================================
+* Date:           Thu May 14 18:42:45 2020
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        picnic1
+* Solution:       sign
+* Product family: artix7
+* Target device:  xc7a200t-fbg676-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 8.750 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        +-------------------------------+--------------------+---------+---------+----------+----------+-------+-------+---------+
+        |                               |                    |  Latency (cycles) |  Latency (absolute) |    Interval   | Pipeline|
+        |            Instance           |       Module       |   min   |   max   |    min   |    max   |  min  |  max  |   Type  |
+        +-------------------------------+--------------------+---------+---------+----------+----------+-------+-------+---------+
+        |grp_sign_picnic1_fu_390        |sign_picnic1        |        ?|        ?|         ?|         ?|      ?|      ?|   none  |
+        |grp_serializeSignature_fu_419  |serializeSignature  |    62592|    67191| 0.626 ms | 0.672 ms |  62592|  67191|   none  |
+        +-------------------------------+--------------------+---------+---------+----------+----------+-------+-------+---------+
+
+        * Loop: 
+        +----------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |    Loop Name   |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- memset_temp   |        7|        7|         1|          -|          -|     8|    no    |
+        |- memset_temp2  |        7|        7|         1|          -|          -|     8|    no    |
+        |- memset_temp3  |        7|        7|         1|          -|          -|     8|    no    |
+        |- Loop 4        |       24|       24|         3|          -|          -|     8|    no    |
+        +----------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|      97|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |      442|      5|   45434|  103264|    0|
+|Memory           |       26|      -|     224|      23|    0|
+|Multiplexer      |        -|      -|       -|     647|    -|
+|Register         |        -|      -|     155|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |      468|      5|   45813|  104031|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |      730|    740|  269200|  134600|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |       64|   ~0  |      17|      77|    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +-------------------------------+--------------------+---------+-------+-------+--------+-----+
+    |            Instance           |       Module       | BRAM_18K| DSP48E|   FF  |   LUT  | URAM|
+    +-------------------------------+--------------------+---------+-------+-------+--------+-----+
+    |grp_serializeSignature_fu_419  |serializeSignature  |        0|      0|    327|    1197|    0|
+    |grp_sign_picnic1_fu_390        |sign_picnic1        |      442|      5|  45107|  102067|    0|
+    +-------------------------------+--------------------+---------+-------+-------+--------+-----+
+    |Total                          |                    |      442|      5|  45434|  103264|    0|
+    +-------------------------------+--------------------+---------+-------+-------+--------+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    +-----------------------+----------------------+---------+----+----+-----+-------+-----+------+-------------+
+    |         Memory        |        Module        | BRAM_18K| FF | LUT| URAM| Words | Bits| Banks| W*Bits*Banks|
+    +-----------------------+----------------------+---------+----+----+-----+-------+-----+------+-------------+
+    |sig_0_salt_U           |H3_2_hash             |        0|  16|   4|    0|     32|    8|     1|          256|
+    |sig_0_proofs_seed1_U   |picnic_sign_sig_0bCo  |        2|   0|   0|    0|   3504|    8|     1|        28032|
+    |sig_0_proofs_seed2_U   |picnic_sign_sig_0bCo  |        2|   0|   0|    0|   3504|    8|     1|        28032|
+    |sig_0_proofs_inputS_U  |picnic_sign_sig_0bEo  |        2|   0|   0|    0|    876|   32|     1|        28032|
+    |sig_0_proofs_commun_U  |picnic_sign_sig_0bFp  |       16|   0|   0|    0|  16425|    8|     1|       131400|
+    |sig_0_proofs_view3C_U  |picnic_sign_sig_0bGp  |        4|   0|   0|    0|   7008|    8|     1|        56064|
+    |sig_0_challengeBits_U  |picnic_sign_sig_0bHp  |        0|  16|   7|    0|     55|    8|     1|          440|
+    |temp_U                 |picnic_sign_temp      |        0|  64|   4|    0|      8|   32|     1|          256|
+    |temp2_U                |picnic_sign_temp      |        0|  64|   4|    0|      8|   32|     1|          256|
+    |temp3_U                |picnic_sign_temp      |        0|  64|   4|    0|      8|   32|     1|          256|
+    +-----------------------+----------------------+---------+----+----+-----+-------+-----+------+-------------+
+    |Total                  |                      |       26| 224|  23|    0|  31428|  176|    10|       273024|
+    +-----------------------+----------------------+---------+----+----+-----+-------+-----+------+-------------+
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |           Variable Name          | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |add_ln269_1_fu_451_p2             |     +    |      0|  0|  12|           3|           1|
+    |add_ln269_2_fu_468_p2             |     +    |      0|  0|  12|           3|           1|
+    |add_ln269_fu_434_p2               |     +    |      0|  0|  12|           3|           1|
+    |loop_fu_527_p2                    |     +    |      0|  0|  15|           3|           6|
+    |ap_block_state10_on_subcall_done  |    and   |      0|  0|   2|           1|           1|
+    |icmp_ln269_1_fu_462_p2            |   icmp   |      0|  0|   9|           3|           2|
+    |icmp_ln269_2_fu_479_p2            |   icmp   |      0|  0|   9|           3|           2|
+    |icmp_ln269_fu_445_p2              |   icmp   |      0|  0|   9|           3|           2|
+    |or_ln271_1_fu_533_p2              |    or    |      0|  0|   5|           5|           2|
+    |or_ln271_2_fu_545_p2              |    or    |      0|  0|   5|           5|           2|
+    |or_ln271_fu_504_p2                |    or    |      0|  0|   5|           5|           1|
+    |select_ln249_fu_600_p3            |  select  |      0|  0|   2|           1|           2|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |Total                             |          |      0|  0|  97|          38|          23|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +------------------------------------------------+----+-----------+-----+-----------+
+    |                      Name                      | LUT| Input Size| Bits| Total Bits|
+    +------------------------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                                       |  50|         11|    1|         11|
+    |ap_phi_mux_p_0_phi_fu_382_p4                    |   9|          2|    1|          2|
+    |ap_phi_mux_signature_len_write_s_phi_fu_371_p4  |   9|          2|   16|         32|
+    |ap_return_0                                     |   9|          2|   32|         64|
+    |ap_return_1                                     |   9|          2|   16|         32|
+    |loop_0_reg_356                                  |   9|          2|    6|         12|
+    |phi_ln269_1_reg_334                             |   9|          2|    3|          6|
+    |phi_ln269_2_reg_345                             |   9|          2|    3|          6|
+    |phi_ln269_reg_323                               |   9|          2|    3|          6|
+    |sig_0_challengeBits_address0                    |  15|          3|    6|         18|
+    |sig_0_challengeBits_ce0                         |  15|          3|    1|          3|
+    |sig_0_challengeBits_we0                         |   9|          2|    1|          2|
+    |sig_0_proofs_commun_address0                    |  15|          3|   15|         45|
+    |sig_0_proofs_commun_ce0                         |  15|          3|    1|          3|
+    |sig_0_proofs_commun_we0                         |   9|          2|    1|          2|
+    |sig_0_proofs_inputS_address0                    |  15|          3|   10|         30|
+    |sig_0_proofs_inputS_ce0                         |  15|          3|    1|          3|
+    |sig_0_proofs_inputS_we0                         |   9|          2|    1|          2|
+    |sig_0_proofs_seed1_address0                     |  15|          3|   12|         36|
+    |sig_0_proofs_seed1_ce0                          |  15|          3|    1|          3|
+    |sig_0_proofs_seed1_we0                          |   9|          2|    1|          2|
+    |sig_0_proofs_seed2_address0                     |  15|          3|   12|         36|
+    |sig_0_proofs_seed2_ce0                          |  15|          3|    1|          3|
+    |sig_0_proofs_seed2_we0                          |   9|          2|    1|          2|
+    |sig_0_proofs_view3C_address0                    |  15|          3|   13|         39|
+    |sig_0_proofs_view3C_ce0                         |  15|          3|    1|          3|
+    |sig_0_proofs_view3C_we0                         |   9|          2|    1|          2|
+    |sig_0_salt_address0                             |  15|          3|    5|         15|
+    |sig_0_salt_ce0                                  |  15|          3|    1|          3|
+    |sig_0_salt_we0                                  |   9|          2|    1|          2|
+    |signature_len_write_s_reg_367                   |   9|          2|   16|         32|
+    |sk_data_address0                                |  15|          3|    5|         15|
+    |sk_data_address1                                |  15|          3|    5|         15|
+    |sk_pk_ciphertext_address0                       |  15|          3|    5|         15|
+    |sk_pk_ciphertext_address1                       |  15|          3|    5|         15|
+    |sk_pk_plaintext_address0                        |  15|          3|    5|         15|
+    |sk_pk_plaintext_address1                        |  15|          3|    5|         15|
+    |temp2_address0                                  |  21|          4|    3|         12|
+    |temp2_ce0                                       |  15|          3|    1|          3|
+    |temp2_d0                                        |  15|          3|   32|         96|
+    |temp3_address0                                  |  21|          4|    3|         12|
+    |temp3_ce0                                       |  15|          3|    1|          3|
+    |temp3_d0                                        |  15|          3|   32|         96|
+    |temp_address0                                   |  21|          4|    3|         12|
+    |temp_ce0                                        |  15|          3|    1|          3|
+    |temp_d0                                         |  15|          3|   32|         96|
+    +------------------------------------------------+----+-----------+-----+-----------+
+    |Total                                           | 647|        133|  322|        880|
+    +------------------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +--------------------------------------------+----+----+-----+-----------+
+    |                    Name                    | FF | LUT| Bits| Const Bits|
+    +--------------------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                                   |  10|   0|   10|          0|
+    |ap_return_0_preg                            |  32|   0|   32|          0|
+    |ap_return_1_preg                            |  16|   0|   64|         48|
+    |grp_serializeSignature_fu_419_ap_start_reg  |   1|   0|    1|          0|
+    |grp_sign_picnic1_fu_390_ap_start_reg        |   1|   0|    1|          0|
+    |loop_0_reg_356                              |   6|   0|    6|          0|
+    |loop_reg_698                                |   6|   0|    6|          0|
+    |p_0_reg_378                                 |   1|   0|    1|          0|
+    |phi_ln269_1_reg_334                         |   3|   0|    3|          0|
+    |phi_ln269_2_reg_345                         |   3|   0|    3|          0|
+    |phi_ln269_reg_323                           |   3|   0|    3|          0|
+    |ret2_reg_763                                |   1|   0|    1|          0|
+    |signature_len_write_s_reg_367               |  16|   0|   16|          0|
+    |sk_data_load_1_reg_748                      |   8|   0|    8|          0|
+    |sk_data_load_reg_743                        |   8|   0|    8|          0|
+    |sk_pk_ciphertext_loa_1_reg_708              |   8|   0|    8|          0|
+    |sk_pk_ciphertext_loa_reg_703                |   8|   0|    8|          0|
+    |sk_pk_plaintext_load_1_reg_728              |   8|   0|    8|          0|
+    |sk_pk_plaintext_load_reg_723                |   8|   0|    8|          0|
+    |trunc_ln270_reg_662                         |   5|   0|    5|          0|
+    |trunc_ln271_1_reg_673                       |   3|   0|    3|          0|
+    +--------------------------------------------+----+----+-----+-----------+
+    |Total                                       | 155|   0|  203|         48|
+    +--------------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------+-----+-----+------------+------------------+--------------+
+|         RTL Ports         | Dir | Bits|  Protocol  |   Source Object  |    C Type    |
++---------------------------+-----+-----+------------+------------------+--------------+
+|ap_clk                     |  in |    1| ap_ctrl_hs |    picnic_sign   | return value |
+|ap_rst                     |  in |    1| ap_ctrl_hs |    picnic_sign   | return value |
+|ap_start                   |  in |    1| ap_ctrl_hs |    picnic_sign   | return value |
+|ap_done                    | out |    1| ap_ctrl_hs |    picnic_sign   | return value |
+|ap_idle                    | out |    1| ap_ctrl_hs |    picnic_sign   | return value |
+|ap_ready                   | out |    1| ap_ctrl_hs |    picnic_sign   | return value |
+|ap_return_0                | out |   32| ap_ctrl_hs |    picnic_sign   | return value |
+|ap_return_1                | out |   64| ap_ctrl_hs |    picnic_sign   | return value |
+|sk_data_address0           | out |    5|  ap_memory |      sk_data     |     array    |
+|sk_data_ce0                | out |    1|  ap_memory |      sk_data     |     array    |
+|sk_data_q0                 |  in |    8|  ap_memory |      sk_data     |     array    |
+|sk_data_address1           | out |    5|  ap_memory |      sk_data     |     array    |
+|sk_data_ce1                | out |    1|  ap_memory |      sk_data     |     array    |
+|sk_data_q1                 |  in |    8|  ap_memory |      sk_data     |     array    |
+|sk_pk_plaintext_address0   | out |    5|  ap_memory |  sk_pk_plaintext |     array    |
+|sk_pk_plaintext_ce0        | out |    1|  ap_memory |  sk_pk_plaintext |     array    |
+|sk_pk_plaintext_q0         |  in |    8|  ap_memory |  sk_pk_plaintext |     array    |
+|sk_pk_plaintext_address1   | out |    5|  ap_memory |  sk_pk_plaintext |     array    |
+|sk_pk_plaintext_ce1        | out |    1|  ap_memory |  sk_pk_plaintext |     array    |
+|sk_pk_plaintext_q1         |  in |    8|  ap_memory |  sk_pk_plaintext |     array    |
+|sk_pk_ciphertext_address0  | out |    5|  ap_memory | sk_pk_ciphertext |     array    |
+|sk_pk_ciphertext_ce0       | out |    1|  ap_memory | sk_pk_ciphertext |     array    |
+|sk_pk_ciphertext_q0        |  in |    8|  ap_memory | sk_pk_ciphertext |     array    |
+|sk_pk_ciphertext_address1  | out |    5|  ap_memory | sk_pk_ciphertext |     array    |
+|sk_pk_ciphertext_ce1       | out |    1|  ap_memory | sk_pk_ciphertext |     array    |
+|sk_pk_ciphertext_q1        |  in |    8|  ap_memory | sk_pk_ciphertext |     array    |
+|message_address0           | out |   12|  ap_memory |      message     |     array    |
+|message_ce0                | out |    1|  ap_memory |      message     |     array    |
+|message_q0                 |  in |    8|  ap_memory |      message     |     array    |
+|message_len                |  in |   64|   ap_none  |    message_len   |    scalar    |
+|signature_address0         | out |   16|  ap_memory |     signature    |     array    |
+|signature_ce0              | out |    1|  ap_memory |     signature    |     array    |
+|signature_we0              | out |    1|  ap_memory |     signature    |     array    |
+|signature_d0               | out |    8|  ap_memory |     signature    |     array    |
+|signature_offset           |  in |   64|   ap_none  | signature_offset |    scalar    |
+|viewOutputs_address0       | out |   14|  ap_memory |    viewOutputs   |     array    |
+|viewOutputs_ce0            | out |    1|  ap_memory |    viewOutputs   |     array    |
+|viewOutputs_we0            | out |    1|  ap_memory |    viewOutputs   |     array    |
+|viewOutputs_d0             | out |   32|  ap_memory |    viewOutputs   |     array    |
+|viewOutputs_q0             |  in |   32|  ap_memory |    viewOutputs   |     array    |
+|viewOutputs_address1       | out |   14|  ap_memory |    viewOutputs   |     array    |
+|viewOutputs_ce1            | out |    1|  ap_memory |    viewOutputs   |     array    |
+|viewOutputs_q1             |  in |   32|  ap_memory |    viewOutputs   |     array    |
++---------------------------+-----+-----+------------+------------------+--------------+
+

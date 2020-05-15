@@ -1,0 +1,240 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'picnic_sign'" level="0">
+<item name = "Date">Thu May 14 18:42:45 2020
+</item>
+<item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
+<item name = "Project">picnic1</item>
+<item name = "Solution">sign</item>
+<item name = "Product family">artix7</item>
+<item name = "Target device">xc7a200t-fbg676-2</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00 ns, 8.750 ns, 1.25 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">?, ?, ?, ?, ?, ?, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_sign_picnic1_fu_390">sign_picnic1, ?, ?, ?, ?, ?, ?, none</column>
+<column name="grp_serializeSignature_fu_419">serializeSignature, 62592, 67191, 0.626 ms, 0.672 ms, 62592, 67191, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- memset_temp">7, 7, 1, -, -, 8, no</column>
+<column name="- memset_temp2">7, 7, 1, -, -, 8, no</column>
+<column name="- memset_temp3">7, 7, 1, -, -, 8, no</column>
+<column name="- Loop 4">24, 24, 3, -, -, 8, no</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, -, 0, 97, -</column>
+<column name="FIFO">-, -, -, -, -</column>
+<column name="Instance">442, 5, 45434, 103264, 0</column>
+<column name="Memory">26, -, 224, 23, 0</column>
+<column name="Multiplexer">-, -, -, 647, -</column>
+<column name="Register">-, -, 155, -, -</column>
+<specialColumn name="Available">730, 740, 269200, 134600, 0</specialColumn>
+<specialColumn name="Utilization (%)">64, ~0, 17, 77, 0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+<column name="grp_serializeSignature_fu_419">serializeSignature, 0, 0, 327, 1197, 0</column>
+<column name="grp_sign_picnic1_fu_390">sign_picnic1, 442, 5, 45107, 102067, 0</column>
+</table>
+</item>
+<item name = "DSP48E"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
+<column name="sig_0_salt_U">H3_2_hash, 0, 16, 4, 0, 32, 8, 1, 256</column>
+<column name="sig_0_proofs_seed1_U">picnic_sign_sig_0bCo, 2, 0, 0, 0, 3504, 8, 1, 28032</column>
+<column name="sig_0_proofs_seed2_U">picnic_sign_sig_0bCo, 2, 0, 0, 0, 3504, 8, 1, 28032</column>
+<column name="sig_0_proofs_inputS_U">picnic_sign_sig_0bEo, 2, 0, 0, 0, 876, 32, 1, 28032</column>
+<column name="sig_0_proofs_commun_U">picnic_sign_sig_0bFp, 16, 0, 0, 0, 16425, 8, 1, 131400</column>
+<column name="sig_0_proofs_view3C_U">picnic_sign_sig_0bGp, 4, 0, 0, 0, 7008, 8, 1, 56064</column>
+<column name="sig_0_challengeBits_U">picnic_sign_sig_0bHp, 0, 16, 7, 0, 55, 8, 1, 440</column>
+<column name="temp_U">picnic_sign_temp, 0, 64, 4, 0, 8, 32, 1, 256</column>
+<column name="temp2_U">picnic_sign_temp, 0, 64, 4, 0, 8, 32, 1, 256</column>
+<column name="temp3_U">picnic_sign_temp, 0, 64, 4, 0, 8, 32, 1, 256</column>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="add_ln269_1_fu_451_p2">+, 0, 0, 12, 3, 1</column>
+<column name="add_ln269_2_fu_468_p2">+, 0, 0, 12, 3, 1</column>
+<column name="add_ln269_fu_434_p2">+, 0, 0, 12, 3, 1</column>
+<column name="loop_fu_527_p2">+, 0, 0, 15, 3, 6</column>
+<column name="ap_block_state10_on_subcall_done">and, 0, 0, 2, 1, 1</column>
+<column name="icmp_ln269_1_fu_462_p2">icmp, 0, 0, 9, 3, 2</column>
+<column name="icmp_ln269_2_fu_479_p2">icmp, 0, 0, 9, 3, 2</column>
+<column name="icmp_ln269_fu_445_p2">icmp, 0, 0, 9, 3, 2</column>
+<column name="or_ln271_1_fu_533_p2">or, 0, 0, 5, 5, 2</column>
+<column name="or_ln271_2_fu_545_p2">or, 0, 0, 5, 5, 2</column>
+<column name="or_ln271_fu_504_p2">or, 0, 0, 5, 5, 1</column>
+<column name="select_ln249_fu_600_p3">select, 0, 0, 2, 1, 2</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_NS_fsm">50, 11, 1, 11</column>
+<column name="ap_phi_mux_p_0_phi_fu_382_p4">9, 2, 1, 2</column>
+<column name="ap_phi_mux_signature_len_write_s_phi_fu_371_p4">9, 2, 16, 32</column>
+<column name="ap_return_0">9, 2, 32, 64</column>
+<column name="ap_return_1">9, 2, 16, 32</column>
+<column name="loop_0_reg_356">9, 2, 6, 12</column>
+<column name="phi_ln269_1_reg_334">9, 2, 3, 6</column>
+<column name="phi_ln269_2_reg_345">9, 2, 3, 6</column>
+<column name="phi_ln269_reg_323">9, 2, 3, 6</column>
+<column name="sig_0_challengeBits_address0">15, 3, 6, 18</column>
+<column name="sig_0_challengeBits_ce0">15, 3, 1, 3</column>
+<column name="sig_0_challengeBits_we0">9, 2, 1, 2</column>
+<column name="sig_0_proofs_commun_address0">15, 3, 15, 45</column>
+<column name="sig_0_proofs_commun_ce0">15, 3, 1, 3</column>
+<column name="sig_0_proofs_commun_we0">9, 2, 1, 2</column>
+<column name="sig_0_proofs_inputS_address0">15, 3, 10, 30</column>
+<column name="sig_0_proofs_inputS_ce0">15, 3, 1, 3</column>
+<column name="sig_0_proofs_inputS_we0">9, 2, 1, 2</column>
+<column name="sig_0_proofs_seed1_address0">15, 3, 12, 36</column>
+<column name="sig_0_proofs_seed1_ce0">15, 3, 1, 3</column>
+<column name="sig_0_proofs_seed1_we0">9, 2, 1, 2</column>
+<column name="sig_0_proofs_seed2_address0">15, 3, 12, 36</column>
+<column name="sig_0_proofs_seed2_ce0">15, 3, 1, 3</column>
+<column name="sig_0_proofs_seed2_we0">9, 2, 1, 2</column>
+<column name="sig_0_proofs_view3C_address0">15, 3, 13, 39</column>
+<column name="sig_0_proofs_view3C_ce0">15, 3, 1, 3</column>
+<column name="sig_0_proofs_view3C_we0">9, 2, 1, 2</column>
+<column name="sig_0_salt_address0">15, 3, 5, 15</column>
+<column name="sig_0_salt_ce0">15, 3, 1, 3</column>
+<column name="sig_0_salt_we0">9, 2, 1, 2</column>
+<column name="signature_len_write_s_reg_367">9, 2, 16, 32</column>
+<column name="sk_data_address0">15, 3, 5, 15</column>
+<column name="sk_data_address1">15, 3, 5, 15</column>
+<column name="sk_pk_ciphertext_address0">15, 3, 5, 15</column>
+<column name="sk_pk_ciphertext_address1">15, 3, 5, 15</column>
+<column name="sk_pk_plaintext_address0">15, 3, 5, 15</column>
+<column name="sk_pk_plaintext_address1">15, 3, 5, 15</column>
+<column name="temp2_address0">21, 4, 3, 12</column>
+<column name="temp2_ce0">15, 3, 1, 3</column>
+<column name="temp2_d0">15, 3, 32, 96</column>
+<column name="temp3_address0">21, 4, 3, 12</column>
+<column name="temp3_ce0">15, 3, 1, 3</column>
+<column name="temp3_d0">15, 3, 32, 96</column>
+<column name="temp_address0">21, 4, 3, 12</column>
+<column name="temp_ce0">15, 3, 1, 3</column>
+<column name="temp_d0">15, 3, 32, 96</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="ap_CS_fsm">10, 0, 10, 0</column>
+<column name="ap_return_0_preg">32, 0, 32, 0</column>
+<column name="ap_return_1_preg">16, 0, 64, 48</column>
+<column name="grp_serializeSignature_fu_419_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_sign_picnic1_fu_390_ap_start_reg">1, 0, 1, 0</column>
+<column name="loop_0_reg_356">6, 0, 6, 0</column>
+<column name="loop_reg_698">6, 0, 6, 0</column>
+<column name="p_0_reg_378">1, 0, 1, 0</column>
+<column name="phi_ln269_1_reg_334">3, 0, 3, 0</column>
+<column name="phi_ln269_2_reg_345">3, 0, 3, 0</column>
+<column name="phi_ln269_reg_323">3, 0, 3, 0</column>
+<column name="ret2_reg_763">1, 0, 1, 0</column>
+<column name="signature_len_write_s_reg_367">16, 0, 16, 0</column>
+<column name="sk_data_load_1_reg_748">8, 0, 8, 0</column>
+<column name="sk_data_load_reg_743">8, 0, 8, 0</column>
+<column name="sk_pk_ciphertext_loa_1_reg_708">8, 0, 8, 0</column>
+<column name="sk_pk_ciphertext_loa_reg_703">8, 0, 8, 0</column>
+<column name="sk_pk_plaintext_load_1_reg_728">8, 0, 8, 0</column>
+<column name="sk_pk_plaintext_load_reg_723">8, 0, 8, 0</column>
+<column name="trunc_ln270_reg_662">5, 0, 5, 0</column>
+<column name="trunc_ln271_1_reg_673">3, 0, 3, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_clk">in, 1, ap_ctrl_hs, picnic_sign, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, picnic_sign, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, picnic_sign, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, picnic_sign, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, picnic_sign, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, picnic_sign, return value</column>
+<column name="ap_return_0">out, 32, ap_ctrl_hs, picnic_sign, return value</column>
+<column name="ap_return_1">out, 64, ap_ctrl_hs, picnic_sign, return value</column>
+<column name="sk_data_address0">out, 5, ap_memory, sk_data, array</column>
+<column name="sk_data_ce0">out, 1, ap_memory, sk_data, array</column>
+<column name="sk_data_q0">in, 8, ap_memory, sk_data, array</column>
+<column name="sk_data_address1">out, 5, ap_memory, sk_data, array</column>
+<column name="sk_data_ce1">out, 1, ap_memory, sk_data, array</column>
+<column name="sk_data_q1">in, 8, ap_memory, sk_data, array</column>
+<column name="sk_pk_plaintext_address0">out, 5, ap_memory, sk_pk_plaintext, array</column>
+<column name="sk_pk_plaintext_ce0">out, 1, ap_memory, sk_pk_plaintext, array</column>
+<column name="sk_pk_plaintext_q0">in, 8, ap_memory, sk_pk_plaintext, array</column>
+<column name="sk_pk_plaintext_address1">out, 5, ap_memory, sk_pk_plaintext, array</column>
+<column name="sk_pk_plaintext_ce1">out, 1, ap_memory, sk_pk_plaintext, array</column>
+<column name="sk_pk_plaintext_q1">in, 8, ap_memory, sk_pk_plaintext, array</column>
+<column name="sk_pk_ciphertext_address0">out, 5, ap_memory, sk_pk_ciphertext, array</column>
+<column name="sk_pk_ciphertext_ce0">out, 1, ap_memory, sk_pk_ciphertext, array</column>
+<column name="sk_pk_ciphertext_q0">in, 8, ap_memory, sk_pk_ciphertext, array</column>
+<column name="sk_pk_ciphertext_address1">out, 5, ap_memory, sk_pk_ciphertext, array</column>
+<column name="sk_pk_ciphertext_ce1">out, 1, ap_memory, sk_pk_ciphertext, array</column>
+<column name="sk_pk_ciphertext_q1">in, 8, ap_memory, sk_pk_ciphertext, array</column>
+<column name="message_address0">out, 12, ap_memory, message, array</column>
+<column name="message_ce0">out, 1, ap_memory, message, array</column>
+<column name="message_q0">in, 8, ap_memory, message, array</column>
+<column name="message_len">in, 64, ap_none, message_len, scalar</column>
+<column name="signature_address0">out, 16, ap_memory, signature, array</column>
+<column name="signature_ce0">out, 1, ap_memory, signature, array</column>
+<column name="signature_we0">out, 1, ap_memory, signature, array</column>
+<column name="signature_d0">out, 8, ap_memory, signature, array</column>
+<column name="signature_offset">in, 64, ap_none, signature_offset, scalar</column>
+<column name="viewOutputs_address0">out, 14, ap_memory, viewOutputs, array</column>
+<column name="viewOutputs_ce0">out, 1, ap_memory, viewOutputs, array</column>
+<column name="viewOutputs_we0">out, 1, ap_memory, viewOutputs, array</column>
+<column name="viewOutputs_d0">out, 32, ap_memory, viewOutputs, array</column>
+<column name="viewOutputs_q0">in, 32, ap_memory, viewOutputs, array</column>
+<column name="viewOutputs_address1">out, 14, ap_memory, viewOutputs, array</column>
+<column name="viewOutputs_ce1">out, 1, ap_memory, viewOutputs, array</column>
+<column name="viewOutputs_q1">in, 32, ap_memory, viewOutputs, array</column>
+</table>
+</item>
+</section>
+</profile>

@@ -1,0 +1,238 @@
+
+
+================================================================
+== Vivado HLS Report for 'KeccakWidth1600_Spon_2'
+================================================================
+* Date:           Thu May 14 18:42:00 2020
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        picnic1
+* Solution:       sign
+* Product family: artix7
+* Target device:  xc7a200t-fbg676-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 8.332 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        +-------------------------------+--------------------+---------+---------+-----------+-----------+------+------+---------+
+        |                               |                    |  Latency (cycles) |   Latency (absolute)  |   Interval  | Pipeline|
+        |            Instance           |       Module       |   min   |   max   |    min    |    max    |  min |  max |   Type  |
+        +-------------------------------+--------------------+---------+---------+-----------+-----------+------+------+---------+
+        |grp_KeccakP1600OnWords_fu_223  |KeccakP1600OnWords  |     8545|     8545| 85.450 us | 85.450 us |  8545|  8545|   none  |
+        |grp_fromWordsToBytes_fu_232    |fromWordsToBytes    |      203|      203|  2.030 us |  2.030 us |   203|   203|   none  |
+        |grp_fromBytesToWords_fu_239    |fromBytesToWords    |      476|      476|  4.760 us |  4.760 us |   476|   476|   none  |
+        +-------------------------------+--------------------+---------+---------+-----------+-----------+------+------+---------+
+
+        * Loop: 
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+        |             |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |  Loop Name  |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- Loop 1     |        ?|        ?|         ?|          -|          -|     ?|    no    |
+        | + Loop 1.1  |        ?|        ?|         2|          -|          -|     ?|    no    |
+        +-------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|     523|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |        6|      -|    1953|    4118|    0|
+|Memory           |        8|      -|       0|       0|    0|
+|Multiplexer      |        -|      -|       -|     525|    -|
+|Register         |        -|      -|     513|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |       14|      0|    2466|    5166|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |      730|    740|  269200|  134600|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        1|      0|   ~0   |       3|    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +-------------------------------+--------------------+---------+-------+------+------+-----+
+    |            Instance           |       Module       | BRAM_18K| DSP48E|  FF  |  LUT | URAM|
+    +-------------------------------+--------------------+---------+-------+------+------+-----+
+    |grp_KeccakP1600OnWords_fu_223  |KeccakP1600OnWords  |        6|      0|  1866|  3376|    0|
+    |grp_fromBytesToWords_fu_239    |fromBytesToWords    |        0|      0|    33|   392|    0|
+    |grp_fromWordsToBytes_fu_232    |fromWordsToBytes    |        0|      0|    54|   350|    0|
+    +-------------------------------+--------------------+---------+-------+------+------+-----+
+    |Total                          |                    |        6|      0|  1953|  4118|    0|
+    +-------------------------------+--------------------+---------+-------+------+------+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    +-------------------+----------+---------+---+----+-----+------+-----+------+-------------+
+    |       Memory      |  Module  | BRAM_18K| FF| LUT| URAM| Words| Bits| Banks| W*Bits*Banks|
+    +-------------------+----------+---------+---+----+-----+------+-----+------+-------------+
+    |stateAsWords_U     |pi_tempA  |        4|  0|   0|    0|    25|   64|     1|         1600|
+    |stateAsWords_13_U  |pi_tempA  |        4|  0|   0|    0|    25|   64|     1|         1600|
+    +-------------------+----------+---------+---+----+-----+------+-----+------+-------------+
+    |Total              |          |        8|  0|   0|    0|    50|  128|     2|         3200|
+    +-------------------+----------+---------+---+----+-----+------+-----+------+-------------+
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |           Variable Name          | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |add_ln323_fu_358_p2               |     +    |      0|  0|  39|          32|          32|
+    |add_ln331_fu_448_p2               |     +    |      0|  0|  71|          64|          64|
+    |add_ln332_fu_443_p2               |     +    |      0|  0|  39|          32|          32|
+    |add_ln394_3_fu_428_p2             |     +    |      0|  0|  15|           6|           6|
+    |add_ln394_4_fu_272_p2             |     +    |      0|  0|  11|          11|          11|
+    |add_ln394_5_fu_438_p2             |     +    |      0|  0|  22|          15|          15|
+    |add_ln394_fu_409_p2               |     +    |      0|  0|  39|          32|          32|
+    |i_fu_392_p2                       |     +    |      0|  0|  40|          33|          33|
+    |loop_fu_403_p2                    |     +    |      0|  0|  39|          32|           1|
+    |partialBlock_26_fu_370_p2         |     -    |      0|  0|  39|           8|          32|
+    |partialBlock_fu_349_p2            |     -    |      0|  0|  15|           6|           5|
+    |sub_ln394_fu_266_p2               |     -    |      0|  0|  11|          11|          11|
+    |ap_block_state10_on_subcall_done  |    and   |      0|  0|   2|           1|           1|
+    |ap_block_state16_on_subcall_done  |    and   |      0|  0|   2|           1|           1|
+    |icmp_ln299_fu_286_p2              |   icmp   |      0|  0|  18|          32|           1|
+    |icmp_ln304_fu_321_p2              |   icmp   |      0|  0|  18|          29|           1|
+    |icmp_ln305_fu_327_p2              |   icmp   |      0|  0|  18|          32|           8|
+    |icmp_ln323_fu_364_p2              |   icmp   |      0|  0|  18|          32|           8|
+    |icmp_ln393_fu_398_p2              |   icmp   |      0|  0|  18|          32|          32|
+    |partialBlock_27_fu_376_p3         |  select  |      0|  0|  32|           1|          32|
+    |xor_ln149_16_fu_304_p2            |    xor   |      0|  0|   9|           8|           9|
+    |xor_ln149_fu_297_p2               |    xor   |      0|  0|   8|           8|           1|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |Total                             |          |      0|  0| 523|         458|         368|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------------------------------------------+----+-----------+-----+-----------+
+    |                      Name                     | LUT| Input Size| Bits| Total Bits|
+    +-----------------------------------------------+----+-----------+-----+-----------+
+    |ap_NS_fsm                                      |  97|         20|    1|         20|
+    |ap_phi_mux_instance_byteIOIndex_phi_fu_156_p4  |   9|          2|   32|         64|
+    |ap_return_0                                    |   9|          2|   32|         64|
+    |ap_return_1                                    |   9|          2|   32|         64|
+    |curData_0_idx_reg_187                          |   9|          2|   64|        128|
+    |grp_KeccakP1600OnWords_fu_223_state_q0         |  15|          3|   64|        192|
+    |grp_KeccakP1600OnWords_fu_223_state_q1         |  15|          3|   64|        192|
+    |grp_fromBytesToWords_fu_239_stateAsWords_q0    |  15|          3|   64|        192|
+    |grp_fromWordsToBytes_fu_232_stateAsWords_q0    |  15|          3|   64|        192|
+    |i_0_reg_175                                    |   9|          2|   33|         66|
+    |instance_byteIOIndex_1_reg_164                 |   9|          2|   32|         64|
+    |instance_byteIOIndex_reg_153                   |   9|          2|   32|         64|
+    |instance_squeezing_w_reg_142                   |   9|          2|   32|         64|
+    |instance_state_address0                        |  41|          8|    8|         64|
+    |instance_state_ce0                             |  21|          4|    1|          4|
+    |instance_state_d0                              |  21|          4|    8|         32|
+    |instance_state_we0                             |  15|          3|    1|          3|
+    |loop_0_i1_reg_212                              |   9|          2|   32|         64|
+    |offset_assign_reg_199                          |   9|          2|   32|         64|
+    |stateAsWords_13_address0                       |  21|          4|    5|         20|
+    |stateAsWords_13_ce0                            |  21|          4|    1|          4|
+    |stateAsWords_13_ce1                            |   9|          2|    1|          2|
+    |stateAsWords_13_d0                             |  15|          3|   64|        192|
+    |stateAsWords_13_we0                            |  15|          3|    1|          3|
+    |stateAsWords_13_we1                            |   9|          2|    1|          2|
+    |stateAsWords_address0                          |  21|          4|    5|         20|
+    |stateAsWords_ce0                               |  21|          4|    1|          4|
+    |stateAsWords_ce1                               |   9|          2|    1|          2|
+    |stateAsWords_d0                                |  15|          3|   64|        192|
+    |stateAsWords_we0                               |  15|          3|    1|          3|
+    |stateAsWords_we1                               |   9|          2|    1|          2|
+    +-----------------------------------------------+----+-----------+-----+-----------+
+    |Total                                          | 525|        107|  774|       2043|
+    +-----------------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +--------------------------------------------+----+----+-----+-----------+
+    |                    Name                    | FF | LUT| Bits| Const Bits|
+    +--------------------------------------------+----+----+-----+-----------+
+    |add_ln394_5_reg_527                         |  15|   0|   15|          0|
+    |ap_CS_fsm                                   |  19|   0|   19|          0|
+    |ap_return_0_preg                            |  32|   0|   32|          0|
+    |ap_return_1_preg                            |  32|   0|   32|          0|
+    |curData_0_idx_reg_187                       |  64|   0|   64|          0|
+    |grp_KeccakP1600OnWords_fu_223_ap_start_reg  |   1|   0|    1|          0|
+    |grp_fromBytesToWords_fu_239_ap_start_reg    |   1|   0|    1|          0|
+    |grp_fromWordsToBytes_fu_232_ap_start_reg    |   1|   0|    1|          0|
+    |i_0_reg_175                                 |  33|   0|   33|          0|
+    |i_reg_509                                   |  33|   0|   33|          0|
+    |icmp_ln299_reg_472                          |   1|   0|    1|          0|
+    |icmp_ln305_reg_489                          |   1|   0|    1|          0|
+    |instance_byteIOIndex_1_reg_164              |  32|   0|   32|          0|
+    |instance_byteIOIndex_reg_153                |  32|   0|   32|          0|
+    |instance_squeezing_w_reg_142                |  32|   0|   32|          0|
+    |instance_state_addr_reg_476                 |   8|   0|    8|          0|
+    |loop_0_i1_reg_212                           |  32|   0|   32|          0|
+    |loop_reg_517                                |  32|   0|   32|          0|
+    |offset_assign_reg_199                       |  32|   0|   32|          0|
+    |partialBlock_27_reg_498                     |  32|   0|   32|          0|
+    |partialBlock_reg_493                        |   5|   0|    5|          0|
+    |tmp_51_cast_reg_467                         |  11|   0|   15|          4|
+    |zext_ln325_reg_504                          |  32|   0|   64|         32|
+    +--------------------------------------------+----+----+-----+-----------+
+    |Total                                       | 513|   0|  549|         36|
+    +--------------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++---------------------------+-----+-----+------------+---------------------------+--------------+
+|         RTL Ports         | Dir | Bits|  Protocol  |       Source Object       |    C Type    |
++---------------------------+-----+-----+------------+---------------------------+--------------+
+|ap_clk                     |  in |    1| ap_ctrl_hs |   KeccakWidth1600_Spon.2  | return value |
+|ap_rst                     |  in |    1| ap_ctrl_hs |   KeccakWidth1600_Spon.2  | return value |
+|ap_start                   |  in |    1| ap_ctrl_hs |   KeccakWidth1600_Spon.2  | return value |
+|ap_done                    | out |    1| ap_ctrl_hs |   KeccakWidth1600_Spon.2  | return value |
+|ap_idle                    | out |    1| ap_ctrl_hs |   KeccakWidth1600_Spon.2  | return value |
+|ap_ready                   | out |    1| ap_ctrl_hs |   KeccakWidth1600_Spon.2  | return value |
+|ap_return_0                | out |   32| ap_ctrl_hs |   KeccakWidth1600_Spon.2  | return value |
+|ap_return_1                | out |   32| ap_ctrl_hs |   KeccakWidth1600_Spon.2  | return value |
+|instance_state_address0    | out |    8|  ap_memory |       instance_state      |     array    |
+|instance_state_ce0         | out |    1|  ap_memory |       instance_state      |     array    |
+|instance_state_we0         | out |    1|  ap_memory |       instance_state      |     array    |
+|instance_state_d0          | out |    8|  ap_memory |       instance_state      |     array    |
+|instance_state_q0          |  in |    8|  ap_memory |       instance_state      |     array    |
+|instance_byteIOIndex_read  |  in |   32|   ap_none  | instance_byteIOIndex_read |    scalar    |
+|instance_squeezing_read    |  in |   32|   ap_none  |  instance_squeezing_read  |    scalar    |
+|data_address0              | out |   14|  ap_memory |            data           |     array    |
+|data_ce0                   | out |    1|  ap_memory |            data           |     array    |
+|data_we0                   | out |    1|  ap_memory |            data           |     array    |
+|data_d0                    | out |    8|  ap_memory |            data           |     array    |
+|data_offset                |  in |    8|   ap_none  |        data_offset        |    scalar    |
+|data_offset1               |  in |    2|   ap_none  |        data_offset1       |    scalar    |
++---------------------------+-----+-----+------------+---------------------------+--------------+
+

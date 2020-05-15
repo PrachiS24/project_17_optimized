@@ -1,0 +1,370 @@
+
+
+================================================================
+== Vivado HLS Report for 'createRandomTape_1'
+================================================================
+* Date:           Thu May 14 18:42:13 2020
+
+* Version:        2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)
+* Project:        picnic1
+* Solution:       sign
+* Product family: artix7
+* Target device:  xc7a200t-fbg676-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 8.471 ns |   1.25 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        +-----------------------------------+------------------------+---------+---------+-----------+-----------+------+------+---------+
+        |                                   |                        |  Latency (cycles) |   Latency (absolute)  |   Interval  | Pipeline|
+        |              Instance             |         Module         |   min   |   max   |    min    |    max    |  min |  max |   Type  |
+        +-----------------------------------+------------------------+---------+---------+-----------+-----------+------+------+---------+
+        |grp_KeccakWidth1600_Spon_1_fu_419  |KeccakWidth1600_Spon_1  |        ?|        ?|          ?|          ?|     ?|     ?|   none  |
+        |grp_HashUpdateIntLE_fu_433         |HashUpdateIntLE         |        ?|        ?|          ?|          ?|     ?|     ?|   none  |
+        |grp_KeccakP1600OnWords_fu_446      |KeccakP1600OnWords      |     8545|     8545| 85.450 us | 85.450 us |  8545|  8545|   none  |
+        |grp_fromWordsToBytes_fu_455        |fromWordsToBytes        |      203|      203|  2.030 us |  2.030 us |   203|   203|   none  |
+        |grp_fromBytesToWords_fu_461        |fromBytesToWords        |      476|      476|  4.760 us |  4.760 us |   476|   476|   none  |
+        +-----------------------------------+------------------------+---------+---------+-----------+-----------+------+------+---------+
+
+        * Loop: 
+        +---------------------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                                 |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |            Loop Name            |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +---------------------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- KeccakP1600_Initialize_label0  |      200|      200|         1|          -|          -|   200|    no    |
+        |- Loop 2                         |        ?|        ?|         ?|          -|          -|     1|    no    |
+        | + Loop 2.1                      |        ?|        ?|         2|          -|          -|     ?|    no    |
+        |- Loop 3                         |        ?|        ?|         ?|          -|          -|     ?|    no    |
+        | + Loop 3.1                      |        ?|        ?|         2|          -|          -|     ?|    no    |
+        |- KeccakP1600_Initialize_label0  |      200|      200|         1|          -|          -|   200|    no    |
+        |- Loop 5                         |        ?|        ?|         ?|          -|          -|     1|    no    |
+        | + Loop 5.1                      |        ?|        ?|         2|          -|          -|     ?|    no    |
+        |- Loop 6                         |        ?|        ?|         ?|          -|          -|     ?|    no    |
+        | + Loop 6.1                      |        ?|        ?|         2|          -|          -|     ?|    no    |
+        +---------------------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+-----+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  | URAM|
++-----------------+---------+-------+--------+--------+-----+
+|DSP              |        -|      -|       -|       -|    -|
+|Expression       |        -|      -|       0|    1757|    -|
+|FIFO             |        -|      -|       -|       -|    -|
+|Instance         |       26|      -|    6553|   13425|    0|
+|Memory           |       25|      -|       0|       0|    0|
+|Multiplexer      |        -|      -|       -|    1455|    -|
+|Register         |        -|      -|    1236|       -|    -|
++-----------------+---------+-------+--------+--------+-----+
+|Total            |       51|      0|    7789|   16637|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Available        |      730|    740|  269200|  134600|    0|
++-----------------+---------+-------+--------+--------+-----+
+|Utilization (%)  |        6|      0|       2|      12|    0|
++-----------------+---------+-------+--------+--------+-----+
+
++ Detail: 
+    * Instance: 
+    +-----------------------------------+------------------------+---------+-------+------+------+-----+
+    |              Instance             |         Module         | BRAM_18K| DSP48E|  FF  |  LUT | URAM|
+    +-----------------------------------+------------------------+---------+-------+------+------+-----+
+    |grp_HashUpdateIntLE_fu_433         |HashUpdateIntLE         |       10|      0|  2254|  4638|    0|
+    |grp_KeccakP1600OnWords_fu_446      |KeccakP1600OnWords      |        6|      0|  1866|  3376|    0|
+    |grp_KeccakWidth1600_Spon_1_fu_419  |KeccakWidth1600_Spon_1  |       10|      0|  2346|  4669|    0|
+    |grp_fromBytesToWords_fu_461        |fromBytesToWords        |        0|      0|    33|   392|    0|
+    |grp_fromWordsToBytes_fu_455        |fromWordsToBytes        |        0|      0|    54|   350|    0|
+    +-----------------------------------+------------------------+---------+-------+------+------+-----+
+    |Total                              |                        |       26|      0|  6553| 13425|    0|
+    +-----------------------------------+------------------------+---------+-------+------+------+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    +--------------------+----------------------+---------+---+----+-----+------+-----+------+-------------+
+    |       Memory       |        Module        | BRAM_18K| FF| LUT| URAM| Words| Bits| Banks| W*Bits*Banks|
+    +--------------------+----------------------+---------+---+----+-----+------+-----+------+-------------+
+    |ctx_sponge_state_U  |createRandomTape_Hfu  |        1|  0|   0|    0|   200|    8|     1|         1600|
+    |stateAsWords_2_U    |pi_tempA              |        4|  0|   0|    0|    25|   64|     1|         1600|
+    |stateAsWords_3_U    |pi_tempA              |        4|  0|   0|    0|    25|   64|     1|         1600|
+    |stateAsWords_U      |pi_tempA              |        4|  0|   0|    0|    25|   64|     1|         1600|
+    |stateAsWords_1_U    |pi_tempA              |        4|  0|   0|    0|    25|   64|     1|         1600|
+    |stateAsWords_4_U    |pi_tempA              |        4|  0|   0|    0|    25|   64|     1|         1600|
+    |stateAsWords_5_U    |pi_tempA              |        4|  0|   0|    0|    25|   64|     1|         1600|
+    +--------------------+----------------------+---------+---+----+-----+------+-----+------+-------------+
+    |Total               |                      |       25|  0|   0|    0|   350|  392|     7|        11200|
+    +--------------------+----------------------+---------+---+----+-----+------+-----+------+-------------+
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +------------------------------------+----------+-------+---+----+------------+------------+
+    |            Variable Name           | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------------------+----------+-------+---+----+------------+------------+
+    |add_ln226_1_fu_672_p2               |     +    |      0|  0|  39|          32|          32|
+    |add_ln226_2_fu_849_p2               |     +    |      0|  0|  39|          32|          32|
+    |add_ln226_3_fu_989_p2               |     +    |      0|  0|  39|          32|          32|
+    |add_ln226_fu_559_p2                 |     +    |      0|  0|  39|          32|           1|
+    |add_ln231_fu_873_p2                 |     +    |      0|  0|  39|          32|          32|
+    |add_ln234_1_fu_533_p2               |     +    |      0|  0|  11|          15|           6|
+    |add_ln234_2_fu_898_p2               |     +    |      0|  0|  16|           9|           9|
+    |add_ln234_3_fu_601_p2               |     +    |      0|  0|  39|          32|          32|
+    |add_ln234_4_fu_1048_p2              |     +    |      0|  0|  15|           7|           7|
+    |add_ln234_5_fu_741_p2               |     +    |      0|  0|  22|          15|          15|
+    |add_ln234_6_fu_751_p2               |     +    |      0|  0|  39|          32|          32|
+    |add_ln234_7_fu_908_p2               |     +    |      0|  0|  17|           9|          10|
+    |add_ln234_8_fu_919_p2               |     +    |      0|  0|  39|          32|          32|
+    |add_ln234_9_fu_1059_p2              |     +    |      0|  0|  39|          32|          32|
+    |add_ln234_fu_731_p2                 |     +    |      0|  0|  15|           6|           6|
+    |ctx_sponge_byteIOInd_11_fu_1070_p2  |     +    |      0|  0|  39|          32|          32|
+    |ctx_sponge_byteIOInd_2_fu_611_p2    |     +    |      0|  0|  39|          32|          32|
+    |ctx_sponge_byteIOInd_3_fu_762_p2    |     +    |      0|  0|  39|          32|          32|
+    |ctx_sponge_byteIOInd_6_fu_929_p2    |     +    |      0|  0|  39|          32|          32|
+    |i_13_fu_1023_p2                     |     +    |      0|  0|  40|          33|          33|
+    |i_fu_706_p2                         |     +    |      0|  0|  40|          33|          33|
+    |loop_23_fu_545_p2                   |     +    |      0|  0|  15|           8|           1|
+    |loop_24_fu_717_p2                   |     +    |      0|  0|  39|          32|           1|
+    |loop_25_fu_801_p2                   |     +    |      0|  0|  15|           8|           1|
+    |loop_26_fu_884_p2                   |     +    |      0|  0|  39|          32|           1|
+    |loop_27_fu_1034_p2                  |     +    |      0|  0|  39|          32|           1|
+    |loop_fu_595_p2                      |     +    |      0|  0|  39|          32|           1|
+    |p_2_rec_i_i_i29_fu_951_p2           |     +    |      0|  0|  39|          32|          32|
+    |p_2_rec_i_i_i59_fu_790_p2           |     +    |      0|  0|  71|          64|          64|
+    |p_2_rec_i_i_i_fu_1098_p2            |     +    |      0|  0|  71|          64|          64|
+    |partialBlock_1_fu_658_p2            |     -    |      0|  0|  15|           6|           5|
+    |partialBlock_2_fu_684_p2            |     -    |      0|  0|  39|           8|          32|
+    |partialBlock_3_fu_835_p2            |     -    |      0|  0|  15|           7|           6|
+    |partialBlock_4_fu_860_p2            |     -    |      0|  0|  39|           8|          32|
+    |partialBlock_5_fu_976_p2            |     -    |      0|  0|  15|           7|           6|
+    |partialBlock_6_fu_1001_p2           |     -    |      0|  0|  39|           8|          32|
+    |partialBlock_fu_571_p2              |     -    |      0|  0|  39|           8|          32|
+    |sub_ln234_fu_527_p2                 |     -    |      0|  0|  11|          15|          15|
+    |ap_block_state10_on_subcall_done    |    and   |      0|  0|   2|           1|           1|
+    |ap_block_state19_on_subcall_done    |    and   |      0|  0|   2|           1|           1|
+    |ap_block_state40_on_subcall_done    |    and   |      0|  0|   2|           1|           1|
+    |ap_block_state49_on_subcall_done    |    and   |      0|  0|   2|           1|           1|
+    |icmp_ln139_1_fu_795_p2              |   icmp   |      0|  0|  11|           8|           7|
+    |icmp_ln139_fu_539_p2                |   icmp   |      0|  0|  11|           8|           7|
+    |icmp_ln194_1_fu_825_p2              |   icmp   |      0|  0|  18|          27|           1|
+    |icmp_ln194_2_fu_966_p2              |   icmp   |      0|  0|  18|          28|           1|
+    |icmp_ln194_fu_648_p2                |   icmp   |      0|  0|  18|          29|           1|
+    |icmp_ln226_1_fu_678_p2              |   icmp   |      0|  0|  18|          32|           8|
+    |icmp_ln226_2_fu_854_p2              |   icmp   |      0|  0|  18|          32|           8|
+    |icmp_ln226_3_fu_995_p2              |   icmp   |      0|  0|  18|          32|           8|
+    |icmp_ln226_fu_565_p2                |   icmp   |      0|  0|  18|          32|           8|
+    |icmp_ln233_1_fu_712_p2              |   icmp   |      0|  0|  18|          32|          32|
+    |icmp_ln233_2_fu_879_p2              |   icmp   |      0|  0|  18|          32|          32|
+    |icmp_ln233_3_fu_1029_p2             |   icmp   |      0|  0|  18|          32|          32|
+    |icmp_ln233_fu_590_p2                |   icmp   |      0|  0|  18|          32|          32|
+    |icmp_ln239_1_fu_767_p2              |   icmp   |      0|  0|  18|          32|           8|
+    |icmp_ln239_2_fu_933_p2              |   icmp   |      0|  0|  18|          32|           8|
+    |icmp_ln239_3_fu_1075_p2             |   icmp   |      0|  0|  18|          32|           8|
+    |icmp_ln239_fu_615_p2                |   icmp   |      0|  0|  18|          32|           8|
+    |icmp_ln244_fu_633_p2                |   icmp   |      0|  0|  18|          32|           1|
+    |select_ln226_1_fu_690_p3            |  select  |      0|  0|  32|           1|          32|
+    |select_ln226_2_fu_865_p3            |  select  |      0|  0|  32|           1|          32|
+    |select_ln226_3_fu_1007_p3           |  select  |      0|  0|  32|           1|          32|
+    |select_ln226_fu_577_p3              |  select  |      0|  0|  32|           1|          32|
+    |grp_fu_475_p2                       |    xor   |      0|  0|   8|           8|           5|
+    |grp_fu_482_p2                       |    xor   |      0|  0|   9|           8|           9|
+    |xor_ln149_2_fu_783_p2               |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln149_4_fu_944_p2               |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln149_7_fu_1091_p2              |    xor   |      0|  0|   8|           8|           8|
+    |xor_ln149_fu_626_p2                 |    xor   |      0|  0|   8|           8|           2|
+    +------------------------------------+----------+-------+---+----+------------+------------+
+    |Total                               |          |      0|  0|1757|        1486|        1212|
+    +------------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------------------------------+-----+-----------+-----+-----------+
+    |                       Name                      | LUT | Input Size| Bits| Total Bits|
+    +-------------------------------------------------+-----+-----------+-----+-----------+
+    |ap_NS_fsm                                        |  301|         67|    1|         67|
+    |ctx_sponge_byteIOInd_4_fu_142                    |    9|          2|   32|         64|
+    |ctx_sponge_byteIOInd_7_fu_146                    |   15|          3|   32|         96|
+    |ctx_sponge_byteIOInd_fu_134                      |    9|          2|   32|         64|
+    |ctx_sponge_state_address0                        |   97|         20|    8|        160|
+    |ctx_sponge_state_ce0                             |   33|          6|    1|          6|
+    |ctx_sponge_state_d0                              |   50|         11|    8|         88|
+    |ctx_sponge_state_we0                             |   27|          5|    1|          5|
+    |grp_HashUpdateIntLE_fu_433_ctx_sponge_byteIOInd  |   15|          3|   32|         96|
+    |grp_HashUpdateIntLE_fu_433_x                     |   21|          4|    9|         36|
+    |grp_KeccakP1600OnWords_fu_446_state_q0           |   38|          7|   64|        448|
+    |grp_KeccakP1600OnWords_fu_446_state_q1           |   38|          7|   64|        448|
+    |grp_KeccakWidth1600_Spon_1_fu_419_dataByteLen    |   15|          3|    8|         24|
+    |grp_fromBytesToWords_fu_461_stateAsWords_q0      |   38|          7|   64|        448|
+    |grp_fromWordsToBytes_fu_455_stateAsWords_q0      |   38|          7|   64|        448|
+    |i_0_i_i_i35_reg_303                              |    9|          2|   33|         66|
+    |i_0_i_i_i5_reg_349                               |    9|          2|   32|         64|
+    |i_0_i_i_i_reg_384                                |    9|          2|   33|         66|
+    |loop_0_i3_reg_338                                |    9|          2|    8|         16|
+    |loop_0_i_reg_270                                 |    9|          2|    8|         16|
+    |loop_1_i_i_i22_reg_373                           |    9|          2|   32|         64|
+    |loop_1_i_i_i52_reg_327                           |    9|          2|   32|         64|
+    |loop_1_i_i_i_i_reg_292                           |    9|          2|   32|         64|
+    |loop_1_i_i_i_reg_408                             |    9|          2|   32|         64|
+    |offset_assign_1_fu_138                           |   15|          3|   32|         96|
+    |p_01_rec_i_i_i36_reg_315                         |    9|          2|   64|        128|
+    |p_01_rec_i_i_i6_reg_361                          |    9|          2|   32|         64|
+    |p_01_rec_i_i_i_reg_396                           |    9|          2|   64|        128|
+    |phi_ln194_reg_281                                |    9|          2|    1|          2|
+    |stateAsWords_1_address0                          |   21|          4|    5|         20|
+    |stateAsWords_1_ce0                               |   21|          4|    1|          4|
+    |stateAsWords_1_ce1                               |    9|          2|    1|          2|
+    |stateAsWords_1_d0                                |   15|          3|   64|        192|
+    |stateAsWords_1_we0                               |   15|          3|    1|          3|
+    |stateAsWords_1_we1                               |    9|          2|    1|          2|
+    |stateAsWords_2_address0                          |   21|          4|    5|         20|
+    |stateAsWords_2_ce0                               |   21|          4|    1|          4|
+    |stateAsWords_2_ce1                               |    9|          2|    1|          2|
+    |stateAsWords_2_d0                                |   15|          3|   64|        192|
+    |stateAsWords_2_we0                               |   15|          3|    1|          3|
+    |stateAsWords_2_we1                               |    9|          2|    1|          2|
+    |stateAsWords_3_address0                          |   21|          4|    5|         20|
+    |stateAsWords_3_ce0                               |   21|          4|    1|          4|
+    |stateAsWords_3_ce1                               |    9|          2|    1|          2|
+    |stateAsWords_3_d0                                |   15|          3|   64|        192|
+    |stateAsWords_3_we0                               |   15|          3|    1|          3|
+    |stateAsWords_3_we1                               |    9|          2|    1|          2|
+    |stateAsWords_4_address0                          |   21|          4|    5|         20|
+    |stateAsWords_4_ce0                               |   21|          4|    1|          4|
+    |stateAsWords_4_ce1                               |    9|          2|    1|          2|
+    |stateAsWords_4_d0                                |   15|          3|   64|        192|
+    |stateAsWords_4_we0                               |   15|          3|    1|          3|
+    |stateAsWords_4_we1                               |    9|          2|    1|          2|
+    |stateAsWords_5_address0                          |   21|          4|    5|         20|
+    |stateAsWords_5_ce0                               |   21|          4|    1|          4|
+    |stateAsWords_5_ce1                               |    9|          2|    1|          2|
+    |stateAsWords_5_d0                                |   15|          3|   64|        192|
+    |stateAsWords_5_we0                               |   15|          3|    1|          3|
+    |stateAsWords_5_we1                               |    9|          2|    1|          2|
+    |stateAsWords_address0                            |   21|          4|    5|         20|
+    |stateAsWords_ce0                                 |   21|          4|    1|          4|
+    |stateAsWords_ce1                                 |    9|          2|    1|          2|
+    |stateAsWords_d0                                  |   15|          3|   64|        192|
+    |stateAsWords_we0                                 |   15|          3|    1|          3|
+    |stateAsWords_we1                                 |    9|          2|    1|          2|
+    |tape_address0                                    |   15|          3|    9|         27|
+    |tape_ce0                                         |   15|          3|    1|          3|
+    |tape_we0                                         |    9|          2|    1|          2|
+    +-------------------------------------------------+-----+-----------+-----+-----------+
+    |Total                                            | 1455|        299| 1304|       4770|
+    +-------------------------------------------------+-----+-----------+-----+-----------+
+
+    * Register: 
+    +------------------------------------------------+----+----+-----+-----------+
+    |                      Name                      | FF | LUT| Bits| Const Bits|
+    +------------------------------------------------+----+----+-----+-----------+
+    |add_ln231_reg_1283                              |  32|   0|   32|          0|
+    |add_ln234_1_reg_1113                            |  11|   0|   15|          4|
+    |ap_CS_fsm                                       |  66|   0|   66|          0|
+    |ctx_sponge_byteIOInd_12_reg_1323                |  32|   0|   32|          0|
+    |ctx_sponge_byteIOInd_1_reg_1133                 |  32|   0|   32|          0|
+    |ctx_sponge_byteIOInd_4_fu_142                   |  32|   0|   32|          0|
+    |ctx_sponge_byteIOInd_5_reg_1252                 |  32|   0|   32|          0|
+    |ctx_sponge_byteIOInd_7_fu_146                   |  32|   0|   32|          0|
+    |ctx_sponge_byteIOInd_fu_134                     |  32|   0|   32|          0|
+    |ctx_sponge_state_add_1_reg_1162                 |   8|   0|    8|          0|
+    |ctx_sponge_state_add_2_reg_1218                 |   8|   0|    8|          0|
+    |ctx_sponge_state_add_3_reg_1184                 |   8|   0|    8|          0|
+    |ctx_sponge_state_add_6_reg_1301                 |   8|   0|    8|          0|
+    |ctx_sponge_state_add_7_reg_1362                 |   8|   0|    8|          0|
+    |ctx_sponge_state_add_8_reg_1376                 |   8|   0|    8|          0|
+    |grp_HashUpdateIntLE_fu_433_ap_start_reg         |   1|   0|    1|          0|
+    |grp_KeccakP1600OnWords_fu_446_ap_start_reg      |   1|   0|    1|          0|
+    |grp_KeccakWidth1600_Spon_1_fu_419_ap_start_reg  |   1|   0|    1|          0|
+    |grp_fromBytesToWords_fu_461_ap_start_reg        |   1|   0|    1|          0|
+    |grp_fromWordsToBytes_fu_455_ap_start_reg        |   1|   0|    1|          0|
+    |i_0_i_i_i35_reg_303                             |  33|   0|   33|          0|
+    |i_0_i_i_i5_reg_349                              |  32|   0|   32|          0|
+    |i_0_i_i_i_reg_384                               |  33|   0|   33|          0|
+    |i_13_reg_1344                                   |  33|   0|   33|          0|
+    |i_reg_1200                                      |  33|   0|   33|          0|
+    |icmp_ln239_1_reg_1223                           |   1|   0|    1|          0|
+    |icmp_ln239_2_reg_1306                           |   1|   0|    1|          0|
+    |icmp_ln239_3_reg_1367                           |   1|   0|    1|          0|
+    |icmp_ln239_reg_1167                             |   1|   0|    1|          0|
+    |loop_0_i3_reg_338                               |   8|   0|    8|          0|
+    |loop_0_i_reg_270                                |   8|   0|    8|          0|
+    |loop_1_i_i_i22_reg_373                          |  32|   0|   32|          0|
+    |loop_1_i_i_i52_reg_327                          |  32|   0|   32|          0|
+    |loop_1_i_i_i_i_reg_292                          |  32|   0|   32|          0|
+    |loop_1_i_i_i_reg_408                            |  32|   0|   32|          0|
+    |loop_24_reg_1208                                |  32|   0|   32|          0|
+    |loop_26_reg_1291                                |  32|   0|   32|          0|
+    |loop_27_reg_1352                                |  32|   0|   32|          0|
+    |loop_reg_1157                                   |  32|   0|   32|          0|
+    |offset_assign_1_fu_138                          |  32|   0|   32|          0|
+    |p_01_rec_i_i_i36_reg_315                        |  64|   0|   64|          0|
+    |p_01_rec_i_i_i6_reg_361                         |  32|   0|   32|          0|
+    |p_01_rec_i_i_i_reg_396                          |  64|   0|   64|          0|
+    |partialBlock_1_reg_1179                         |   5|   0|    5|          0|
+    |partialBlock_3_reg_1263                         |   6|   0|    6|          0|
+    |partialBlock_5_reg_1318                         |   6|   0|    6|          0|
+    |phi_ln194_reg_281                               |   1|   0|    1|          0|
+    |reg_498                                         |  32|   0|   32|          0|
+    |select_ln226_1_reg_1189                         |  32|   0|   32|          0|
+    |select_ln226_2_reg_1276                         |  32|   0|   32|          0|
+    |select_ln226_3_reg_1333                         |  32|   0|   32|          0|
+    |select_ln226_reg_1139                           |  32|   0|   32|          0|
+    |zext_ln231_2_reg_1339                           |  32|   0|   64|         32|
+    |zext_ln231_reg_1195                             |  32|   0|   64|         32|
+    |zext_ln241_reg_1328                             |   8|   0|    9|          1|
+    +------------------------------------------------+----+----+-----+-----------+
+    |Total                                           |1236|   0| 1305|         69|
+    +------------------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------+-----+-----+------------+--------------------+--------------+
+|    RTL Ports    | Dir | Bits|  Protocol  |    Source Object   |    C Type    |
++-----------------+-----+-----+------------+--------------------+--------------+
+|ap_clk           |  in |    1| ap_ctrl_hs | createRandomTape.1 | return value |
+|ap_rst           |  in |    1| ap_ctrl_hs | createRandomTape.1 | return value |
+|ap_start         |  in |    1| ap_ctrl_hs | createRandomTape.1 | return value |
+|ap_done          | out |    1| ap_ctrl_hs | createRandomTape.1 | return value |
+|ap_idle          | out |    1| ap_ctrl_hs | createRandomTape.1 | return value |
+|ap_ready         | out |    1| ap_ctrl_hs | createRandomTape.1 | return value |
+|seed_address0    | out |   14|  ap_memory |        seed        |     array    |
+|seed_ce0         | out |    1|  ap_memory |        seed        |     array    |
+|seed_q0          |  in |    8|  ap_memory |        seed        |     array    |
+|seed_offset      |  in |    8|   ap_none  |     seed_offset    |    scalar    |
+|salt_0_address0  | out |    5|  ap_memory |       salt_0       |     array    |
+|salt_0_ce0       | out |    1|  ap_memory |       salt_0       |     array    |
+|salt_0_q0        |  in |    8|  ap_memory |       salt_0       |     array    |
+|roundNumber      |  in |    8|   ap_none  |     roundNumber    |    scalar    |
+|tape_address0    | out |    9|  ap_memory |        tape        |     array    |
+|tape_ce0         | out |    1|  ap_memory |        tape        |     array    |
+|tape_we0         | out |    1|  ap_memory |        tape        |     array    |
+|tape_d0          | out |    8|  ap_memory |        tape        |     array    |
+|tape_q0          |  in |    8|  ap_memory |        tape        |     array    |
++-----------------+-----+-----+------------+--------------------+--------------+
+

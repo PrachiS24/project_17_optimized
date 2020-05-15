@@ -1,0 +1,189 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'KeccakP1600OnWords'" level="0">
+<item name = "Date">Thu May 14 18:41:57 2020
+</item>
+<item name = "Version">2019.2 (Build 2704478 on Wed Nov 06 22:10:23 MST 2019)</item>
+<item name = "Project">picnic1</item>
+<item name = "Solution">sign</item>
+<item name = "Product family">artix7</item>
+<item name = "Target device">xc7a200t-fbg676-2</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">10.00 ns, 8.332 ns, 1.25 ns</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="8">, min, max, min, max, min, max, Type</keys>
+<column name="">8545, 8545, 85.450 us, 85.450 us, 8545, 8545, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
+<column name="grp_pi_fu_159">pi, 51, 51, 0.510 us, 0.510 us, 51, 51, none</column>
+<column name="grp_theta_fu_165">theta, 80, 80, 0.800 us, 0.800 us, 80, 80, none</column>
+<column name="grp_chi_fu_171">chi, 141, 141, 1.410 us, 1.410 us, 141, 141, none</column>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- Loop 1">8544, 8544, 356, -, -, 24, no</column>
+<column name=" + L_rho_label18">75, 75, 4, 3, 1, 25, yes</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="6">Name, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, -, 0, 751, -</column>
+<column name="FIFO">-, -, -, -, -</column>
+<column name="Instance">4, -, 1733, 2296, 0</column>
+<column name="Memory">2, -, 6, 3, -</column>
+<column name="Multiplexer">-, -, -, 326, -</column>
+<column name="Register">-, -, 127, -, -</column>
+<specialColumn name="Available">730, 740, 269200, 134600, 0</specialColumn>
+<specialColumn name="Utilization (%)">~0, 0, ~0, 2, 0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="7">Instance, Module, BRAM_18K, DSP48E, FF, LUT, URAM</keys>
+<column name="grp_chi_fu_171">chi, 0, 0, 227, 500, 0</column>
+<column name="grp_pi_fu_159">pi, 4, 0, 863, 878, 0</column>
+<column name="grp_theta_fu_165">theta, 0, 0, 643, 918, 0</column>
+</table>
+</item>
+<item name = "DSP48E"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="10">Memory, Module, BRAM_18K, FF, LUT, URAM, Words, Bits, Banks, W*Bits*Banks</keys>
+<column name="KeccakRhoOffsets_U">KeccakP1600OnWordeOg, 0, 6, 3, 0, 25, 6, 1, 150</column>
+<column name="KeccakRoundConstants_U">KeccakP1600OnWordfYi, 2, 0, 0, 0, 24, 64, 1, 1536</column>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="add_ln352_fu_195_p2">+, 0, 0, 15, 5, 1</column>
+<column name="add_ln353_10_fu_233_p2">+, 0, 0, 12, 3, 2</column>
+<column name="add_ln353_11_fu_256_p2">+, 0, 0, 12, 3, 2</column>
+<column name="add_ln353_5_fu_290_p2">+, 0, 0, 15, 5, 5</column>
+<column name="add_ln353_fu_280_p2">+, 0, 0, 13, 4, 4</column>
+<column name="i_fu_183_p2">+, 0, 0, 15, 5, 1</column>
+<column name="x_fu_201_p2">+, 0, 0, 12, 3, 1</column>
+<column name="y_fu_351_p2">+, 0, 0, 12, 3, 1</column>
+<column name="sub_ln353_fu_322_p2">-, 0, 0, 15, 8, 7</column>
+<column name="icmp_ln293_fu_177_p2">icmp, 0, 0, 11, 5, 5</column>
+<column name="icmp_ln352_3_fu_189_p2">icmp, 0, 0, 11, 5, 4</column>
+<column name="icmp_ln352_fu_207_p2">icmp, 0, 0, 9, 3, 3</column>
+<column name="icmp_ln353_10_fu_251_p2">icmp, 0, 0, 9, 3, 3</column>
+<column name="icmp_ln353_9_fu_227_p2">icmp, 0, 0, 9, 3, 3</column>
+<column name="icmp_ln353_fu_302_p2">icmp, 0, 0, 11, 5, 1</column>
+<column name="lshr_ln353_fu_332_p2">lshr, 0, 0, 182, 64, 64</column>
+<column name="select_ln353_17_fu_213_p3">select, 0, 0, 3, 1, 1</column>
+<column name="select_ln353_18_fu_221_p3">select, 0, 0, 3, 1, 3</column>
+<column name="select_ln353_19_fu_239_p3">select, 0, 0, 3, 1, 3</column>
+<column name="select_ln353_20_fu_261_p3">select, 0, 0, 3, 1, 3</column>
+<column name="select_ln353_fu_344_p3">select, 0, 0, 64, 1, 64</column>
+<column name="shl_ln353_fu_316_p2">shl, 0, 0, 182, 64, 64</column>
+<column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
+<column name="xor_ln353_fu_338_p2">xor, 0, 0, 64, 64, 64</column>
+<column name="xor_ln382_fu_361_p2">xor, 0, 0, 64, 64, 64</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_NS_fsm">56, 13, 1, 13</column>
+<column name="ap_enable_reg_pp0_iter1">9, 2, 1, 2</column>
+<column name="ap_phi_mux_indvar_flatten_phi_fu_129_p4">9, 2, 5, 10</column>
+<column name="ap_phi_mux_x_0_i_phi_fu_140_p4">9, 2, 3, 6</column>
+<column name="ap_phi_mux_y_0_i_phi_fu_152_p4">9, 2, 3, 6</column>
+<column name="indexRound_assign_reg_113">9, 2, 5, 10</column>
+<column name="indvar_flatten_reg_125">9, 2, 5, 10</column>
+<column name="state_address0">33, 6, 5, 30</column>
+<column name="state_address1">33, 6, 5, 30</column>
+<column name="state_ce0">27, 5, 1, 5</column>
+<column name="state_ce1">27, 5, 1, 5</column>
+<column name="state_d0">21, 4, 64, 256</column>
+<column name="state_d1">21, 4, 64, 256</column>
+<column name="state_we0">15, 3, 1, 3</column>
+<column name="state_we1">21, 4, 1, 4</column>
+<column name="x_0_i_reg_136">9, 2, 3, 6</column>
+<column name="y_0_i_reg_148">9, 2, 3, 6</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="add_ln352_reg_386">5, 0, 5, 0</column>
+<column name="ap_CS_fsm">12, 0, 12, 0</column>
+<column name="ap_enable_reg_pp0_iter0">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter1">1, 0, 1, 0</column>
+<column name="grp_chi_fu_171_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_pi_fu_159_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_theta_fu_165_ap_start_reg">1, 0, 1, 0</column>
+<column name="i_reg_377">5, 0, 5, 0</column>
+<column name="icmp_ln352_3_reg_382">1, 0, 1, 0</column>
+<column name="icmp_ln352_reg_396">1, 0, 1, 0</column>
+<column name="icmp_ln353_reg_419">1, 0, 1, 0</column>
+<column name="indexRound_assign_reg_113">5, 0, 5, 0</column>
+<column name="indvar_flatten_reg_125">5, 0, 5, 0</column>
+<column name="select_ln353_17_reg_401">3, 0, 3, 0</column>
+<column name="select_ln353_18_reg_409">3, 0, 3, 0</column>
+<column name="select_ln353_reg_430">64, 0, 64, 0</column>
+<column name="state_addr_2_reg_424">5, 0, 5, 0</column>
+<column name="x_0_i_reg_136">3, 0, 3, 0</column>
+<column name="x_reg_391">3, 0, 3, 0</column>
+<column name="y_0_i_reg_148">3, 0, 3, 0</column>
+<column name="y_reg_435">3, 0, 3, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_clk">in, 1, ap_ctrl_hs, KeccakP1600OnWords, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, KeccakP1600OnWords, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, KeccakP1600OnWords, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, KeccakP1600OnWords, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, KeccakP1600OnWords, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, KeccakP1600OnWords, return value</column>
+<column name="state_address0">out, 5, ap_memory, state, array</column>
+<column name="state_ce0">out, 1, ap_memory, state, array</column>
+<column name="state_we0">out, 1, ap_memory, state, array</column>
+<column name="state_d0">out, 64, ap_memory, state, array</column>
+<column name="state_q0">in, 64, ap_memory, state, array</column>
+<column name="state_address1">out, 5, ap_memory, state, array</column>
+<column name="state_ce1">out, 1, ap_memory, state, array</column>
+<column name="state_we1">out, 1, ap_memory, state, array</column>
+<column name="state_d1">out, 64, ap_memory, state, array</column>
+<column name="state_q1">in, 64, ap_memory, state, array</column>
+</table>
+</item>
+</section>
+</profile>
